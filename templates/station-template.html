@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CUSTOMIZE: Update title with station number and topic -->
+    <title>HAP's Learning Lab - Station [N]: [TOPIC_TITLE]</title>
+
+    <!-- CUSTOMIZE: Update description with station-specific content -->
+    <meta name="description"
+        content="Join HAP as he learns about [TOPIC_DESCRIPTION].">
+
+    <!-- OPTIONAL: Add Open Graph image for social sharing -->
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+
+    <!-- Standard HAP favicon (do not modify) -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Preconnect for Cloudinary CDN (improves image loading) -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- HAP Design System (required) -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Syntax highlighting theme (optional - only if showing code) -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Accessibility skip link (required) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP avatar and introduction (required) -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <!-- CUSTOMIZE: Choose appropriate HAP image for station theme -->
+                    <!-- Options: hap-laptop (studying), hap-confused-map (confused), hap-holding-paintbrush (creative) -->
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) [DESCRIBE_IMAGE_CONTEXT]" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <!-- CUSTOMIZE: Update station title -->
+                    <h1>HAP's Learning Lab: [TOPIC_TITLE]</h1>
+
+                    <!-- CUSTOMIZE: Update subtitle to explain what this station teaches -->
+                    <p class="subtitle">[ONE_SENTENCE_DESCRIPTION]</p>
+                </div>
+            </div>
+
+            <!-- CUSTOMIZE: HAP's introduction in first-person apprentice voice -->
+            <!-- Follow hap-voice Skill - humble, shares mistakes, references Prof. Teeters -->
+            <div class="intro-box">
+                <p><strong>Welcome to Station [N]!</strong> [HAP's personal story about struggling with this topic, mistakes he made, what confused him, and preview of what he learned]. 🟠</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation (required) -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+
+        <!-- CUSTOMIZE: Update station number -->
+        <div class="page-position" data-page="[N]">Station [N] of 6</div>
+    </nav>
+
+    <!-- Main content area -->
+    <main id="main-content" class="content-container">
+
+        <!-- SECTION 1: What You'll Learn (required) -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <!-- CUSTOMIZE: HAP's discovery story - specific example of his struggle -->
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> [Specific example of HAP's mistake or confusion with this topic, told in first-person with details and emotion]. 🤯</p>
+            </div>
+
+            <!-- CUSTOMIZE: 3 insight cards showing key learning outcomes -->
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <!-- CUSTOMIZE: First key learning point -->
+                    <h3><span class="insight-icon">[EMOJI]</span> [INSIGHT_1_TITLE]</h3>
+                    <p class="stat-large">[KEY_STATISTIC_OR_PHRASE]</p>
+                    <p>[INSIGHT_1_DESCRIPTION in HAP's voice]</p>
+                </div>
+
+                <div class="insight-card">
+                    <!-- CUSTOMIZE: Second key learning point -->
+                    <h3><span class="insight-icon">[EMOJI]</span> [INSIGHT_2_TITLE]</h3>
+                    <p class="stat-large stat-teal">[KEY_STATISTIC_OR_PHRASE]</p>
+                    <p>[INSIGHT_2_DESCRIPTION in HAP's voice]</p>
+                </div>
+
+                <div class="insight-card">
+                    <!-- CUSTOMIZE: Third key learning point -->
+                    <h3><span class="insight-icon">[EMOJI]</span> [INSIGHT_3_TITLE]</h3>
+                    <p class="stat-large stat-brown">[KEY_STATISTIC_OR_PHRASE]</p>
+                    <p>[INSIGHT_3_DESCRIPTION in HAP's voice]</p>
+                </div>
+            </div>
+
+            <!-- HAP note callout - confession of specific mistakes (required) -->
+            <div class="hap-note-callout">
+                <!-- CUSTOMIZE: Choose appropriate HAP image -->
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP [DESCRIBE_IMAGE]" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <!-- CUSTOMIZE: List specific mistakes HAP made (3-5 sentences) -->
+                    <p>[Detailed confession of multiple mistakes, showing vulnerability and learning journey]. Prof. Teeters patiently walked me through all of it.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: First Major Topic (required) -->
+        <section class="content-section">
+            <div class="topic-section">
+                <!-- CUSTOMIZE: First main topic heading -->
+                <h2>[TOPIC_1_TITLE in HAP's voice]</h2>
+
+                <!-- CUSTOMIZE: Introduce the topic with HAP's story -->
+                <p class="mb-2">[Topic explanation in HAP's first-person voice, explaining his confusion and what he learned]. 🤯</p>
+
+                <!-- Analysis grid - 2 related points (optional) -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <!-- CUSTOMIZE: First analysis point -->
+                        <h3>[ANALYSIS_POINT_1_TITLE]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Detailed explanation]</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <!-- CUSTOMIZE: Second analysis point -->
+                        <h3>[ANALYSIS_POINT_2_TITLE]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Detailed explanation]</p>
+                    </div>
+                </div>
+
+                <!-- Code example: Old way vs. New way (required for technical topics) -->
+                <div class="warning-box mt-2">
+                    <h3>🟠 HAP's Old Way vs. What I Learned</h3>
+
+                    <!-- CUSTOMIZE: Show HAP's old incorrect approach -->
+                    <p><strong class="text-error">❌ WRONG: [DESCRIPTION_OF_MISTAKE]</strong></p>
+                    <pre><code class="language-css">[HAP's old incorrect code with comments showing confusion]</code></pre>
+
+                    <!-- CUSTOMIZE: Show what HAP learned -->
+                    <p><strong class="text-success">✅ RIGHT: What I Learned</strong></p>
+                    <pre><code class="language-css">[Correct approach with explanatory comments]</code></pre>
+
+                    <!-- CUSTOMIZE: Explain why the new way is better -->
+                    <p class="mt-1">Notice how [KEY_DIFFERENCE]? [Explain the improvement in HAP's voice].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Second Major Topic (add more sections as needed) -->
+        <section class="content-section">
+            <div class="topic-section">
+                <!-- CUSTOMIZE: Second main topic -->
+                <h2>[TOPIC_2_TITLE in HAP's voice]</h2>
+
+                <!-- CUSTOMIZE: Topic introduction -->
+                <p class="mb-2">[Topic explanation with HAP's learning journey]</p>
+
+                <!-- Alternative layout: Analysis grid with 2 points -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>[POINT_1_TITLE]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Explanation]</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>[POINT_2_TITLE]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Explanation]</p>
+                    </div>
+                </div>
+
+                <!-- Code examples in prompt-box style (alternative to warning-box) -->
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">[EXAMPLE_TITLE]:</div>
+                    <pre><code class="language-css">[Example code with inline comments]</code></pre>
+                    <p class="code-comment mt-1">[Explanation of the example in HAP's voice]</p>
+                </div>
+
+                <!-- Optional: Interactive demo callout -->
+                <div class="interactive-demo mt-2">
+                    <h3>Try This: [ACTIVITY_TITLE]</h3>
+                    <p>[Instructions for hands-on exploration]</p>
+                    <ul class="mt-1">
+                        <li>[Step 1]</li>
+                        <li>[Step 2]</li>
+                        <li>[Step 3]</li>
+                    </ul>
+                    <p class="mt-1">[HAP's tip or insight about this activity]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Third Major Topic (optional - duplicate section pattern) -->
+        <section class="content-section">
+            <div class="topic-section">
+                <!-- CUSTOMIZE: Third topic following same pattern -->
+                <h2>[TOPIC_3_TITLE]</h2>
+
+                <p class="mb-2">[Topic introduction]</p>
+
+                <!-- Analysis grid with 3 points (alternative layout) -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>[POINT_1]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Explanation]</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>[POINT_2]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Explanation]</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>[POINT_3]</h3>
+                        <p><strong>[EMPHASIS]:</strong> [Explanation]</p>
+                    </div>
+                </div>
+
+                <!-- Code example -->
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">[EXAMPLE_TITLE]:</div>
+                    <pre><code class="language-css">[Code example]</code></pre>
+                    <p class="code-comment mt-1">[Explanation]</p>
+                </div>
+
+                <!-- HAP's breakthrough moment callout -->
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit,a_hflip/v1759331571/HyBit_holding_a_paintbrush_ycfapu.jpg"
+                        alt="HAP [DESCRIBE_IMAGE]" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Breakthrough Moment:</h3>
+                        <!-- CUSTOMIZE: Describe HAP's "aha!" moment -->
+                        <p>[Emotional description of when the concept clicked for HAP, with specific details about what made it finally make sense]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Quick Reference / Tips (required) -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 HyBit's Quick Reference</h2>
+
+                <!-- CUSTOMIZE: 3-4 tip cards with practical advice -->
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>[TIP_1_TITLE]</h3>
+                        <p>[Practical advice with when to use / when not to use guidance]</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>[TIP_2_TITLE]</h3>
+                        <p>[Practical advice]</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>[TIP_3_TITLE]</h3>
+                        <p>[Practical advice]</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>[TIP_4_TITLE]</h3>
+                        <p>[Practical advice, often with HAP's personality showing through]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation (required) -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+
+        <!-- CUSTOMIZE: Update next station number and title (or link to hub for Station 6) -->
+        <a href="station[N+1].html" class="nav-link next-link">Next: Station [N+1] - [NEXT_TOPIC] →</a>
+    </nav>
+
+    <!-- Footer (required - do not modify) -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+
+        <!-- CUSTOMIZE: HAP's closing mantra/quote about this station's topic -->
+        <p class="footer-reminder">
+            [HAP's memorable quote or mantra that summarizes the key lesson]. 🟠 — HAP
+        </p>
+
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter egg system (required) -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Syntax highlighting (optional - only if showing code) -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality (optional - only if showing code) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks in .prompt-box
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.classList.add('copied');
+                        button.textContent = 'Copied';
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--
+HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+Visual elements created with AI assistance.
+-->

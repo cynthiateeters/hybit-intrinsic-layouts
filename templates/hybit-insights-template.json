@@ -1,0 +1,308 @@
+{
+  "allowedParams": [
+    "detail",
+    "stations",
+    "station1-param1",
+    "station1-param2",
+    "station1-param3",
+    "station2-param1",
+    "station2-param2",
+    "station2-param3",
+    "station3-param1",
+    "station3-param2",
+    "station3-param3",
+    "station4-param1",
+    "station4-param2",
+    "station4-param3",
+    "station5-param1",
+    "station5-param2",
+    "station5-param3",
+    "station6-param1",
+    "station6-param2",
+    "station6-param3"
+  ],
+  "messages": {
+    "detail": {
+      "title": "🚀 Lighthouse Score: 100%!",
+      "content": "This site is optimized for instant loading with modern web performance techniques. Every page scores 100/100 on accessibility!"
+    },
+    "stations": {
+      "title": "🔬 Learning Stations",
+      "content": "Explore 6 interactive stations covering [TOPIC_1], [TOPIC_2], [TOPIC_3], [TOPIC_4], [TOPIC_5], and [TOPIC_6]. HAP guides you through hands-on examples!"
+    },
+    "station1-param1": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[HAP's first-person story about learning this concept, with specific examples. Use <code>inline code</code> for technical terms, <strong>bold</strong> for emphasis, and <em>italic</em> for quotes. 2-4 sentences.]"
+    },
+    "station1-param2": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content in HAP's voice with Prof. Teeters attribution]"
+    },
+    "station1-param3": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station2-param1": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station2-param2": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station2-param3": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station3-param1": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station3-param2": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station3-param3": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station4-param1": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station4-param2": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station4-param3": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station5-param1": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station5-param2": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station5-param3": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station6-param1": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station6-param2": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    },
+    "station6-param3": {
+      "title": "[EMOJI] [TITLE]",
+      "content": "[Content]"
+    }
+  },
+  "pageHelp": {
+    "index.html": {
+      "title": "🔬 HAP's insights available!",
+      "intro": "Hey! I have some cool insights to share on this page. Try these:",
+      "suggestions": [
+        {
+          "param": "stations",
+          "label": "Overview of learning stations"
+        },
+        {
+          "param": "detail",
+          "label": "Performance metrics"
+        }
+      ]
+    },
+    "station1.html": {
+      "title": "[EMOJI] HAP here!",
+      "intro": "[HAP's intro about what this station taught him, first-person voice]",
+      "suggestions": [
+        {
+          "param": "station1-param1",
+          "label": "[SHORT_DESCRIPTION_OF_INSIGHT]"
+        },
+        {
+          "param": "station1-param2",
+          "label": "[SHORT_DESCRIPTION]"
+        },
+        {
+          "param": "station1-param3",
+          "label": "[SHORT_DESCRIPTION]"
+        }
+      ]
+    },
+    "station2.html": {
+      "title": "[EMOJI] HAP here!",
+      "intro": "[HAP's intro for station 2]",
+      "suggestions": [
+        {
+          "param": "station2-param1",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station2-param2",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station2-param3",
+          "label": "[DESCRIPTION]"
+        }
+      ]
+    },
+    "station3.html": {
+      "title": "[EMOJI] HAP here!",
+      "intro": "[HAP's intro for station 3]",
+      "suggestions": [
+        {
+          "param": "station3-param1",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station3-param2",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station3-param3",
+          "label": "[DESCRIPTION]"
+        }
+      ]
+    },
+    "station4.html": {
+      "title": "[EMOJI] HAP here!",
+      "intro": "[HAP's intro for station 4]",
+      "suggestions": [
+        {
+          "param": "station4-param1",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station4-param2",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station4-param3",
+          "label": "[DESCRIPTION]"
+        }
+      ]
+    },
+    "station5.html": {
+      "title": "[EMOJI] HAP here!",
+      "intro": "[HAP's intro for station 5]",
+      "suggestions": [
+        {
+          "param": "station5-param1",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station5-param2",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station5-param3",
+          "label": "[DESCRIPTION]"
+        }
+      ]
+    },
+    "station6.html": {
+      "title": "[EMOJI] HAP here!",
+      "intro": "[HAP's intro for station 6]",
+      "suggestions": [
+        {
+          "param": "station6-param1",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station6-param2",
+          "label": "[DESCRIPTION]"
+        },
+        {
+          "param": "station6-param3",
+          "label": "[DESCRIPTION]"
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "unknown": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Nice find! Try different parameters to learn more about the topics Prof. Teeters taught me."
+    },
+    "emptyFallback": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Hey there! Try adding a parameter like <code>?hybit=detail</code> to see what I've learned!"
+    }
+  },
+  "_README": {
+    "description": "HAP's Learning Lab Template - Easter Egg Insights Data File",
+    "format": "JSON (not JSONC - no comments allowed in final file)",
+    "usage": "This file powers the HyBit easter egg system when students add ?hybit parameters to URLs",
+    "customization_steps": [
+      "1. Update allowedParams array with your parameter names (use kebab-case)",
+      "2. Create messages for each parameter (title + content)",
+      "3. Update pageHelp for each station with suggestions",
+      "4. Keep defaults section unchanged",
+      "5. Remove this _README section before deploying"
+    ],
+    "security_notes": [
+      "All content is pre-defined and sanitized",
+      "JavaScript validates parameters against allowedParams whitelist",
+      "User input is NEVER directly inserted into HTML",
+      "Only safe HTML tags allowed: <code>, <strong>, <em>, <br>"
+    ],
+    "voice_guidelines": {
+      "first_person": "Always use HAP's first-person voice (I, me, my)",
+      "attribution": "Credit Prof. Teeters for teaching",
+      "specific": "Reference specific mistakes and learning moments",
+      "emoji": "Start titles with relevant emoji (🎨, 🔬, 🎯, etc.)",
+      "enthusiasm": "Show excitement but remain humble"
+    },
+    "allowed_html_tags": {
+      "code": "For inline code snippets: <code>hsl(210, 50%, 50%)</code>",
+      "strong": "For emphasis: <strong>important concept</strong>",
+      "em": "For quotes or titles: <em>\"perfect alignment\"</em>",
+      "br": "For line breaks (use sparingly)"
+    },
+    "parameter_naming": {
+      "format": "Use kebab-case (lowercase with hyphens)",
+      "examples": [
+        "hex-shorthand",
+        "color-wheel",
+        "wcag-aa",
+        "dark-mode"
+      ],
+      "avoid": [
+        "camelCase",
+        "snake_case",
+        "UPPERCASE"
+      ]
+    },
+    "content_length": {
+      "title": "3-8 words, start with emoji",
+      "content": "2-5 sentences, use HTML tags for formatting",
+      "suggestions_label": "3-6 words describing the insight"
+    },
+    "examples": {
+      "good_title": "🎨 Why HSL Changed Everything",
+      "bad_title": "HSL Information",
+      "good_content": "Prof. Teeters said <strong>\"HSL is like having a color remote control\"</strong> and she was SO right! Want a darker version? Keep H and S, just lower L!",
+      "bad_content": "HSL is a color format. It stands for Hue, Saturation, Lightness."
+    },
+    "testing_checklist": [
+      "All allowedParams have corresponding messages",
+      "All messages have title and content",
+      "All pageHelp suggestions reference valid parameters",
+      "No typos in parameter names (case-sensitive!)",
+      "Valid JSON syntax (no trailing commas)",
+      "HAP's voice is consistent throughout",
+      "Emoji render correctly in all browsers",
+      "HTML tags are properly closed",
+      "Tested on actual pages with ?hybit= parameters"
+    ],
+    "documentation": "See data/README.md for complete documentation of the easter egg system"
+  }
+}

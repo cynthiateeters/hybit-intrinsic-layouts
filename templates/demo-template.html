@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CUSTOMIZE: Update with demo name and station number -->
+    <title>HAP's [DEMO_NAME] Demo - Station [N]</title>
+
+    <!-- CUSTOMIZE: Update description with demo purpose -->
+    <meta name="description"
+        content="Interactive demo showing [WHAT_THE_DEMO_TEACHES]. Learn [KEY_LEARNING_OUTCOMES].">
+
+    <!-- Standard HAP favicons (do not modify) -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- HAP Design System (required) -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- OPTIONAL: Prism.js for syntax highlighting (only if displaying code) -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css"> -->
+
+</head>
+
+<body>
+    <!-- Accessibility skip link (required) -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Top Navigation (required) -->
+    <nav class="page-navigation" aria-label="Demo navigation">
+        <!-- CUSTOMIZE: Update station number -->
+        <a href="../stations/station[N].html">← Back to Station [N]</a>
+
+        <!-- CUSTOMIZE: Update demo number and name -->
+        <span>Demo [N]: [DEMO_NAME]</span>
+    </nav>
+
+    <!-- Main content area -->
+    <main id="main-content">
+        <div class="demo-container">
+
+            <!-- Header section (required) -->
+            <header style="text-align: center; margin-bottom: 2rem;">
+                <!-- CUSTOMIZE: Update demo title -->
+                <h1 style="color: hsl(32 62% 47%); margin-bottom: 0.5rem;">
+                    HAP's [DEMO_NAME] Demo
+                </h1>
+
+                <!-- CUSTOMIZE: Update tagline -->
+                <p style="font-size: 1.125rem; color: var(--dark-brown);">
+                    [EDUCATIONAL_TAGLINE_ONE_SENTENCE]
+                </p>
+            </header>
+
+            <!-- SECTION 1: Interactive Controls (customize based on demo type) -->
+            <!-- EXAMPLE: System status detection -->
+            <section class="system-status" aria-label="[SECTION_PURPOSE]">
+                <!-- CUSTOMIZE: Replace with appropriate demo controls -->
+                <p>
+                    [INSTRUCTION_TEXT]:
+                    <strong id="[STATUS_ID]" aria-live="polite">[INITIAL_VALUE]</strong>
+                    <span id="[ICON_ID]" aria-hidden="true">[ICON]</span>
+                </p>
+
+                <p class="hint" style="margin-top: 1rem; line-height: 1.6;">
+                    <strong>Try it yourself!</strong> [CLEAR_INSTRUCTIONS_ON_HOW_TO_USE_THE_DEMO]
+                </p>
+            </section>
+
+            <!-- SECTION 2: Preview/Output Area (customize based on demo type) -->
+            <!-- EXAMPLE: Side-by-side comparison -->
+            <section aria-label="[PREVIEW_DESCRIPTION]">
+                <h2 class="sr-only">[ACCESSIBLE_SECTION_TITLE]</h2>
+
+                <div class="preview-grid">
+                    <!-- Left preview -->
+                    <div class="preview-card [OPTIONAL_MODIFIER_CLASS]" aria-label="[PREVIEW_1_DESCRIPTION]">
+                        <h3>[PREVIEW_1_TITLE]</h3>
+                        <div class="sample-content">
+                            <!-- CUSTOMIZE: Add sample content to demonstrate -->
+                            <p>[SAMPLE_TEXT]</p>
+                            <button class="sample-button" aria-label="[BUTTON_PURPOSE]">Sample Button</button>
+                            <a href="#" class="sample-link" onclick="return false;">[LINK_TEXT]</a>
+                        </div>
+                    </div>
+
+                    <!-- Right preview -->
+                    <div class="preview-card [OPTIONAL_MODIFIER_CLASS]" aria-label="[PREVIEW_2_DESCRIPTION]">
+                        <h3>[PREVIEW_2_TITLE]</h3>
+                        <div class="sample-content">
+                            <!-- CUSTOMIZE: Add sample content -->
+                            <p>[SAMPLE_TEXT]</p>
+                            <button class="sample-button" aria-label="[BUTTON_PURPOSE]">Sample Button</button>
+                            <a href="#" class="sample-link" onclick="return false;">[LINK_TEXT]</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: Comparison Table (optional - use if comparing values) -->
+            <section class="comparison-section" aria-labelledby="comparison-heading">
+                <h3 id="comparison-heading">📊 What Changed?</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <!-- CUSTOMIZE: Update column headers -->
+                            <th scope="col">Element</th>
+                            <th scope="col">[COLUMN_2_TITLE]</th>
+                            <th scope="col">[COLUMN_3_TITLE]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- CUSTOMIZE: Add comparison rows -->
+                        <tr>
+                            <td><strong>[ELEMENT_1]</strong></td>
+                            <td><code>[VALUE_1]</code></td>
+                            <td><code>[VALUE_2]</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>[ELEMENT_2]</strong></td>
+                            <td><code>[VALUE_1]</code></td>
+                            <td><code>[VALUE_2]</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- CUSTOMIZE: Add key insight about the pattern -->
+                <p class="stayed-same">
+                    ✅ <strong>The pattern:</strong> [EXPLANATION_OF_WHAT_STAYS_CONSTANT_VS_WHAT_CHANGES]
+                </p>
+            </section>
+
+            <!-- SECTION 4: Code Output (optional - use if generating code) -->
+            <section class="output-section" aria-labelledby="code-heading">
+                <h3 id="code-heading">Generated [CODE_TYPE] Code</h3>
+
+                <!-- Code output area -->
+                <pre><code id="code-output" class="language-css"></code></pre>
+
+                <!-- Copy button -->
+                <button id="copy-btn" class="demo-copy-btn" aria-label="Copy code to clipboard">Copy Code</button>
+            </section>
+
+            <!-- SECTION 5: HAP's Tips (required) -->
+            <aside class="tips-box" aria-labelledby="tips-heading">
+                <h3 id="tips-heading">🟠 HAP's [TOPIC] Tips</h3>
+
+                <!-- CUSTOMIZE: Add 4-6 practical tips in HAP's voice -->
+                <ul>
+                    <li><strong>[TIP_1_TITLE]:</strong> [PRACTICAL_ADVICE_IN_HAP'S_VOICE]</li>
+                    <li><strong>[TIP_2_TITLE]:</strong> [PRACTICAL_ADVICE]</li>
+                    <li><strong>[TIP_3_TITLE]:</strong> [PRACTICAL_ADVICE]</li>
+                    <li><strong>[TIP_4_TITLE]:</strong> [PRACTICAL_ADVICE]</li>
+                </ul>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (required) -->
+    <nav class="page-navigation" aria-label="Demo navigation">
+        <!-- CUSTOMIZE: Update station number -->
+        <a href="../stations/station[N].html">← Back to Station [N]</a>
+        <a href="../index.html">Return to Hub →</a>
+    </nav>
+
+    <!-- Screen reader announcements (required if using JavaScript) -->
+    <div id="announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- OPTIONAL: Prism.js for syntax highlighting (only if displaying code) -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script> -->
+
+    <!-- JavaScript for demo functionality (customize based on demo type) -->
+    <script>
+        // ============================================
+        // Initialize Demo on Page Load
+        // ============================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // CUSTOMIZE: Initialize your demo
+            initializeDemo();
+
+            // CUSTOMIZE: Set up event listeners
+            setupEventListeners();
+
+            // CUSTOMIZE: Generate initial code/output (if applicable)
+            // generateCode();
+        });
+
+        // ============================================
+        // Demo Initialization
+        // ============================================
+
+        function initializeDemo() {
+            // CUSTOMIZE: Set up initial demo state
+            // Example: updateDisplay();
+            // Example: detectSystemPreferences();
+        }
+
+        // ============================================
+        // Event Listener Setup
+        // ============================================
+
+        function setupEventListeners() {
+            // CUSTOMIZE: Add event listeners for interactive elements
+
+            // Example: Input listeners
+            // document.getElementById('slider').addEventListener('input', handleSliderChange);
+
+            // Example: Button listeners
+            // document.getElementById('toggle-btn').addEventListener('click', handleToggle);
+
+            // Example: System preference listeners
+            // window.matchMedia('(prefers-color-scheme: dark)')
+            //     .addEventListener('change', handleThemeChange);
+        }
+
+        // ============================================
+        // Demo-Specific Functions
+        // ============================================
+
+        // CUSTOMIZE: Add your demo-specific functions here
+        // Example patterns:
+
+        // function updateDisplay(value) {
+        //     // Update visual output based on user interaction
+        //     announce(`Value changed to ${value}`);
+        // }
+
+        // function detectSystemPreferences() {
+        //     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        //     // Update UI based on preference
+        //     announce(isDark ? 'Dark mode detected' : 'Light mode detected');
+        // }
+
+        // function generateCode() {
+        //     const code = `/* Generated code based on demo state */
+        // .example {
+        //   property: value;
+        // }`;
+        //
+        //     document.getElementById('code-output').textContent = code;
+        //
+        //     // Syntax highlighting if using Prism.js
+        //     if (window.Prism) {
+        //         Prism.highlightElement(document.getElementById('code-output'));
+        //     }
+        // }
+
+        // ============================================
+        // Copy Button Functionality (if displaying code)
+        // ============================================
+
+        // CUSTOMIZE: Only include if demo has code output
+        // Uncomment this section if your demo generates code
+
+        /*
+        document.getElementById('copy-btn')?.addEventListener('click', async () => {
+            const code = document.getElementById('code-output').textContent;
+            const btn = document.getElementById('copy-btn');
+
+            try {
+                // Modern clipboard API
+                await navigator.clipboard.writeText(code);
+                btn.classList.add('copied');
+                btn.textContent = 'Copied ✅';
+                btn.disabled = true;
+                announce('Code copied to clipboard');
+
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.textContent = 'Copy Code';
+                    btn.disabled = false;
+                }, 3000);
+            } catch (err) {
+                console.error('Copy failed:', err);
+
+                // Fallback: select the code for manual copy
+                const range = document.createRange();
+                range.selectNodeContents(document.getElementById('code-output'));
+                const selection = window.getSelection();
+                selection.removeAllRanges();
+                selection.addRange(range);
+
+                btn.textContent = 'Press Ctrl+C';
+                announce('Copy failed. Code is now selected - press Ctrl+C to copy manually.');
+
+                setTimeout(() => {
+                    btn.textContent = 'Copy Code';
+                    selection.removeAllRanges();
+                }, 4000);
+            }
+        });
+        */
+
+        // ============================================
+        // Accessibility Announcements
+        // ============================================
+
+        function announce(message) {
+            const announcement = document.getElementById('announcement');
+            if (announcement) {
+                announcement.textContent = message;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
+
+<!--
+HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+Visual elements created with AI assistance.
+-->
