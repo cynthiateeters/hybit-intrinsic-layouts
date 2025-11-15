@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HAP's Learning Lab - Station 1: The Intrinsic Mindset</title>
+
+    <meta name="description"
+        content="Join HAP as he learns intrinsic design philosophy. Discover the mindset shift from fixed pixels to flexible boundaries, and build systematic CSS custom properties.">
+
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+
+    <!-- Standard HAP favicon -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Preconnect for Cloudinary CDN -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- HAP Design System -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Syntax highlighting theme -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Accessibility skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP avatar and introduction -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: The Intrinsic Mindset</h1>
+                    <p class="subtitle">Philosophy matters more than syntax</p>
+                </div>
+            </div>
+
+            <div class="intro-box">
+                <p><strong>Welcome to Station 1!</strong> When I first started building layouts, I used exact pixel
+                    widths everywhere. My designs looked perfect on my laptop but broke on phones and ultrawide
+                    monitors. Prof. Teeters introduced me to intrinsic design—a complete mindset shift that changed
+                    everything. Instead of fighting unpredictability with fixed values, I learned to embrace it with
+                    flexible rules! 🟠</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="1">Station 1 of 6</div>
+    </nav>
+
+    <!-- Main content area -->
+    <main id="main-content" class="content-container">
+
+        <!-- SECTION 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <!-- HAP's discovery story -->
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> I spent an entire afternoon building beautiful cards. 300px wide,
+                    24px padding, perfectly balanced. On my laptop? Gorgeous. On my phone? Horizontal scrollbar of doom.
+                    On my colleague's ultrawide monitor? Tiny cards floating in an ocean of white space.</p>
+                <p class="mt-1">'But I followed all the tutorials!' I protested to Prof. Teeters. She smiled patiently.
+                    'HAP, your tutorials taught extrinsic design. The web has thousands of screen sizes. Your 300px
+                    cards work on ONE screen. Intrinsic design works on ALL screens.'</p>
+                <p class="mt-1">I stared at my code, confused. I thought I was doing it right. Turns out, I was thinking
+                    about CSS in an old way. 🤯</p>
+            </div>
+
+            <!-- 3 insight cards -->
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🕰️</span> The Three Eras</h3>
+                    <p class="stat-large">Tables → Floats → Intrinsic</p>
+                    <p>Web design evolved from tables (no flexibility) to floats (fixed breakpoints) to intrinsic
+                        layouts (content + space = design). Understanding this history helps you see why modern CSS
+                        works the way it does.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎯</span> Intrinsic Philosophy</h3>
+                    <p class="stat-large stat-teal">Rules, not instructions</p>
+                    <p>Intrinsic design means giving browsers flexible rules instead of rigid instructions. Instead of
+                        'be 300px wide,' we say 'be between 16rem and 60rem, based on available space.' The browser
+                        figures out the rest.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔧</span> CSS Custom Properties</h3>
+                    <p class="stat-large stat-brown">Systematic design</p>
+                    <p>CSS custom properties let you define systematic values in one place (<code>:root</code>), use
+                        semantic names (<code>--space-md</code>), and build fluid scales. They're the foundation for
+                        maintainable intrinsic design.</p>
+                </div>
+            </div>
+
+            <!-- HAP's confession callout -->
+            <div class="hap-note-callout">
+                <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                    alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+                    decoding="async" loading="lazy">
+                <div class="hap-note-content">
+                    <h3>HAP's Confession:</h3>
+                    <p>I tried EVERYTHING to make my 300px cards work. I added media queries at 320px, 768px, and
+                        1024px. I changed to percentages. I used <code>max-width</code>. Nothing worked the way I
+                        expected. Prof. Teeters finally showed me: I was still thinking in fixed values even with
+                        responsive syntax. The problem wasn't my code—it was my mindset.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: HAP's Opening Story -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>My 300px Card Disaster</h2>
+
+                <p class="mb-2">I remember the moment so clearly. I was building a portfolio site with beautiful card
+                    layouts. Each card was exactly 300px wide with 24px padding. On my 1440px laptop screen? Perfect.
+                    Everything aligned, balanced, professional.</p>
+
+                <p class="mb-2">Then I tested on my phone. Horizontal scroll. The cards were wider than the screen! I
+                    added <code>max-width: 100%</code>. Better, but now the cards looked squished and awkward.</p>
+
+                <p class="mb-2">My colleague viewed it on his ultrawide monitor. Tiny 300px cards floating in a sea of
+                    white space, wasting 75% of the screen.</p>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP looking frustrated" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>My Frustration:</h3>
+                        <p><strong>"I set exact pixel widths! Why doesn't it work everywhere?"</strong></p>
+                        <p class="mt-1">Prof. Teeters listened patiently to my complaints. Then she said something that
+                            changed everything:</p>
+                        <p class="mt-1"><em>"HAP, the problem isn't that you did it wrong—you're thinking about CSS in
+                                an old way. You're fighting unpredictability instead of designing for it. Your 300px
+                                cards work on one screen. The web has thousands of screen sizes."</em></p>
+                    </div>
+                </div>
+
+                <p class="mt-2">She pulled up Can I Use. "Look at these device widths: 320px, 375px, 390px, 414px,
+                    768px, 834px, 1024px, 1280px, 1440px, 1920px, 2560px... How many media queries will you write?"</p>
+
+                <p class="mt-1">I felt overwhelmed. There had to be a better way.</p>
+
+                <p class="mt-2"><strong>Prof. Teeters:</strong> <em>"Instead of 'be exactly 300px,' tell the browser 'be
+                        at least 16rem, grow up to 60rem based on available space.' The browser handles the math. That's
+                        intrinsic design."</em></p>
+
+                <p class="mt-2"><strong>Me:</strong> "Wait... I give browsers RULES, not exact instructions?"</p>
+
+                <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Exactly! Welcome to intrinsic design. We'll start
+                        with CSS custom properties to make this systematic."</em></p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: The Three Eras of Web Design -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Three Eras of Web Design</h2>
+
+                <p class="mb-2">Prof. Teeters showed me that web design has evolved through three major eras. Each one
+                    taught us something important about flexibility and adaptation.</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>Era 1: Tables (1996-2004)</h3>
+                        <p><strong>Layout approach:</strong> Using <code>&lt;table&gt;</code> elements for page layout
+                        </p>
+                        <p class="mt-1"><strong>Flexibility:</strong> Zero. Everything was fixed width.</p>
+                        <p class="mt-1"><strong>Problem:</strong> Accessibility nightmare. Screen readers couldn't
+                            distinguish layout tables from data tables. Any width change required restructuring the
+                            entire table.</p>
+                        <p class="mt-1"><strong>Example:</strong>
+                            <code>&lt;table&gt;&lt;tr&gt;&lt;td width="300"&gt;Content&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code>
+                        </p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Era 2: Floats + Breakpoints (2005-2016)</h3>
+                        <p><strong>Layout approach:</strong> CSS floats + media queries at fixed breakpoints</p>
+                        <p class="mt-1"><strong>Flexibility:</strong> Discrete jumps at 3-4 breakpoints (320px, 768px,
+                            1024px)</p>
+                        <p class="mt-1"><strong>Problem:</strong> Designer predicts screen sizes. Always playing
+                            catch-up with new devices. Layouts jump abruptly, don't adapt smoothly.</p>
+                        <p class="mt-1"><strong>Example:</strong> <code>float: left; width: 33.33%;</code> with
+                            <code>@media (min-width: 768px)</code>
+                        </p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Era 3: Intrinsic Design (2017-present)</h3>
+                        <p><strong>Layout approach:</strong> Modern CSS: Grid, Flexbox, container queries, intrinsic
+                            sizing</p>
+                        <p class="mt-1"><strong>Flexibility:</strong> Continuous adaptation. Content + available space =
+                            design.</p>
+                        <p class="mt-1"><strong>Advantage:</strong> Browser calculates perfect layout for ANY size.
+                            Works everywhere automatically—no device-specific code.</p>
+                        <p class="mt-1"><strong>Example:</strong>
+                            <code>grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));</code>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit,a_hflip/v1759331571/HyBit_holding_a_paintbrush_ycfapu.jpg"
+                        alt="HAP having an aha moment" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Insight:</h3>
+                        <p><strong>"Modern CSS isn't just new features—it's a different way of thinking!"</strong></p>
+                        <p class="mt-1">Watching the evolution, I had a lightbulb moment. I'd been learning modern CSS
+                            syntax while still thinking in the old extrinsic way. That's why I kept writing things like
+                            <code>width: 300px</code> with media queries instead of
+                            <code>width: clamp(16rem, 10rem + 40vw, 60rem)</code> with no media queries needed!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="interactive-demo mt-2">
+                    <h3>Imagine This Demo:</h3>
+                    <p>Picture three side-by-side panels showing the same card in each era. As you drag a viewport width
+                        slider from 320px to 1920px:</p>
+                    <ul class="mt-1">
+                        <li>The <strong>Table layout</strong> breaks immediately with horizontal scroll at narrow widths
+                        </li>
+                        <li>The <strong>Float layout</strong> jumps at only 3 discrete breakpoints (320px, 768px,
+                            1024px)</li>
+                        <li>The <strong>Intrinsic layout</strong> adapts continuously and smoothly to every size—no
+                            jumps, no breaks</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Extrinsic vs Intrinsic Thinking -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Extrinsic vs Intrinsic: The Mindset Shift</h2>
+
+                <p class="mb-2">Prof. Teeters showed me the fundamental difference between old and new CSS thinking with
+                    a side-by-side comparison.</p>
+
+                <div class="warning-box mt-2">
+                    <h3>🟠 The Old Way vs What I Learned</h3>
+
+                    <p><strong class="text-error">❌ EXTRINSIC: Fixed values, rigid breakpoints</strong></p>
+                    <pre><code class="language-css">/* Fighting unpredictability with exact values */
+.card {
+  width: 300px;           /* Force exact size */
+  padding: 24px;          /* Fixed spacing */
+  background: #f5f5f5;    /* Hex color */
+}
+
+@media (min-width: 768px) {
+  .card { width: 600px; } /* Predict screen sizes */
+}
+
+/* Problems: Breaks at 400px. Wastes space at 1920px.
+   Requires constant maintenance for new devices. */</code></pre>
+
+                    <p class="mt-2"><strong class="text-success">✅ INTRINSIC: Flexible boundaries, adaptive
+                            spacing</strong></p>
+                    <pre><code class="language-css">/* Designing FOR unpredictability with flexible rules */
+.card {
+  width: clamp(16rem, 10rem + 40vw, 60rem);  /* Computed slope: base + scaling */
+  padding: clamp(1rem, 0.5rem + 1vw, 1.5rem); /* Computed slope! */
+  background: var(--color-bg);               /* CSS custom property */
+}
+
+/* No media queries needed! Browser adapts to ANY screen size. */</code></pre>
+
+                    <p class="mt-2">Notice how the intrinsic version uses <code>clamp()</code> with computed slope
+                        formulas? Both width (<code>10rem + 40vw</code>) and padding (<code>0.5rem + 1vw</code>) use
+                        base + slope × unit, not arbitrary percentages. The middle value describes HOW the size scales
+                        across viewport sizes.</p>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Key Philosophy:</div>
+                    <p>"Modern CSS is about setting smart boundaries and letting the browser adapt."
+                    </p>
+                </div>
+
+                <div class="interactive-demo mt-2">
+                    <h3>Imagine This Demo:</h3>
+                    <p>Picture two cards side-by-side:</p>
+                    <ul class="mt-1">
+                        <li><strong>Left (Extrinsic):</strong> Locked at 300px—too narrow in wide containers (wasted
+                            space), too wide in narrow containers (overflow)</li>
+                        <li><strong>Right (Intrinsic):</strong> Uses <code>clamp(16rem, 10rem + 40vw, 60rem)</code> and
+                            adapts smoothly—always comfortable, never breaking</li>
+                    </ul>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit,a_hflip/v1759331571/HyBit_holding_a_paintbrush_ycfapu.jpg"
+                        alt="HAP excited about clamp" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Aha Moment:</h3>
+                        <p><strong>"Wait—so <code>clamp()</code> means the browser picks a value between 1rem and
+                                1.5rem, using the middle formula (<code>0.5rem + 1vw</code>) to decide where based on
+                                viewport width?"</strong></p>
+                        <p class="mt-1">I don't have to calculate it myself? The BROWSER does the math? Mind. Blown.</p>
+                        <p class="mt-1">I stared at the code: <code>padding: clamp(1rem, 0.5rem + 1vw, 1.5rem)</code>.
+                            Prof. Teeters nodded. "You set the boundaries. The browser adapts. That's the intrinsic
+                            mindset."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Jen Simmons' Three Intrinsic Principles -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Jen Simmons' Three Intrinsic Principles</h2>
+
+                <p class="mb-2">Prof. Teeters introduced me to Jen Simmons' intrinsic web design principles. These
+                    aren't CSS specs—they're conceptual rules of thumb that guide how we think about modern CSS.</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>Principle 1: Contracting & Expanding</h3>
+                        <p><strong>What it means:</strong> Design adapts fluidly to space changes. Elements grow and
+                            shrink within defined boundaries.</p>
+                        <p class="mt-1"><strong>Why intrinsic:</strong> Element responds to available space, not fixed
+                            dimensions.</p>
+                        <p class="mt-1"><strong>Example:</strong></p>
+                        <pre
+                            class="mt-1"><code class="language-css">width: clamp(16rem, 10rem + 40vw, 60rem);</code></pre>
+                        <p class="mt-1">The element contracts down to 16rem minimum, expands up to 60rem maximum, and
+                            scales between them using a computed slope formula (10rem base + 40vw scaling).</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Principle 2: Flexibility</h3>
+                        <p><strong>What it means:</strong> Modern units enable variable-rate adaptation. Tools like
+                            <code>fr</code>, <code>minmax()</code>, <code>clamp()</code>, and <code>auto-fit</code> let
+                            browsers calculate optimal layouts.
+                        </p>
+                        <p class="mt-1"><strong>Why intrinsic:</strong> Scaling is fluid and continuous, not discrete
+                            jumps.</p>
+                        <p class="mt-1"><strong>Example:</strong></p>
+                        <pre
+                            class="mt-1"><code class="language-css">font-size: clamp(1rem, 0.5rem + 1.5vw, 2rem);</code></pre>
+                        <p class="mt-1">Typography scales smoothly across viewport sizes using a computed slope formula
+                            (0.5rem base + 1.5vw scaling).</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Principle 3: Viewport-side Usage</h3>
+                        <p><strong>What it means:</strong> Using all four viewport sides, not just width.
+                            Viewport-relative units (<code>vw</code>, <code>vh</code>, <code>vmax</code>,
+                            <code>vmin</code>, <code>dvh</code>) enable designs that respond to actual available space.
+                        </p>
+                        <p class="mt-1"><strong>Why intrinsic:</strong> Layouts adapt to the full viewport context.</p>
+                        <p class="mt-1"><strong>Example:</strong></p>
+                        <pre
+                            class="mt-1"><code class="language-css">min-height: 100dvh; /* Dynamic viewport height */</code></pre>
+                        <p class="mt-1"><strong>Note:</strong> In Station 5, we'll extend this to container units
+                            (<code>cqi</code>, <code>cqb</code>, <code>cqmin</code>) for component-level intrinsic
+                            design.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Important Note:</div>
+                    <p>These are conceptual rules of thumb, not CSS specs. They guide thinking about intrinsic design,
+                        but they're not standardized terms in the CSS specification. Think of them as design philosophy,
+                        not technical requirements.</p>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP thinking carefully" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Understanding Check:</h3>
+                        <p><strong>Me:</strong> "So these three principles are the philosophy behind all the techniques
+                            I'll learn in Stations 2-5?"</p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Perfect! You're thinking like an intrinsic
+                                designer now. Station 2 teaches content-sizing (Contracting & Expanding). Station 3
+                                teaches fluid spacing (Flexibility). Station 4 teaches intrinsic grids (all three
+                                principles). Station 5 teaches container queries (Viewport-side Usage extended to
+                                component level)."</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: CSS Custom Properties Foundation -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>CSS Custom Properties: The Foundation</h2>
+
+                <p class="mb-2">Prof. Teeters explained that CSS custom properties aren't just about storing
+                    values—they're essential for systematic intrinsic design.</p>
+
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>Why Custom Properties for Intrinsic Design</h3>
+                        <p><strong>1. Semantic naming:</strong> <code>--space-md</code> (intent) vs <code>24px</code>
+                            (appearance)</p>
+                        <p class="mt-1"><strong>2. Single source of truth:</strong> Change once in <code>:root</code>,
+                            update everywhere</p>
+                        <p class="mt-1"><strong>3. Systematic scales:</strong> Thoughtful values, not random numbers</p>
+                        <p class="mt-1"><strong>4. Values can BE intrinsic:</strong> In Station 3, we'll make custom
+                            properties fluid with <code>clamp()</code></p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Basic Scale (Station 1 Version)</h3>
+                        <p>Start with fixed rem values to establish your spacing system:</p>
+                        <pre class="mt-1"><code class="language-css">:root {
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  --width-readable: 60ch;
+}
+
+.card {
+  padding: var(--space-md);
+  max-width: var(--width-readable);
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Evolution to Fluid Scale (Station 3 Preview):</div>
+                    <pre><code class="language-css">:root {
+  --space-md: clamp(1.5rem, 1rem + 1.25vw, 2.5rem);
+  /* Computed slope: base + scaling = grows from 1.5rem to 2.5rem */
+}
+
+/* Components using var(--space-md) automatically become fluid! */</code></pre>
+                    <p class="code-comment mt-1">This is a preview of Station 3. We start simple (fixed values), then
+                        upgrade to fluid (computed slopes). Your components using <code>var(--space-md)</code> don't
+                        need to change—they inherit the fluidity!</p>
+                </div>
+
+                <div class="interactive-demo mt-2">
+                    <h3>Imagine This Demo:</h3>
+                    <p>Picture a row of 4 cards all using <code>padding: var(--space-md);</code>. Above them, a slider
+                        lets you adjust the <code>--space-md</code> value from 0.5rem to 3rem. As you move the slider,
+                        all 4 cards update their padding simultaneously—demonstrating single source of truth.</p>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit,a_hflip/v1759331571/HyBit_holding_a_paintbrush_ycfapu.jpg"
+                        alt="HAP excited about CSS custom properties" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Practice Scenario:</h3>
+                        <p><strong>Me:</strong> "So instead of writing <code>margin: 32px</code> everywhere, I write
+                            <code>margin: var(--space-lg)</code> once in <code>:root</code>? Then if I change
+                            <code>--space-lg</code> from <code>2rem</code> to <code>2.5rem</code>, EVERY element using
+                            it updates automatically?"
+                        </p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"That's... that's actually brilliant. No
+                                more searching for every instance of <code>32px</code> in my code!"</em></p>
+                        <p class="mt-1"><strong>Me:</strong> "And in Station 3, you'll make those custom properties
+                            fluid with <code>clamp()</code>. Then your spacing responds to viewport size—automatically."
+                        </p>
+                        <p class="mt-1">I opened my old project. Searching for '24px' returned 47 matches. Different
+                            values everywhere: 24px, 20px, 28px, 16px—no system, just vibes. <em>What if I had defined
+                                <code>--space-md: 1.5rem</code> once?</em> I wondered. Everything would be systematic
+                            instead of random.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Try It Yourself Challenge -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Try It Yourself: Convert to Intrinsic Design</h2>
+
+                <p class="mb-2">Ready to practice what you've learned? Take this extrinsic code and convert it to
+                    intrinsic design using CSS custom properties and flexible boundaries.</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Starter Code (Extrinsic - Old Way):</div>
+                    <pre><code class="language-html">&lt;div class="card"&gt;
+  &lt;h2&gt;Product Title&lt;/h2&gt;
+  &lt;p&gt;Description text goes here&lt;/p&gt;
+  &lt;button&gt;Learn More&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.card {
+  width: 300px;
+  padding: 24px;
+  margin: 16px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+}
+
+button {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+}
+&lt;/style&gt;</code></pre>
+                </div>
+
+                <div class="interactive-demo mt-2">
+                    <h3>Your Tasks:</h3>
+                    <ol>
+                        <li>Create a <code>:root</code> selector with a spacing scale (<code>--space-xs</code> through
+                            <code>--space-xl</code>)
+                        </li>
+                        <li>Create width constraints (<code>--card-width-min: 16rem</code>,
+                            <code>--card-width-max: 40rem</code>)
+                        </li>
+                        <li>Create colors using hsl() format (<code>--color-bg</code>, <code>--color-border</code>,
+                            <code>--color-primary</code>, <code>--color-text-on-primary</code>)
+                        </li>
+                        <li>Replace <code>width: 300px</code> with
+                            <code>clamp(var(--card-width-min), 8rem + 40vw, var(--card-width-max))</code>
+                        </li>
+                        <li>Replace all padding/margin values with spacing scale CSS custom properties</li>
+                        <li>Replace hex colors with CSS custom properties</li>
+                    </ol>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Solution (Intrinsic - Modern Way):</div>
+                    <pre><code class="language-css">:root {
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+
+  /* Width constraints */
+  --card-width-min: 16rem;
+  --card-width-max: 40rem;
+
+  /* Colors (hsl format) */
+  --color-bg: hsl(0, 0%, 96%);
+  --color-border: hsl(0, 0%, 87%);
+  --color-primary: hsl(210, 76%, 54%);
+  --color-text-on-primary: hsl(0, 0%, 100%);
+}
+
+.card {
+  /* Intrinsic width with flexible boundaries using computed slope */
+  width: clamp(var(--card-width-min), 8rem + 40vw, var(--card-width-max));
+
+  /* Systematic spacing */
+  padding: var(--space-md);
+  margin: var(--space-sm);
+
+  /* CSS custom properties for colors */
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+button {
+  /* Systematic spacing */
+  padding: var(--space-xs) var(--space-sm);
+
+  /* CSS custom properties for colors */
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}</code></pre>
+                    <p class="code-comment mt-1"><strong>What changed:</strong> Fixed pixels → systematic custom
+                        properties. Hex colors → hsl() format. Exact width → flexible clamp() boundaries. Random values
+                        → intentional scale.</p>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit,a_hflip/v1759331571/HyBit_holding_a_paintbrush_ycfapu.jpg"
+                        alt="HAP encouraging learners" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Encouragement:</h3>
+                        <p>The first time takes 15 minutes. After that, it's automatic! I converted three old projects
+                            to CSS custom properties last week, and now I can't imagine going back to hard-coded values
+                            everywhere.</p>
+                        <p class="mt-1">Start with one component, get comfortable, then expand to your whole project.
+                            Before you know it, thinking in systematic custom properties becomes second nature. 🟠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: Quick Reference -->
+        <section class="content-section">
+            <div class="tips-container">
+                <h2 class="section-heading-centered">🎓 HAP's Quick Reference</h2>
+
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Intrinsic Mindset Evolution</h3>
+                        <p><strong>Era 1:</strong> Tables (no flexibility) → <strong>Era 2:</strong> Floats (fixed
+                            breakpoints, extrinsic) → <strong>Era 3:</strong> Modern CSS (flexible rules, intrinsic)</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Jen Simmons' Three Principles</h3>
+                        <p>1) <strong>Contracting & Expanding:</strong> Elements adapt within boundaries<br>
+                            2) <strong>Flexibility:</strong> Continuous scaling, not discrete jumps<br>
+                            3) <strong>Viewport-side Usage:</strong> Using all viewport dimensions</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Core Philosophy</h3>
+                        <p>"Give browsers rules, not instructions"</p>
+                        <p>Set smart boundaries. Let browsers adapt. That's intrinsic design.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>CSS Custom Properties Syntax</h3>
+                        <p><strong>Define:</strong> <code>:root { --space-md: 1.5rem; }</code><br>
+                            <strong>Use:</strong> <code>padding: var(--space-md);</code><br>
+                            <strong>Naming:</strong> Semantic (<code>--space-md</code>), not appearance
+                            (<code>--padding24</code>)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Extrinsic vs Intrinsic</h3>
+                        <p>❌ <strong>Extrinsic:</strong> <code>width: 300px;</code> (fixed, breaks)<br>
+                            ✅ <strong>Intrinsic:</strong> <code>width: clamp(16rem, 10rem + 40vw, 60rem);</code>
+                            (flexible, adapts)</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>clamp() Syntax</h3>
+                        <p><code>clamp(minimum, preferred, maximum)</code></p>
+                        <p class="mt-1"><strong>Key:</strong> Preferred uses computed slope (e.g.,
+                            <code>0.5rem + 1vw</code>), not arbitrary percentage. Browser picks value within range based
+                            on context.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">7</div>
+                    <div>
+                        <h3>Common Gotchas</h3>
+                        <p>• Custom property names start with <code>--</code><br>
+                            • Case-sensitive (<code>--Space-md</code> ≠ <code>--space-md</code>)<br>
+                            • Access with <code>var()</code> function<br>
+                            • Always say "CSS custom property" not "CSS variable"</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">8</div>
+                    <div>
+                        <h3>What's Next</h3>
+                        <p>→ <strong>Station 2:</strong> Content-based sizing (<code>min-content</code>,
+                            <code>max-content</code>, <code>fit-content()</code>)<br>
+                            → <strong>Station 3:</strong> Fluid spacing with <code>clamp()</code> using computed
+                            slopes<br>
+                            → <strong>Station 4:</strong> Intrinsic Grid patterns with <code>auto-fit</code> and
+                            <code>minmax()</code>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: Learning Objectives & Closing -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Check Your Understanding</h2>
+
+                <div class="hap-info-grid">
+                    <div>
+                        <h3>Understanding</h3>
+                        <ul>
+                            <li>☐ Explain the three eras and why intrinsic design emerged</li>
+                            <li>☐ Distinguish extrinsic from intrinsic thinking</li>
+                            <li>☐ Describe Jen Simmons' three intrinsic principles</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Application</h3>
+                        <ul>
+                            <li>☐ Convert fixed pixels to <code>clamp()</code> boundaries</li>
+                            <li>☐ Create systematic spacing scales with CSS custom properties</li>
+                            <li>☐ Use semantic naming for custom properties</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Creation</h3>
+                        <ul>
+                            <li>☐ Build card layouts with intrinsic widths and custom properties</li>
+                            <li>☐ Design spacing scales for multiple components</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Mindset</h3>
+                        <ul>
+                            <li>☐ Think in flexible boundaries vs exact values</li>
+                            <li>☐ Recognize unpredictability as design opportunity</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit,a_hflip/v1759331571/HyBit_holding_a_paintbrush_ycfapu.jpg"
+                        alt="HAP reflecting on his learning" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Closing Reflection:</h3>
+                        <p>Modern CSS isn't just 'Grid and Flexbox.' It's a different way of thinking. I stopped
+                            fighting unpredictability with fixed values. Now I design FOR it with flexible rules.</p>
+                        <p class="mt-1">CSS custom properties changed my workflow from random (<code>24px</code> here,
+                            <code>32px</code> there) to systematic (<code>var(--space-md)</code> everywhere). The names
+                            communicate intent, not just appearance.
+                        </p>
+                        <p class="mt-1">The three principles—Contracting & Expanding, Flexibility, Viewport-side
+                            Usage—will show up in everything I learn in Stations 2-5. They're the foundation.</p>
+                        <p class="mt-1">Prof. Teeters was right: Modern CSS is about setting smart boundaries and
+                            letting browsers adapt. That philosophy shift? That's intrinsic design. 🟠</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Prof. Teeters' Wisdom:</div>
+                    <p>"Philosophy matters more than syntax. Students who learn <code>clamp()</code> without
+                        understanding intrinsic thinking use it like another fixed value—defeating the purpose. Students
+                        who understand 'set boundaries, browser adapts' recognize that pattern in every modern CSS
+                        feature.</p>
+                    <p class="mt-1">CSS custom properties aren't just variables—they're systematic design. Start simple
+                        (fixed values in Station 1), upgrade to fluid (Station 3), reference everywhere (all stations).
+                    </p>
+                    <p class="mt-1">You're thinking like a modern web developer now. Ready for Station 2?" — <em>Prof.
+                            Cynthia Teeters</em></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station2.html" class="nav-link next-link">Next: Station 2 - Content-Based Sizing →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+
+        <p class="footer-reminder">
+            Remember: Modern CSS is about setting smart boundaries and letting browsers adapt. Prof. Teeters taught me
+            this philosophy, and it changed how I think about every line of CSS I write. 🟠 — HAP
+        </p>
+
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter egg system -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"
+        integrity="sha384-qmv/5xN1JiLwkb8Y4u5f8LMEsJRk7zZPvOcZKHjOIx6GHW6oMqL5LwJMjGN2K7jr"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks in .prompt-box
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.classList.add('copied');
+                        button.textContent = 'Copied';
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--
+HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+Visual elements created with AI assistance.
+-->
