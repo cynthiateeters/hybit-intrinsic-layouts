@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAP's Learning Lab - Station 2: Content-Based Sizing</title>
+    <meta name="description"
+        content="Join HAP as he learns content-sizing keywords. Discover min-content, max-content, and fit-content() to let content determine its own dimensions instead of guessing widths.">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prism-hap-theme.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../site.webmanifest">
+</head>
+
+<body>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <!-- HAP avatar and title -->
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <h1>HAP's Learning Lab: Station 2 - Content-Based Sizing</h1>
+                    <p class="subtitle">Let content determine its own dimensions</p>
+                </div>
+            </div>
+
+            <!-- HAP's introduction -->
+            <div class="intro-box">
+                <p><strong>Welcome to Station 2!</strong> After learning intrinsic design philosophy in Station 1, I
+                    built a navigation bar and set all links to <code>width: 120px</code>—wide enough for "Portfolio."
+                    Then the client changed "Services" to "Our Services & Solutions" and it overflowed! I tried
+                    different widths for each link, but they looked mismatched. Prof. Teeters said: "HAP, you're
+                    fighting content. Content KNOWS how wide it wants. CSS has keywords that let content tell you."
+                    That's when I discovered <code>max-content</code>, <code>min-content</code>, and <code>fit-content()</code>—and stopped guessing widths forever! 🟠</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+        <div class="page-position" data-page="2">Station 2 of 6</div>
+    </nav>
+
+    <main id="main-content" class="content-container">
+
+        <!-- SECTION 1: What You'll Learn -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <!-- HAP's discovery story -->
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> I used to set navigation widths to <code>120px</code>, article
+                    widths to <code>800px</code>, sidebars to <code>250px</code>—just guessing numbers that looked
+                    good. Then content changed: longer navigation labels overflowed, shorter article paragraphs swam in
+                    whitespace, compact sidebars wasted space. Prof. Teeters showed me four CSS keywords that let
+                    content determine its own size. No more guessing! 🔬</p>
+            </div>
+
+            <!-- 3 insight cards -->
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <h3><span class="insight-icon">📐</span> Content Knows Best</h3>
+                    <p class="stat-large">min-content & max-content</p>
+                    <p>Content has natural size—narrowest before wrapping (<code>min-content</code>) and widest
+                        naturally (<code>max-content</code>). Design with content's inherent dimensions instead of
+                        guessing widths.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🎨</span> Flexible Boundaries</h3>
+                    <p class="stat-large stat-teal">fit-content(max)</p>
+                    <p><code>fit-content()</code> gives natural width up to a maximum. Perfect for navigation,
+                        buttons, and components that size to content but need limits.</p>
+                </div>
+
+                <div class="insight-card">
+                    <h3><span class="insight-icon">🔧</span> Systematic Sizing</h3>
+                    <p class="stat-large stat-brown">Named values</p>
+                    <p>CSS custom properties for sizes (<code>--width-readable: fit-content(60ch)</code>) create a
+                        systematic approach. Components reference named values, not random pixels.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: HAP's Opening Story -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>My Navigation Width Nightmare</h2>
+
+                <p class="mb-2">After completing Station 1, I felt confident! I understood intrinsic design, used CSS
+                    custom properties for spacing, and gave layouts flexible boundaries. Time to build a real
+                    navigation bar!</p>
+
+                <div class="hap-note-callout">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759331555/HyBit_frustrated_while_coding_and_looking_at_screen_wl4rzg.jpg"
+                        alt="HAP looking frustrated" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Navigation Disaster:</h3>
+                        <p>I measured the widest label ("Portfolio" = 120px) and set ALL navigation items to
+                            <code>width: 120px</code>. Perfect! Shipped it to the client. Next day: "Can you change
+                            'Services' to 'Our Services & Solutions'?" My heart sank. The text overflowed!</p>
+                        <p class="mt-1">I increased width to <code>150px</code>—now "Home" and "About" swam in huge
+                            whitespace. I tried different widths for each link, but they looked visually mismatched. I
+                            made all items <code>200px</code>—wasted space everywhere!</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>Prof. Teeters' Intervention</h3>
+                    <p class="mt-1"><em>"HAP, stop. You're fighting content. Content KNOWS how wide it wants to be. CSS
+                            has keywords that let content tell the browser its natural size. Watch this:"</em></p>
+                    <pre class="mt-1"><code class="language-css">.nav-item {
+  width: max-content;
+  /* Content determines width - no guessing! */
+}</code></pre>
+                    <p class="mt-1">The navigation items instantly became perfect—each exactly wide enough for its
+                        label, no overflow, no wasted space. I changed "Services" to "Our Services & Solutions" and...
+                        it just adapted. Perfectly.</p>
+                    <p class="mt-1"><strong>Me:</strong> "Wait. I don't have to guess widths? Content tells the browser
+                        what it needs?"</p>
+                    <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Four keywords, HAP: <code>min-content</code>,
+                            <code>max-content</code>, <code>fit-content()</code>, and <code>auto</code>. Let me show you
+                            when to use each one."</em></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: The Four Content-Sizing Keywords -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>The Four Content-Sizing Keywords</h2>
+
+                <p class="mb-2">Prof. Teeters taught me that CSS provides four keywords for content-based sizing. Each
+                    keyword asks content a different question about its natural dimensions.</p>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>1. min-content - Narrowest Possible</h3>
+                        <pre class="mt-1"><code class="language-css">.sidebar {
+  width: min-content;
+  /* Content wraps aggressively, width = widest word */
+}</code></pre>
+                        <p class="mt-1"><strong>What it does:</strong> Content wraps as much as possible. Width becomes
+                            the width of the longest unbreakable word or element.</p>
+                        <p class="mt-1"><strong>When I use it:</strong> Compact sidebars, tight columns, minimal
+                            containers where space is precious.</p>
+                        <p class="mt-1"><strong>My example:</strong> A sidebar with "Categories" heading and short
+                            labels like "Design", "Development", "CSS". It contracts to just wide enough for
+                            "Development" (the longest word).</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>2. max-content - Widest Natural</h3>
+                        <pre class="mt-1"><code class="language-css">.nav-item {
+  width: max-content;
+  /* No wrapping, width = full content on one line */
+}</code></pre>
+                        <p class="mt-1"><strong>What it does:</strong> Content stays on one line if possible. Width
+                            becomes the natural width of content without any wrapping.</p>
+                        <p class="mt-1"><strong>When I use it:</strong> Navigation items, buttons, single-line labels,
+                            tags—anywhere content should determine width without wrapping.</p>
+                        <p class="mt-1"><strong>My example:</strong> Navigation links like "Our Services & Solutions"
+                            that should stay on one line. Each link becomes exactly as wide as its text needs.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>3. fit-content(max) - Natural Width with Limit</h3>
+                        <pre class="mt-1"><code class="language-css">.article {
+  width: fit-content(60ch);
+  /* Natural width, but never wider than 60 characters */
+}</code></pre>
+                        <p class="mt-1"><strong>What it does:</strong> Content uses natural width up to a specified
+                            maximum. If content would be wider, it wraps at the maximum.</p>
+                        <p class="mt-1"><strong>When I use it:</strong> Article text (optimal reading is 60-80ch),
+                            flexible components with upper boundaries, responsive content containers.</p>
+                        <p class="mt-1"><strong>My example:</strong> Article paragraphs that should be readable width
+                            (60ch) on wide screens but can shrink on narrow screens. Content determines width until
+                            hitting the 60ch limit.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>4. auto - Fill Available Space</h3>
+                        <pre class="mt-1"><code class="language-css">main {
+  width: auto;
+  /* Default for block elements - fills parent */
+}</code></pre>
+                        <p class="mt-1"><strong>What it does:</strong> Element fills available space in its container.
+                            This is the default behavior for block elements.</p>
+                        <p class="mt-1"><strong>When I use it:</strong> Main content areas, block elements, containers
+                            that should fill their parent, default responsive behavior.</p>
+                        <p class="mt-1"><strong>My example:</strong> The main content area that should fill the
+                            available width between sidebars or within the page margins.</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Decision table Prof. Teeters gave me:</div>
+                    <table class="mt-1">
+                        <thead>
+                            <tr>
+                                <th>Goal</th>
+                                <th>Keyword</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Narrowest possible</td>
+                                <td><code>min-content</code></td>
+                                <td>Compact sidebar</td>
+                            </tr>
+                            <tr>
+                                <td>Natural, no wrap</td>
+                                <td><code>max-content</code></td>
+                                <td>Navigation items</td>
+                            </tr>
+                            <tr>
+                                <td>Natural with limit</td>
+                                <td><code>fit-content(X)</code></td>
+                                <td>Article text (60ch)</td>
+                            </tr>
+                            <tr>
+                                <td>Fill space</td>
+                                <td><code>auto</code></td>
+                                <td>Main content area</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495994/hap-aha_ktnttc.jpg"
+                        alt="HAP having an aha moment" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Aha Moment:</h3>
+                        <p>The magic happened when I stopped asking "How wide should this be?" and started asking "What
+                            determines this width?" Navigation? <code>max-content</code>—labels determine width. Article?
+                            <code>fit-content(60ch)</code>—optimal reading determines width. Sidebar?
+                            <code>min-content</code>—narrowest content determines width.</p>
+                        <p class="mt-1">Content changed from "Services" to "Our Services & Solutions"? Layout adapted
+                            automatically. No JavaScript. No media queries. No manual updates. The content told the
+                            browser what it needed! 🔬</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Content-Sizing with Custom Properties -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Content-Sizing with Custom Properties</h2>
+
+                <p class="mb-2">Prof. Teeters showed me how to combine Station 1's custom properties approach with
+                    Station 2's content-sizing keywords. Instead of scattering <code>fit-content(60ch)</code> throughout
+                    my code, I create semantic, named values.</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Systematic content-sizing custom properties:</div>
+                    <pre><code class="language-css">:root {
+  /* Content-based widths */
+  --width-min: min-content;
+  --width-max: max-content;
+  --width-readable: fit-content(60ch);
+  --width-wide: fit-content(80ch);
+  --width-constrained: fit-content(45ch);
+
+  /* Spacing from Station 1 */
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+}
+
+/* Usage in components */
+.nav-item {
+  width: var(--width-max);  /* Don't wrap navigation labels */
+  padding: var(--space-sm);
+}
+
+.article {
+  width: var(--width-readable);  /* Optimal reading width */
+  padding: var(--space-md);
+}
+
+.sidebar {
+  width: var(--width-min);  /* Compact sidebar */
+  padding: var(--space-sm);
+}
+
+.caption {
+  width: var(--width-constrained);  /* Short-form text */
+  padding: calc(var(--space-sm) / 2);
+}</code></pre>
+                    <p class="code-comment mt-1"><strong>What changed:</strong> Instead of
+                        <code>width: fit-content(60ch)</code> scattered everywhere, I define
+                        <code>--width-readable</code> once. All articles reference it. Need to adjust optimal reading
+                        width? Change ONE variable. Every article updates automatically.</p>
+                </div>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>Benefit 1: Semantic Naming</h3>
+                        <p><code>--width-readable</code> communicates intent better than
+                            <code>fit-content(60ch)</code>. Future me (or teammates) understands WHY this width was
+                            chosen, not just WHAT it is.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Benefit 2: Consistency</h3>
+                        <p>All articles use the same optimal width. All navigation items use the same behavior. No
+                            accidental variations where one article is <code>60ch</code> and another is
+                            <code>65ch</code>.</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Benefit 3: Maintainability</h3>
+                        <p>Change <code>--width-readable</code> from <code>60ch</code> to <code>65ch</code> once in
+                            <code>:root</code>. Every component using it updates automatically. No searching through
+                            files!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Benefit 4: Systematic</h3>
+                        <p>When building a new component, I ask: "Readable text? Use <code>--width-readable</code>.
+                            Navigation? Use <code>--width-max</code>." Encourages thoughtful, consistent decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Combining with Intrinsic Constraints -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Combining with Intrinsic Constraints</h2>
+
+                <p class="mb-2">The real power came when Prof. Teeters showed me how to combine content-sizing keywords
+                    with Station 1's intrinsic constraints: <code>clamp()</code>, <code>min()</code>, and
+                    <code>max()</code>. Content determines size, BUT with intelligent boundaries.</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Content sizing with boundaries:</div>
+                    <pre><code class="language-css">/* Readable width that contracts on narrow screens */
+.article {
+  width: min(fit-content(60ch), 100% - 2rem);
+  /* Reading width OR full width minus padding, whichever smaller */
+}
+
+/* Navigation with minimum and maximum */
+.nav {
+  width: clamp(20rem, max-content, 60rem);
+  /* At least 20rem, natural width, max 60rem */
+}
+
+/* Sidebar with minimum size */
+.sidebar {
+  width: max(min-content, 12rem);
+  /* Natural narrow width OR 12rem, whichever larger */
+}</code></pre>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759331586/HyBit_excited_about_coding_bzrkl7.jpg"
+                        alt="HAP excited about content sizing" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Mind Blown (Again):</h3>
+                        <p><strong>Me:</strong> "Wait. So I can say 'size to content BUT never narrower than 16rem or
+                            wider than screen minus padding'? I get content-based sizing AND protective boundaries?"</p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"That's intrinsic thinking in action! You're
+                                not forcing exact sizes OR letting content run wild. You're giving content rules:
+                                'Determine your own width within these smart boundaries.' The browser handles the
+                                rest."</em></p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">With custom properties (systematic approach):</div>
+                    <pre><code class="language-css">:root {
+  /* Content-sizing values */
+  --width-article-ideal: fit-content(60ch);
+  --width-article-min: 16rem;
+  --width-article-max: calc(100% - 2rem);
+
+  /* Navigation values */
+  --width-nav-min: 20rem;
+  --width-nav-max: 60rem;
+}
+
+.article {
+  width: clamp(
+    var(--width-article-min),
+    var(--width-article-ideal),
+    var(--width-article-max)
+  );
+  /* Named values make intent crystal clear */
+}
+
+.nav {
+  width: clamp(
+    var(--width-nav-min),
+    max-content,
+    var(--width-nav-max)
+  );
+}</code></pre>
+                    <p class="code-comment mt-1"><strong>Why this works:</strong> I define minimum, ideal, and maximum
+                        as semantic custom properties. The <code>clamp()</code> combines them. Future me understands the
+                        purpose of each boundary. Changing navigation's maximum from <code>60rem</code> to
+                        <code>80rem</code>? Update ONE variable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Try It Yourself Challenge -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Try It Yourself: Convert to Content-Based Sizing</h2>
+
+                <p class="mb-2">Ready to practice? Here's navigation with fixed widths. Convert it to use content-based
+                    sizing with custom properties.</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Starter Code (Fixed Widths - Old Way):</div>
+                    <pre><code class="language-html">&lt;nav class="navigation"&gt;
+  &lt;a href="#"&gt;Home&lt;/a&gt;
+  &lt;a href="#"&gt;About&lt;/a&gt;
+  &lt;a href="#"&gt;Services&lt;/a&gt;
+  &lt;a href="#"&gt;Portfolio&lt;/a&gt;
+  &lt;a href="#"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+                    <pre class="mt-1"><code class="language-css">&lt;style&gt;
+.navigation {
+  width: 800px;  /* Guess based on my screen */
+  display: flex;
+  gap: 16px;
+}
+
+.navigation a {
+  width: 120px;  /* Guess based on "Portfolio" */
+  padding: 8px 16px;
+  text-align: center;
+}
+&lt;/style&gt;</code></pre>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Your Tasks:</div>
+                    <ul class="mt-1">
+                        <li>Create CSS custom properties for content sizing (<code>--width-max</code>,
+                            <code>--space-sm</code>)</li>
+                        <li>Convert navigation to <code>width: var(--width-max)</code></li>
+                        <li>Convert links to <code>width: max-content</code></li>
+                        <li>Update spacing to use custom properties</li>
+                        <li>Test by changing "Services" to "Our Services & Solutions"—it should adapt automatically!</li>
+                    </ul>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Solution (Content-Based - Intrinsic Way):</div>
+                    <pre><code class="language-css">&lt;style&gt;
+:root {
+  /* Content-sizing custom properties */
+  --width-max: max-content;
+  --space-sm: 1rem;
+}
+
+.navigation {
+  width: var(--width-max);  /* Content determines nav width */
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.navigation a {
+  width: max-content;  /* Each link sized to its label */
+  padding: calc(var(--space-sm) / 2) var(--space-sm);
+  text-align: center;
+}
+&lt;/style&gt;</code></pre>
+                    <p class="code-comment mt-1"><strong>What changed:</strong> Fixed widths (<code>800px</code>,
+                        <code>120px</code>) → content-based sizing. Random spacing (<code>16px</code>,
+                        <code>8px</code>) → systematic custom properties. Change "Services" to "Our Services &
+                        Solutions"? Layout adapts automatically. No manual width adjustments ever again!</p>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759331584/HyBit_working_on_laptop_with_coffee_loxwue.jpg"
+                        alt="HAP encouraging learners" width="150" height="150" class="hap-note-image" decoding="async"
+                        loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Challenge Tip:</h3>
+                        <p>The magic moment is when I changed "Services" to "Our Services & Solutions" in the solution
+                            code and it just... worked. The navigation stayed perfectly sized. The links stayed
+                            perfectly spaced. No overflow. No wasted space. That's when it clicked: content-based sizing
+                            means I design WITH content, not AGAINST it! 🟠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Quick Reference -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">Quick Reference</h2>
+
+            <div class="tips-grid mt-2">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Content-sizing keywords</h3>
+                        <p><code>min-content</code> - Narrowest, aggressive wrap<br>
+                            <code>max-content</code> - Widest natural, no wrap<br>
+                            <code>fit-content(60ch)</code> - Natural up to max<br>
+                            <code>auto</code> - Fill available space</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>When to use each</h3>
+                        <p>Compact layouts: <code>min-content</code><br>
+                            Navigation, buttons: <code>max-content</code><br>
+                            Readable text: <code>fit-content(60ch)</code><br>
+                            Block elements: <code>auto</code></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Custom properties pattern</h3>
+                        <p><code>--width-readable: fit-content(60ch);</code><br>
+                            <code>--width-wide: fit-content(80ch);</code><br>
+                            <code>--width-max: max-content;</code><br>
+                            Use semantic names, not pixel values!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Combining with clamp()</h3>
+                        <p><code>width: min(fit-content(60ch), 100% - 2rem);</code><br>
+                            <code>width: clamp(20rem, max-content, 60rem);</code><br>
+                            Content-based + smart boundaries!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Common gotcha</h3>
+                        <p>❌ <code>width: fit-content;</code> (missing argument)<br>
+                            ✅ <code>width: fit-content(60ch);</code> (needs max value)<br>
+                            Always specify the maximum!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>Decision question</h3>
+                        <p>Stop asking: "How wide should this be?"<br>
+                            Start asking: "What determines this width?"<br>
+                            Content has the answer!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">7</div>
+                    <div>
+                        <h3>Cross-references</h3>
+                        <p>→ Station 1: Custom properties<br>
+                            → Station 3: Combine with <code>clamp()</code><br>
+                            → Station 4: Use in Grid <code>minmax()</code></p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">8</div>
+                    <div>
+                        <h3>HAP's lesson</h3>
+                        <p>Content knows its natural size. Guessing widths is extrinsic. Asking content is intrinsic.
+                            Let content tell the browser what it needs! 🟠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: Learning Objectives -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Check Your Understanding</h2>
+
+                <p class="mb-2">Before moving to Station 3, make sure these concepts are clear:</p>
+
+                <div class="hap-info-grid">
+                    <div>
+                        <h3>Understanding</h3>
+                        <ul>
+                            <li>Explain what each content-sizing keyword does</li>
+                            <li>Describe when to use each keyword</li>
+                            <li>Understand content has natural dimensions</li>
+                            <li>Know the difference between <code>max-content</code> and <code>fit-content()</code></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Application</h3>
+                        <ul>
+                            <li>Use <code>max-content</code> for navigation items</li>
+                            <li>Use <code>fit-content(60ch)</code> for readable text</li>
+                            <li>Combine content-sizing with <code>clamp()</code>, <code>min()</code>, <code>max()</code>
+                            </li>
+                            <li>Create systematic content-sizing custom properties</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Creation</h3>
+                        <ul>
+                            <li>Build navigation that adapts to label length</li>
+                            <li>Create article layouts with optimal reading width</li>
+                            <li>Design components that size to content with boundaries</li>
+                            <li>Implement content-based sizing in real projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497912/hap-reflecting_z6kbkg.jpg"
+                        alt="HAP reflecting on his learning" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Closing Thoughts:</h3>
+                        <p>I stopped asking "How wide should this be?" and started asking "What determines this width?"
+                            Navigation? <code>max-content</code>—labels determine width. Article?
+                            <code>fit-content(60ch)</code>—optimal reading determines width. Sidebar?
+                            <code>min-content</code>—narrowest content determines width.</p>
+                        <p class="mt-1">Content changes? Layout adapts. No JavaScript. No media queries. No manual
+                            updates. Prof. Teeters was right: "Listen to content." Station 1 taught me philosophy.
+                            Station 2 taught me sizing. Now on to Station 3 for spacing! 🟠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="station1.html" class="nav-link prev-link">← Previous: Station 1 - The Intrinsic Mindset</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station3.html" class="nav-link next-link">Next: Station 3 - Contextual Spacing →</a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+
+        <p class="footer-reminder">
+            Content knows its natural size—ask it instead of guessing widths. Prof. Teeters taught me to listen to
+            content, and it changed how I think about sizing every element! 🟠 — HAP
+        </p>
+
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter egg system -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Prism.js syntax highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-BIv9HXLEceWFW5UQke/f4QN5zzzfIZIz0ujkbvCXN4JIkN4eZbUPfa2RXa8LD59k"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"
+        integrity="sha384-5k/rJJcE5nzMGrPnUaQNY0LB/BaQ/3j/3LaZXSBxFY/0KDm8Pb5VxFJiR0e6HcBn"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks in .prompt-box
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.classList.add('copied');
+                        button.textContent = 'Copied!';
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        button.textContent = 'Failed';
+                        setTimeout(() => button.textContent = 'Copy', 2000);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--
+HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+Visual elements created with AI assistance.
+-->
