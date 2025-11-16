@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CUSTOMIZE: Update title with station topic -->
+  <title>HAP's Learning Lab - Station 6: AI Assistance for [TOPIC]</title>
+
+  <!-- CUSTOMIZE: Update description with station-specific AI assistance content -->
+  <meta name="description"
+    content="Join HAP as he learns to use AI responsibly for [TOPIC]. Discover effective prompting, accessibility verification, and the rules for working with AI while maintaining professional responsibility.">
+
+  <meta property="og:image"
+    content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+
+  <!-- Standard HAP favicon (do not modify) -->
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+  <!-- Preconnect for Cloudinary CDN -->
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+  <!-- HAP Design System -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/demos.css">
+  <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+  <!--
+  ================================================================================
+  STATION 6 TEMPLATE: AI Assistance for [TOPIC]
+  ================================================================================
+
+  This template is specifically for Station 6, which ALWAYS follows this format:
+
+  TITLE: "Station 6: AI Assistance for [Topic from Stations 1-5]"
+
+  12-SECTION STRUCTURE:
+  1. What You'll Learn (3 insight cards + HAP's confession)
+  2. What AI Can and Can't Do
+  3. [First Specific Topic Example with AI]
+  4. [Second Specific Topic Example with AI]
+  5. AI for [Topic] Accessibility
+  6. Optimizing [Topic] Performance with AI
+  7. Try It Yourself: AI [Topic] Challenge
+  8. HAP's Rules for Working with AI (6 numbered rules)
+  9. Advanced Prompt Strategies
+  10. When NOT to Use AI
+  11. Quick Reference: AI [Topic] Tasks
+  12. Learning Objectives Checklist
+
+  HAP'S VOICE IN STATION 6:
+  - First-person reflection on using AI while learning Stations 1-5
+  - Shares specific examples of prompts that worked/failed
+  - References Prof. Teeters' guidance on responsible AI use
+  - Shows prompt evolution from vague to detailed
+  - Emphasizes verification and accountability
+
+  KEY THEMES:
+  - AI as assistant, not replacement
+  - Accessibility is non-negotiable (always request explicitly)
+  - Performance requires explicit prompting
+  - Verification is mandatory (you own the code)
+  - Detailed prompts get better results
+  - Understanding beats speed
+
+  ================================================================================
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="header-content">
+      <div class="hybit-welcome">
+        <div class="hybit-avatar">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+            alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+            fetchpriority="high">
+        </div>
+        <div>
+          <!-- CUSTOMIZE: Update with specific topic -->
+          <h1>Station 6: AI Assistance for [TOPIC]</h1>
+          <p class="subtitle">AI helps code faster, but you're still responsible for [QUALITY_ASPECT]</p>
+        </div>
+      </div>
+      <div class="intro-box">
+        <!-- CUSTOMIZE: HAP's story about discovering AI for this topic, making mistakes, learning responsibility -->
+        <p><strong>Welcome to Station 6!</strong> After learning all about [STATIONS_1-5_TOPICS], I was feeling pretty
+          confident. Then I discovered that AI could help me [TASK] in seconds instead of hours! I was so excited — I
+          asked an AI for [SPECIFIC_EXAMPLE], got beautiful code back, and shipped it immediately. Then Prof. Teeters
+          tested it and found a critical problem: [SPECIFIC_ISSUE]. She sat me down and explained: "HAP, AI can
+          generate code faster than you can type, but it doesn't care about your users the way you should. You own
+          every line of code, whether you wrote it or AI did." That lesson changed how I work with AI completely. Let
+          me show you what I learned about using AI responsibly for [TOPIC] — the prompts that work, the verification
+          that's mandatory, and the rules that keep users safe! 🟠</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Page navigation" class="page-navigation top-nav">
+    <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+    <div class="page-position" data-page="6">Station 6 of 6</div>
+  </nav>
+
+  <main id="main-content" class="content-container">
+
+    <!-- SECTION 1: What You'll Learn -->
+    <section class="content-section">
+      <h2 class="section-heading-centered">What you'll learn</h2>
+
+      <!-- CUSTOMIZE: 3 insight cards about AI assistance for this topic -->
+      <div class="overview-grid mt-2">
+        <div class="insight-card">
+          <h3><span class="insight-icon">⚡</span> [INSIGHT_1_TITLE]</h3>
+          <p class="stat-large">[TIME_SAVINGS or KEY_METRIC]</p>
+          <p><strong>[KEY_PRINCIPLE]</strong></p>
+          <p>[HAP's story about learning this principle - what he did wrong, what Prof. Teeters taught him, what he
+            does now. ~150 words in first-person]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">🎯</span> [INSIGHT_2_TITLE]</h3>
+          <p class="stat-large stat-teal">[KEY_METRIC or PATTERN]</p>
+          <p><strong>[KEY_PRINCIPLE]</strong></p>
+          <p>[HAP's story about learning this principle - specific example of vague vs detailed prompts. ~150 words]
+          </p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">✅</span> [INSIGHT_3_TITLE]</h3>
+          <p class="stat-large stat-brown">[RESPONSIBILITY_PHRASE]</p>
+          <p><strong>[KEY_PRINCIPLE]</strong></p>
+          <p>[HAP's story about ownership and accountability - specific mistake, Prof. Teeters' strict rule, changed
+            workflow. ~150 words]</p>
+        </div>
+      </div>
+
+      <!-- CUSTOMIZE: HAP's confession about biggest AI mistake -->
+      <div class="hap-note-callout">
+        <img
+          src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+          alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+          decoding="async" loading="lazy">
+        <div class="hap-note-content">
+          <h3>HAP's confession: [SPECIFIC_MISTAKE_TITLE]</h3>
+          <p>[First paragraph: What HAP did wrong - copied AI code without reading, skipped verification, trusted
+            blindly. Specific details about the project. ~100 words]</p>
+          <p class="mt-1">[Second paragraph: The consequences - Prof. Teeters' feedback, what broke, who was affected.
+            HAP's emotional reaction. ~100 words]</p>
+          <p class="mt-1">[Third paragraph: The lesson learned - what HAP changed, new workflow, commitment to
+            responsibility. ~100 words]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: What AI Can and Can't Do -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>What AI can and can't do</h2>
+        <p class="mb-2">[HAP's introduction to this section: had unrealistic expectations, thought AI could do
+          everything perfectly, Prof. Teeters taught him boundaries, learning strengths/weaknesses transformed his
+          approach. ~100 words in first-person]</p>
+
+        <div class="analysis-grid mt-2">
+          <div class="analysis-point">
+            <h3>AI excels at</h3>
+            <!-- CUSTOMIZE: 5-6 specific strengths for this topic -->
+            <ul class="mt-1">
+              <li><strong>[STRENGTH_1_TITLE]:</strong> [Specific explanation of what AI does well]</li>
+              <li><strong>[STRENGTH_2_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[STRENGTH_3_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[STRENGTH_4_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[STRENGTH_5_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[STRENGTH_6_TITLE]:</strong> [Specific explanation]</li>
+            </ul>
+          </div>
+
+          <div class="analysis-point">
+            <h3>AI struggles with</h3>
+            <!-- CUSTOMIZE: 5-6 specific weaknesses for this topic -->
+            <ul class="mt-1">
+              <li><strong>[WEAKNESS_1_TITLE]:</strong> [What AI forgets or does poorly - be specific]</li>
+              <li><strong>[WEAKNESS_2_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[WEAKNESS_3_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[WEAKNESS_4_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[WEAKNESS_5_TITLE]:</strong> [Specific explanation]</li>
+              <li><strong>[WEAKNESS_6_TITLE]:</strong> [Specific explanation]</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CUSTOMIZE: HAP's takeaway story -->
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+            alt="HAP working on his laptop" width="150" height="150" class="hap-note-image" decoding="async"
+            loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's takeaway: [LESSON_LEARNED_TITLE]</h3>
+            <p>[First paragraph: Specific example where AI excelled (teaching a concept, explaining something). ~75
+              words]</p>
+            <p class="mt-1">[Second paragraph: Specific example where AI failed (forgot accessibility, made generic
+              choice). Pattern HAP noticed. ~75 words]</p>
+            <p class="mt-1">[Third paragraph: The realization - AI as partner that needs clear rules. When HAP sets
+              boundaries, AI becomes valuable. ~75 words]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: First Specific Topic Example -->
+    <section class="content-section">
+      <div class="topic-section">
+        <!-- CUSTOMIZE: Specific task students will learn to prompt AI for -->
+        <h2>[Creating/Building/Generating] [SPECIFIC_TASK] with AI</h2>
+        <p class="mb-2">[HAP's introduction: why he tried this task first, seemed perfect for AI, early attempts were
+          disasters, what he learned. Quality of output depends on quality of prompt. ~100 words]</p>
+
+        <h3 class="mt-3">Before I learned to write good prompts</h3>
+        <p class="mt-1">[HAP's description of his first vague prompt and why it was bad. ~50 words]</p>
+
+        <!-- CUSTOMIZE: Show vague prompt and bad AI output -->
+        <div class="warning-box mt-2">
+          <h3>❌ Vague prompt produces unusable code</h3>
+          <p><strong>My vague prompt:</strong></p>
+          <div class="prompt-box mt-1">
+            <div class="prompt-label">What I asked AI:</div>
+            <pre><code class="language-text">[VAGUE_PROMPT - one sentence, no details]</code></pre>
+          </div>
+
+          <p class="mt-2"><strong>What AI generated:</strong></p>
+          <pre><code class="language-css">/* Generic AI output without proper constraints */
+[BAD_CODE_EXAMPLE]
+/* ❌ [PROBLEM_1] */
+/* ❌ [PROBLEM_2] */
+/* ❌ [PROBLEM_3] */
+/* ❌ [PROBLEM_4] */</code></pre>
+
+          <p class="mt-1"><strong>Problems with this code:</strong></p>
+          <ul class="mt-1">
+            <li><strong>[PROBLEM_1_TITLE]</strong> — [Detailed explanation of issue]</li>
+            <li><strong>[PROBLEM_2_TITLE]</strong> — [Detailed explanation]</li>
+            <li><strong>[PROBLEM_3_TITLE]</strong> — [Detailed explanation]</li>
+            <li><strong>[PROBLEM_4_TITLE]</strong> — [Detailed explanation]</li>
+          </ul>
+          <p class="mt-1">This code is completely unusable for production. I'd have to spend time fixing all these
+            issues — defeating the purpose of using AI!</p>
+        </div>
+
+        <h3 class="mt-3">The prompt I learned to write</h3>
+        <p class="mt-1">[HAP explains how Prof. Teeters showed him to include all requirements upfront. ~50 words]</p>
+
+        <!-- CUSTOMIZE: Show detailed, effective prompt -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ Detailed prompt with all requirements:</div>
+          <pre><code class="language-text">[DETAILED_PROMPT with specific requirements listed:
+- [REQUIREMENT_1]
+- [REQUIREMENT_2]
+- [REQUIREMENT_3]
+- [REQUIREMENT_4]
+- [REQUIREMENT_5]]</code></pre>
+        </div>
+
+        <h3 class="mt-3">What AI generates with a good prompt</h3>
+        <p class="mt-1">[HAP's observation about the dramatic difference. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Show production-ready AI output -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ AI output with detailed constraints:</div>
+          <pre><code class="language-css">/* Professional AI output with proper constraints */
+[GOOD_CODE_EXAMPLE]
+/* ✅ [POSITIVE_1] */
+/* ✅ [POSITIVE_2] */
+/* ✅ [POSITIVE_3] */</code></pre>
+          <p class="code-comment mt-1"><strong>Why this code is better:</strong> [List all improvements - uses
+            hsl(), includes accessibility, has semantic naming, etc. Make it detailed!]</p>
+        </div>
+
+        <!-- CUSTOMIZE: HAP's reflection on learning -->
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+            alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's reflection: [LESSON_TITLE]</h3>
+            <p>[First paragraph: HAP's frustration with early AI attempts - kept getting problematic code. ~75
+              words]</p>
+            <p class="mt-1">[Second paragraph: Prof. Teeters' intervention - showed him his prompts were too vague,
+              explained AI can't read his mind. ~75 words]</p>
+            <p class="mt-1">[Third paragraph: The breakthrough - started including all requirements, AI suddenly gave
+              perfect code. Detailed prompts transformed his experience. ~75 words]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Second Specific Topic Example -->
+    <section class="content-section">
+      <div class="topic-section">
+        <!-- CUSTOMIZE: Second specific task (often more complex than first) -->
+        <h2>[Generating/Creating] [SECOND_SPECIFIC_TASK] with AI</h2>
+        <p class="mb-2">[HAP's introduction: thought this would be same as first task, was wrong, more complex,
+          requires even more specificity. ~100 words]</p>
+
+        <h3 class="mt-3">The task: [SPECIFIC_EXAMPLE]</h3>
+        <p class="mt-1">[Detailed description of what HAP needed to build and why this task is more complex. ~75
+          words]</p>
+
+        <h3 class="mt-3">My effective [TASK_TYPE] prompt</h3>
+        <p class="mt-1">[HAP explains how much more specific this needs to be - describe entire sequence. ~50 words]
+        </p>
+
+        <!-- CUSTOMIZE: Show comprehensive prompt for complex task -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ Effective [TASK_TYPE] prompt with complete requirements:</div>
+          <pre><code class="language-text">[COMPREHENSIVE_PROMPT with all details:
+- [REQUIREMENT_1]
+- [REQUIREMENT_2]
+- [REQUIREMENT_3]
+- [REQUIREMENT_4]
+- [REQUIREMENT_5]
+- [REQUIREMENT_6]]</code></pre>
+        </div>
+
+        <h3 class="mt-3">AI-generated [TASK_TYPE] code</h3>
+        <p class="mt-1">[HAP's observation about how complete and well-structured the output is. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Show professional AI-generated code for complex task -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ Professional [TASK_TYPE] from AI:</div>
+          <pre><code class="language-css">/* [TASK_DESCRIPTION] */
+[COMPLETE_CODE_EXAMPLE]</code></pre>
+          <p class="code-comment mt-1"><strong>Why this code is excellent:</strong> [Detailed list of all positive
+            qualities - semantic naming, GPU properties, accessibility, hsl() colors, etc.]</p>
+        </div>
+
+        <!-- CUSTOMIZE: HAP's learning about complexity -->
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+            alt="HAP working on his laptop" width="150" height="150" class="hap-note-image" decoding="async"
+            loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's learning: [LESSON_ABOUT_COMPLEXITY]</h3>
+            <p>[First paragraph: HAP's initial terrible prompt - too vague, AI had to guess everything, got wrong
+              results. ~100 words]</p>
+            <p class="mt-1">[Second paragraph: Prof. Teeters' teaching - explained all the decisions AI needs
+              guidance on for complex tasks. ~75 words]</p>
+            <p class="mt-1">[Third paragraph: The realization - comprehensive prompts for complex tasks get perfect
+              results. Key lesson statement. ~75 words]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: AI for [Topic] Accessibility -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>AI for [TOPIC] accessibility</h2>
+        <p class="mb-2"><strong>This is where AI fails most consistently, and it's the most important issue to
+            understand.</strong> [HAP explains why accessibility matters for this topic, how AI constantly forgets it,
+          Prof. Teeters' strictest rule about never trusting AI for accessibility. ~100 words]</p>
+
+        <h3 class="mt-3">The problem: AI constantly forgets accessibility</h3>
+        <p class="mt-1">[HAP's specific story about generating multiple examples and discovering NONE had
+          accessibility. ~75 words]</p>
+
+        <p class="mt-1">[Prof. Teeters' explanation of why - AI trained on millions of examples that don't include
+          accessibility. ~50 words]</p>
+
+        <h3 class="mt-3">The solution: Make accessibility explicit in every prompt</h3>
+        <p class="mt-1">[HAP's current approach - accessibility-focused template. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Accessibility-first prompt template for this topic -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ Accessibility-first prompt template:</div>
+          <pre><code class="language-text">Create [TASK_DESCRIPTION] with these CRITICAL accessibility requirements:
+
+MANDATORY accessibility features:
+- [ACCESSIBILITY_REQUIREMENT_1]
+- [ACCESSIBILITY_REQUIREMENT_2]
+- [ACCESSIBILITY_REQUIREMENT_3]
+- [ACCESSIBILITY_REQUIREMENT_4]
+- [ACCESSIBILITY_REQUIREMENT_5]
+
+[Then add your other technical requirements...]</code></pre>
+        </div>
+
+        <h3 class="mt-3">Before and after: Accessibility comparison</h3>
+        <p class="mt-1">[HAP introduces the comparison. ~20 words]</p>
+
+        <!-- CUSTOMIZE: Show AI code WITHOUT accessibility request -->
+        <div class="warning-box mt-2">
+          <h3>❌ AI code WITHOUT accessibility request</h3>
+          <pre><code class="language-css">/* [TASK_DESCRIPTION] - AI generated without accessibility prompt */
+[CODE_WITHOUT_ACCESSIBILITY]
+
+/* ❌ NO [ACCESSIBILITY_FEATURE] - VIOLATES WCAG */
+/* ❌ [SPECIFIC_PROBLEM] */
+/* ❌ [HARM_TO_USERS] */</code></pre>
+          <p class="mt-1"><strong>This code is dangerous.</strong> [Specific harm it causes. WCAG violation reference.
+            Not production-ready. ~30 words]</p>
+        </div>
+
+        <p class="mt-2">Now here's what AI generates when I explicitly request accessibility:</p>
+
+        <!-- CUSTOMIZE: Show AI code WITH accessibility request -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ AI code WITH accessibility request:</div>
+          <pre><code class="language-css">/* [TASK_DESCRIPTION] - AI generated WITH accessibility requirements */
+[CODE_WITH_ACCESSIBILITY]
+
+/* ✅ Accessibility: [FEATURE_DESCRIPTION] */
+[ACCESSIBILITY_IMPLEMENTATION]</code></pre>
+          <p class="code-comment mt-1"><strong>This code is safe.</strong> [Explain how accessibility is preserved,
+            functionality maintained, harm prevented. ~50 words]</p>
+        </div>
+
+        <!-- CUSTOMIZE: HAP's accessibility checklist -->
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+            alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's accessibility checklist: Non-negotiable rules</h3>
+            <p>After my accessibility failure, I created a systematic checklist that I follow for every single
+              AI-generated [TASK]. These rules are non-negotiable — I never skip them, no matter how rushed I am:</p>
+            <ul class="mt-1">
+              <!-- CUSTOMIZE: 5-6 specific accessibility checks for this topic -->
+              <li><strong>[RULE_1]</strong> — [Detailed explanation]</li>
+              <li><strong>[RULE_2]</strong> — [Detailed explanation]</li>
+              <li><strong>[RULE_3]</strong> — [Detailed explanation]</li>
+              <li><strong>[RULE_4]</strong> — [Detailed explanation]</li>
+              <li><strong>[RULE_5]</strong> — [Detailed explanation]</li>
+              <li><strong>[RULE_6]</strong> — [Detailed explanation]</li>
+            </ul>
+            <p class="mt-1">Prof. Teeters made this crystal clear: "[PROF_TEETERS_QUOTE about accessibility being
+              requirement, users deserving access, AI won't protect them - you have to]" That lesson is now the
+              foundation of my entire AI workflow. I request accessibility first, implement it correctly, and test it
+              thoroughly. Every. Single. Time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Optimizing [Topic] Performance with AI -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Optimizing [TOPIC] performance with AI</h2>
+        <p class="mb-2">[HAP's introduction: AI needs explicit guidance for performance, doesn't prioritize
+          optimization unless you request it, learned this through specific failure. ~100 words]</p>
+
+        <h3 class="mt-3">Remembering [KEY_PERFORMANCE_CONCEPT] from Station [N]</h3>
+        <p class="mt-1">[HAP recalls what Prof. Teeters taught in earlier station about performance for this topic.
+          ~75 words]</p>
+
+        <h3 class="mt-3">The challenge: [SPECIFIC_PERFORMANCE_ISSUE]</h3>
+        <p class="mt-1">[HAP's story about building something that worked on laptop but failed on mobile. What went
+          wrong and why. ~100 words]</p>
+
+        <h3 class="mt-3">The performance-focused prompt</h3>
+        <p class="mt-1">[HAP explains how to request optimization explicitly. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Performance optimization prompt for this topic -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ Performance optimization prompt:</div>
+          <pre><code class="language-text">Optimize this [TASK] for [DEVICE/CONTEXT] performance with these requirements:
+
+Performance constraints:
+- [PERFORMANCE_REQUIREMENT_1]
+- [PERFORMANCE_REQUIREMENT_2]
+- [PERFORMANCE_REQUIREMENT_3]
+- [PERFORMANCE_REQUIREMENT_4]
+
+[Then describe the task you need...]</code></pre>
+        </div>
+
+        <h3 class="mt-3">Before and after: Performance comparison</h3>
+        <p class="mt-1">[HAP introduces the comparison. ~20 words]</p>
+
+        <!-- CUSTOMIZE: Show performance-poor code -->
+        <div class="warning-box mt-2">
+          <h3>❌ [POOR_PERFORMANCE_DESCRIPTION]</h3>
+          <pre><code class="language-css">/* [TASK] - [PERFORMANCE_PROBLEM] */
+[SLOW_CODE]
+/* ❌ [PROBLEM_1] */
+/* ❌ [PROBLEM_2] */
+/* ❌ [PROBLEM_3] */</code></pre>
+          <p class="mt-1"><strong>Why this [STUTTERS/LAGS/FAILS]:</strong> [Technical explanation of performance
+            problem - what browser has to do, why it's slow. ~75 words]</p>
+        </div>
+
+        <p class="mt-2">Now here's the [OPTIMIZED_VERSION] that AI generates when I request performance explicitly:
+        </p>
+
+        <!-- CUSTOMIZE: Show performance-optimized code -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ [OPTIMIZED_DESCRIPTION]</div>
+          <pre><code class="language-css">/* [TASK] - [OPTIMIZED_PROPERTIES] */
+[FAST_CODE]
+/* ✅ [BENEFIT_1] */
+/* ✅ [BENEFIT_2] */
+/* ✅ [BENEFIT_3] */</code></pre>
+          <p class="code-comment mt-1"><strong>Why this is [SMOOTH/FAST]:</strong> [Technical explanation of why
+            optimized approach works - GPU, no layout recalc, etc. ~75 words]</p>
+        </div>
+
+        <!-- CUSTOMIZE: HAP's performance rule -->
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP the apprentice learner with his study book and tools" width="150" height="150"
+            class="hap-note-image" decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's performance rule: [TESTING_RITUAL]</h3>
+            <p>[First paragraph: Prof. Teeters' testing requirement - specific device, why it matters. ~75 words]</p>
+            <p class="mt-1">[Second paragraph: What this taught HAP about AI's defaults - optimizes for correctness
+              not performance. ~75 words]</p>
+            <p class="mt-1">[Third paragraph: HAP's workflow - explicit requests, explicit forbidding, testing
+              protocol. Both requirements non-negotiable. ~75 words]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Try It Yourself - AI Challenge -->
+    <section class="content-section">
+      <h2>Try it yourself: AI [TOPIC] challenge</h2>
+      <p class="mt-1">Ready to practice everything you've learned? This challenge tests your prompt crafting skills,
+        your verification process, and your ability to apply concepts from Stations 1-5 through AI collaboration. The
+        goal isn't just to get AI to generate code — it's to generate code that meets professional standards for
+        accessibility, performance, and quality!</p>
+
+      <!-- CUSTOMIZE: Specific hands-on challenge for this topic -->
+      <div class="challenge-box mt-2">
+        <h3>🎯 The challenge: [CHALLENGE_TITLE]</h3>
+        <p class="mt-1">[Description of what students will create using AI assistance. ~50 words]</p>
+
+        <h4 class="mt-2">Requirements:</h4>
+        <ul class="mt-1">
+          <!-- CUSTOMIZE: 4-5 specific requirements -->
+          <li><strong>Performance:</strong> [PERFORMANCE_REQUIREMENT]</li>
+          <li><strong>Accessibility:</strong> [ACCESSIBILITY_REQUIREMENT]</li>
+          <li><strong>Usability:</strong> [USABILITY_REQUIREMENT]</li>
+          <li><strong>Timing:</strong> [TIMING_REQUIREMENT]</li>
+          <li><strong>Maintainability:</strong> [MAINTAINABILITY_REQUIREMENT]</li>
+        </ul>
+
+        <h4 class="mt-2">Your mission (5 steps):</h4>
+        <ol class="mt-1">
+          <li><strong>Craft a detailed prompt</strong> with all requirements specified (use what you learned in
+            Sections 3-6)</li>
+          <li><strong>Review AI's response</strong> for correctness against the requirements checklist</li>
+          <li><strong>Test [TESTING_METHOD]</strong> using [TESTING_TOOL]</li>
+          <li><strong>Verify [VERIFICATION_ASPECT]</strong> - [WHAT_TO_CHECK]</li>
+          <li><strong>Refine if needed</strong> - If anything is missing, write a follow-up prompt to fix it</li>
+        </ol>
+      </div>
+
+      <!-- CUSTOMIZE: Success criteria and tips -->
+      <div class="analysis-grid mt-2">
+        <div class="analysis-point">
+          <h3>✅ Success criteria</h3>
+          <ul class="mt-1">
+            <!-- CUSTOMIZE: 5-6 specific success criteria -->
+            <li>[SUCCESS_CRITERION_1]</li>
+            <li>[SUCCESS_CRITERION_2]</li>
+            <li>[SUCCESS_CRITERION_3]</li>
+            <li>[SUCCESS_CRITERION_4]</li>
+            <li>[SUCCESS_CRITERION_5]</li>
+            <li>[SUCCESS_CRITERION_6]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>💡 HAP's tips for the challenge</h3>
+          <ul class="mt-1">
+            <!-- CUSTOMIZE: 5-6 specific tips for this challenge -->
+            <li>[TIP_1]</li>
+            <li>[TIP_2]</li>
+            <li>[TIP_3]</li>
+            <li>[TIP_4]</li>
+            <li>[TIP_5]</li>
+            <li>[TIP_6]</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: HAP's Rules for Working with AI -->
+    <section class="content-section">
+      <div class="tips-container">
+        <h2 class="section-heading-centered">HAP's rules for working with AI</h2>
+        <p class="mb-2">After months of working with AI for [TOPIC], I've developed six non-negotiable rules. These
+          aren't suggestions — they're requirements that Prof. Teeters approves and enforces. Following these rules is
+          the difference between AI being helpful versus AI being harmful.</p>
+
+        <!-- CUSTOMIZE: 6 numbered rules for working with AI on this topic -->
+        <div class="tip-card">
+          <div class="tip-number">1</div>
+          <div>
+            <h3>[RULE_1_TITLE]</h3>
+            <p>[Detailed explanation of rule 1 - what to do, why it matters, consequences of ignoring. ~100 words]</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">2</div>
+          <div>
+            <h3>[RULE_2_TITLE]</h3>
+            <p>[Detailed explanation of rule 2. ~100 words]</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">3</div>
+          <div>
+            <h3>[RULE_3_TITLE]</h3>
+            <p>[Detailed explanation of rule 3. ~100 words]</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">4</div>
+          <div>
+            <h3>[RULE_4_TITLE]</h3>
+            <p>[Detailed explanation of rule 4. ~100 words]</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">5</div>
+          <div>
+            <h3>[RULE_5_TITLE]</h3>
+            <p>[Detailed explanation of rule 5. ~100 words]</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">6</div>
+          <div>
+            <h3>[RULE_6_TITLE]</h3>
+            <p>[Detailed explanation of rule 6. ~100 words]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Advanced Prompt Strategies -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Advanced prompt strategies</h2>
+        <p class="mb-2">Real AI collaboration isn't one-shot perfection — it's conversational refinement. I learned
+          that the best results come from treating AI like a colleague I'm working with, not a magic wand I wave once.
+          These advanced prompts help me iterate, troubleshoot, and refine AI output safely. Prof. Teeters calls this
+          "conversational refinement" and it's how professionals actually work with AI.</p>
+
+        <h3 class="mt-3">Iteration prompt for refinement</h3>
+        <p class="mt-1">[When to use this - code works but doesn't feel right. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Refinement prompt template for this topic -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Refinement prompt:</div>
+          <pre><code class="language-text">Revise this [TASK] code. Keep the same technical approach
+([KEY_REQUIREMENTS]) but adjust [ASPECT] to feel more [GOAL].
+
+Current code:
+[paste the code AI generated]
+
+Make it [SPECIFIC_IMPROVEMENT_REQUEST].</code></pre>
+          <p class="code-comment mt-1"><strong>When to use this:</strong> [Specific scenarios where refinement is
+            needed. ~50 words]</p>
+        </div>
+
+        <h3 class="mt-3">Troubleshooting prompt for problems</h3>
+        <p class="mt-1">[When to use this - something doesn't work. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Debugging prompt template -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Debugging prompt:</div>
+          <pre><code class="language-text">This [TASK] doesn't work correctly: [describe issue].
+
+Current code:
+[paste the problematic code]
+
+Explain what might be wrong with the current implementation,
+then provide a corrected version that maintains [REQUIREMENTS].
+
+Specific problem: [DETAILED_PROBLEM_DESCRIPTION]</code></pre>
+          <p class="code-comment mt-1"><strong>When to use this:</strong> [Specific debugging scenarios. ~50 words]
+          </p>
+        </div>
+
+        <h3 class="mt-3">Safety prompt for production code</h3>
+        <p class="mt-1">[When to use this - refactoring existing working code. ~30 words]</p>
+
+        <!-- CUSTOMIZE: Safe refactoring prompt -->
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Safe refactoring prompt:</div>
+          <pre><code class="language-text">Refactor this [TASK] without breaking existing functionality.
+Preserve all:
+- [CRITICAL_FEATURE_1]
+- [CRITICAL_FEATURE_2]
+- [CRITICAL_FEATURE_3]
+- [CRITICAL_FEATURE_4]
+
+Current code:
+[paste existing working code]
+
+Goal: [REFACTORING_GOAL] while maintaining everything that currently works.</code></pre>
+          <p class="code-comment mt-1"><strong>When to use this:</strong> [Production code scenarios. ~50 words]</p>
+        </div>
+
+        <!-- CUSTOMIZE: HAP's workflow evolution story -->
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP the apprentice learner with his study book and tools" width="150" height="150"
+            class="hap-note-image" decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's workflow evolution: From one-shot to conversational</h3>
+            <p>[First paragraph: How HAP used to treat AI - vending machine approach, frustration with imperfection.
+              ~75 words]</p>
+            <p class="mt-1">[Second paragraph: Prof. Teeters' teaching - AI collaboration is iterative, not
+              transactional. ~75 words]</p>
+            <p class="mt-1">[Third paragraph: HAP's current workflow - detailed initial prompt, review, targeted
+              refinement, verify. Faster and better results. ~75 words]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: When NOT to Use AI -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>When NOT to use AI</h2>
+        <p class="mb-2">AI is powerful for [TOPIC], but it's not always the right tool. Prof. Teeters taught me to
+          recognize situations where manual work is better than AI assistance. Using AI when you shouldn't is worse
+          than not using AI at all — it creates dependencies on tools for things you should understand deeply yourself.
+          Understanding when NOT to use AI is just as important as knowing when to use it.</p>
+
+        <!-- CUSTOMIZE: 3 scenarios when NOT to use AI for this topic -->
+        <div class="analysis-grid mt-2">
+          <div class="analysis-point">
+            <h3>[SCENARIO_1_TITLE]</h3>
+            <p><strong>[KEY_PRINCIPLE]</strong> [Detailed explanation of why AI shouldn't be used in this scenario.
+              ~100 words]</p>
+            <p class="mt-1">[Specific guidance for this scenario. ~50 words]</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>[SCENARIO_2_TITLE]</h3>
+            <p><strong>[KEY_PRINCIPLE]</strong> [Detailed explanation. ~100 words]</p>
+            <p class="mt-1">[Specific guidance. ~50 words]</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>[SCENARIO_3_TITLE]</h3>
+            <p><strong>[KEY_PRINCIPLE]</strong> [Detailed explanation. ~100 words]</p>
+            <p class="mt-1">[Specific guidance. ~50 words]</p>
+          </div>
+        </div>
+
+        <!-- CUSTOMIZE: Prof. Teeters' warning -->
+        <div class="warning-box mt-3">
+          <h3>🟠 Prof. Teeters' warning about AI and learning</h3>
+          <p class="mt-1"><strong>"[PROF_TEETERS_QUOTE_ABOUT_LEARNING]"</strong></p>
+          <p class="mt-1">[Context for the quote - when she said it, why. ~50 words]</p>
+          <p class="mt-1">[HAP's agreement and reflection - knowledge from Stations 1-5 makes AI valuable, without
+            understanding AI just creates dependency. ~100 words]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: Quick Reference - AI [Topic] Tasks -->
+    <section class="content-section">
+      <h2>Quick reference: AI [TOPIC] tasks</h2>
+      <p class="mt-1">Not every [TOPIC] task is equally suitable for AI assistance. I learned to evaluate each task
+        based on AI's strengths and limitations. This grid shows you what to expect from AI for different [TOPIC]
+        tasks and what verification steps are critical:</p>
+
+      <!-- CUSTOMIZE: 6-8 specific tasks with AI suitability ratings -->
+      <div class="overview-grid mt-2">
+        <div class="insight-card">
+          <h3><span class="insight-icon">✅</span> [TASK_1_TITLE]</h3>
+          <p class="stat-large">AI Use: Excellent</p>
+          <p><strong>Review step: [VERIFICATION_NEEDED]</strong></p>
+          <p>[Explanation of why AI excels at this task and what to verify. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">✅</span> [TASK_2_TITLE]</h3>
+          <p class="stat-large stat-teal">AI Use: Excellent</p>
+          <p><strong>Review step: [VERIFICATION_NEEDED]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">✅</span> [TASK_3_TITLE]</h3>
+          <p class="stat-large stat-green">AI Use: Good with guidance</p>
+          <p><strong>Review step: [VERIFICATION_NEEDED]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">⚠️</span> [TASK_4_TITLE]</h3>
+          <p class="stat-large stat-yellow">AI Use: Unreliable without prompt</p>
+          <p><strong>Review step: [VERIFICATION_NEEDED]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">⚠️</span> [TASK_5_TITLE]</h3>
+          <p class="stat-large stat-yellow">AI Use: Limited</p>
+          <p><strong>Review step: [VERIFICATION_NEEDED]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">🛑</span> [TASK_6_TITLE]</h3>
+          <p class="stat-large stat-red">AI Use: Not recommended</p>
+          <p><strong>Review step: [WHAT_TO_DO_INSTEAD]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">🛑</span> [TASK_7_TITLE]</h3>
+          <p class="stat-large stat-red">AI Use: Cannot do</p>
+          <p><strong>Review step: [WHAT_YOU_MUST_DO]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">✅</span> [TASK_8_TITLE]</h3>
+          <p class="stat-large stat-teal">AI Use: Helpful for suggestions</p>
+          <p><strong>Review step: [VERIFICATION_NEEDED]</strong></p>
+          <p>[Explanation. ~75 words]</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: Learning Objectives Checklist -->
+    <section class="content-section">
+      <h2>Learning objectives checklist</h2>
+      <p class="mt-1"><strong>Congratulations on completing all six stations of HAP's Learning Lab!</strong> Before
+        you finish, let me share one final set of questions to verify you've mastered the principles of responsible AI
+        use for [TOPIC]. Can you confidently say yes to these?</p>
+
+      <!-- CUSTOMIZE: 6-8 categories of learning objectives specific to this topic -->
+      <div class="analysis-grid mt-2">
+        <div class="analysis-point">
+          <h3>[CATEGORY_1: Understanding AI capabilities]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>[CATEGORY_2: Prompt engineering skills]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+            <li>[OBJECTIVE_6]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>[CATEGORY_3: Verification workflow]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+            <li>[OBJECTIVE_6]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>[CATEGORY_4: Professional responsibility]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+            <li>[OBJECTIVE_6]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>[CATEGORY_5: Stations 1-5 integration]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+            <li>[OBJECTIVE_6]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>[CATEGORY_6: Iteration and refinement]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>[CATEGORY_7: Critical evaluation]</h3>
+          <ul class="mt-1">
+            <li>[OBJECTIVE_1]</li>
+            <li>[OBJECTIVE_2]</li>
+            <li>[OBJECTIVE_3]</li>
+            <li>[OBJECTIVE_4]</li>
+            <li>[OBJECTIVE_5]</li>
+            <li>[OBJECTIVE_6]</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CUSTOMIZE: Prof. Teeters' final message -->
+      <div class="hap-note-callout mt-3">
+        <img
+          src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+          alt="HAP the apprentice learner with his study book and tools" width="150" height="150"
+          class="hap-note-image" decoding="async" loading="lazy">
+        <div class="hap-note-content">
+          <h3>Prof. Teeters on completing all six stations</h3>
+          <p><strong>"[PROF_TEETERS_OPENING_QUOTE about HAP's growth]"</strong></p>
+          <p class="mt-1">[First paragraph: Prof. Teeters' reflection on HAP's journey - from confused beginner to
+            capable collaborator. What she's most proud of. ~100 words]</p>
+          <p class="mt-1">[Second paragraph: Final wisdom - key principles to remember, how to use this knowledge
+            responsibly. Prof. Teeters' parting advice. ~100 words with 🟠 at end]</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav aria-label="Page navigation" class="page-navigation bottom-nav">
+    <a href="station5.html" class="nav-link prev-link">← Previous: Station 5</a>
+    <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+  </nav>
+
+  <footer class="footer">
+    <p><strong>HAP's Learning Lab</strong> | Station 6: AI Assistance for [TOPIC]</p>
+
+    <!-- CUSTOMIZE: HAP's final mantra about AI responsibility for this topic -->
+    <p class="footer-reminder readable-width">
+      [HAP's memorable quote summarizing the key lessons about using AI responsibly for this topic - always request
+      accessibility, verify everything, understand the code, you own it. ~50 words] 🔬 — HAP
+    </p>
+
+    <div class="footer-copyright">
+      <img
+        src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+        alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80" height="80"
+        decoding="async" loading="lazy">
+      <div>
+        <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+        <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary
+          educational innovations.</p>
+        <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual
+          elements created with AI assistance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prism.js for syntax highlighting (loaded last for performance) -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js" defer></script>
+
+  <!-- Copy button functionality for code blocks -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('pre').forEach(function (codeBlock) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        button.addEventListener('click', function () {
+          const code = codeBlock.querySelector('code');
+          const text = code ? code.textContent : codeBlock.textContent;
+          navigator.clipboard.writeText(text).then(function () {
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            setTimeout(function () {
+              button.textContent = 'Copy';
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+        wrapper.appendChild(codeBlock);
+        wrapper.appendChild(button);
+      });
+    });
+  </script>
+
+  <!-- Easter Egg System -->
+  <script src="../js/easter-egg.js"></script>
+
+  <!--
+  HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+  HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+  Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+  Visual elements created with AI assistance.
+  -->
+</body>
+
+</html>
