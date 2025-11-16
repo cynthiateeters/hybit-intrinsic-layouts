@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CUSTOMIZE: Update title with station number and topic -->
+    <title>HAP's Learning Lab - Station 5: Intrinsic Components</title>
+
+    <!-- CUSTOMIZE: Update description with station-specific content -->
+    <meta name="description"
+        content="Join HAP as he learns container queries, container units, and intrinsic media to build self-aware components that adapt to any space!">
+
+    <!-- OPTIONAL: Add Open Graph image for social sharing -->
+    <meta property="og:image"
+        content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+
+    <!-- Standard HAP favicon (do not modify) -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- Preconnect for Cloudinary CDN (improves image loading) -->
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+    <!-- HAP Design System (required) -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Syntax highlighting theme (optional - only if showing code) -->
+    <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Accessibility skip link (required) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with HAP avatar and introduction (required) -->
+    <header class="header">
+        <div class="header-content">
+            <div class="hybit-welcome">
+                <div class="hybit-avatar">
+                    <!-- CUSTOMIZE: Choose appropriate HAP image for station theme -->
+                    <!-- Options: hap-laptop (studying), hap-confused-map (confused), hap-holding-paintbrush (creative) -->
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+                        alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+                        fetchpriority="high">
+                </div>
+                <div>
+                    <!-- CUSTOMIZE: Update station title -->
+                    <h1>HAP's Learning Lab: Station 5 - Intrinsic Components</h1>
+
+                    <!-- CUSTOMIZE: Update subtitle to explain what this station teaches -->
+                    <p class="subtitle">Components that adapt to container, not viewport</p>
+                </div>
+            </div>
+
+            <!-- CUSTOMIZE: HAP's introduction in first-person apprentice voice -->
+            <!-- Follow hap-voice Skill - humble, shares mistakes, references Prof. Teeters -->
+            <div class="intro-box">
+                <p><strong>Welcome to Station 5!</strong> After mastering grids (Station 4), I built a "responsive" card using viewport media queries. Beautiful! Then I placed it in a 300px sidebar—viewport said "desktop" but my card broke! Prof. Teeters asked: "HAP, why is your component asking 'how wide is the SCREEN?' when it should ask 'how wide is MY CONTAINER?'" That's when I learned container queries, container units (`cqi`, `cqmin`), and intrinsic media (`aspect-ratio`, `object-fit`). My components became self-aware! 🟠</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Top navigation (required) -->
+    <nav aria-label="Page navigation" class="page-navigation top-nav">
+        <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+
+        <!-- CUSTOMIZE: Update station number -->
+        <div class="page-position" data-page="5">Station 5 of 6</div>
+    </nav>
+
+    <!-- Main content area -->
+    <main id="main-content" class="content-container">
+
+        <!-- SECTION 1: What You'll Learn (required) -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">What You'll Learn at This Station</h2>
+
+            <!-- CUSTOMIZE: HAP's discovery story - specific example of his struggle -->
+            <div class="intro-box">
+                <p><strong>HAP's Discovery:</strong> I built cards with viewport media queries—perfect on my laptop! Then I put the same card in a sidebar. Viewport still said "desktop" (1200px) but container was narrow (300px). Card broke! Prof. Teeters taught me container queries: components ask "How wide is MY space?" not "How wide is the screen?" Container units (`cqi`) make spacing scale with ACTUAL container width. Self-aware components work anywhere! 🔬</p>
+            </div>
+
+            <!-- CUSTOMIZE: 3 insight cards showing key learning outcomes -->
+            <div class="overview-grid mt-2">
+                <div class="insight-card">
+                    <!-- CUSTOMIZE: First key learning point -->
+                    <h3><span class="insight-icon">📦</span> Container-Aware Components</h3>
+                    <p class="stat-large">@container (min-width: 400px)</p>
+                    <p><strong>Components ask "How wide is MY container?"</strong></p>
+                    <p>Container queries let components respond to actual space given, not viewport. Container units (`cqi`, `cqmin`) make spacing scale with container. Your components work anywhere—sidebar, main content, full-width—adapting to the space they're actually given!</p>
+                </div>
+
+                <div class="insight-card">
+                    <!-- CUSTOMIZE: Second key learning point -->
+                    <h3><span class="insight-icon">🖼️</span> Media That Adapts</h3>
+                    <p class="stat-large stat-teal">aspect-ratio: 16 / 9</p>
+                    <p><strong>Images/videos maintain proportions intrinsically</strong></p>
+                    <p><code>aspect-ratio</code> maintains proportions, <code>object-fit</code> controls display, <code>object-position</code> controls cropping. Together they make images and videos adapt to containers intrinsically—no fixed dimensions, no distortion!</p>
+                </div>
+
+                <div class="insight-card">
+                    <!-- CUSTOMIZE: Third key learning point -->
+                    <h3><span class="insight-icon">⚙️</span> Complete Intrinsic Systems</h3>
+                    <p class="stat-large stat-brown">5 stations unified</p>
+                    <p><strong>Everything responds to context</strong></p>
+                    <p>Combining intrinsic grids (Station 4), container queries with container units (Station 5), contextual spacing with <code>:has()</code> (Station 3), and intrinsic media creates fully adaptive components. Everything responds to context: structure, spacing, layout, and media!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: HAP's Opening Story - Viewport Query Disaster -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>My Viewport Query Disaster</h2>
+
+                <p class="mb-2">After Station 4, I felt unstoppable! I had intrinsic grids that adapted automatically. Time to build the perfect card component. I wanted it "responsive," so I used viewport media queries:</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">My "perfect" responsive card:</div>
+                    <pre><code class="language-css">.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+/* Viewport query: "Is screen ≥ 768px?" */
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    padding: 2rem;
+    gap: 2rem;
+  }
+}
+
+/* Translation: "Desktop layout when viewport is wide" */</code></pre>
+                </div>
+
+                <p class="mt-2">On my 1440px laptop: Beautiful! Card switched to horizontal layout, generous padding and gaps. Perfect responsive design!</p>
+
+                <p class="mt-1">Then I built a page with a sidebar. Main content area (900px wide): Card looked great! Sidebar (300px wide): I placed the SAME card component there...</p>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-broke-things_qtbum4.jpg"
+                        alt="HAP surrounded by tangled code with an 'oops' expression" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Viewport Query Disaster:</h3>
+                        <p><strong>Viewport: 1440px (desktop)</strong> — Media query says: "Use desktop layout!" ✓</p>
+                        <p class="mt-1"><strong>Sidebar container: 300px (mobile-sized)</strong> — Card forced into horizontal layout in 300px space!</p>
+                        <p class="mt-1">Text overflowed. Image squished. Padding too big for narrow space. The card was asking "How wide is the SCREEN?" (1440px) when it should have been asking "How wide is MY CONTAINER?" (300px)!</p>
+                        <p class="mt-1">Same card, same viewport, different containers—but viewport queries can't tell the difference!</p>
+                    </div>
+                </div>
+
+                <div class="warning-box mt-2">
+                    <h3>Prof. Teeters' Intervention</h3>
+                    <p class="mt-1"><em>"HAP, stop. Your card is asking the wrong question. Viewport queries are extrinsic—they ask about the SCREEN, not the component's actual space. A card in a sidebar on a desktop screen still gets the desktop layout, even though it's in a tiny container!"</em></p>
+                    <p class="mt-1">She showed me container queries:</p>
+                    <pre class="mt-1"><code class="language-css">/* 1. Parent becomes a container */
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* 2. Card queries ITS container, not viewport */
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+@container card (min-width: 400px) {
+  .card {
+    flex-direction: row;
+    padding: 2rem;
+    gap: 2rem;
+  }
+}
+
+/* Translation: "Desktop layout when MY CONTAINER ≥ 400px" */</code></pre>
+                    <p class="mt-1"><strong>Me:</strong> "Wait... the card asks its CONTAINER how wide it is?!"</p>
+                    <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Exactly! Main content container (900px)? Card goes horizontal. Sidebar container (300px)? Card stays vertical. Same component, adapts to ACTUAL space given. That's intrinsic!"</em></p>
+                    <p class="mt-1"><strong>Me:</strong> "Components can be SELF-AWARE?!"</p>
+                </div>
+
+                <p class="mt-2">I tested the same card in three places:</p>
+                <ul class="mt-1">
+                    <li>Sidebar (300px container): Vertical layout, compact padding ✓</li>
+                    <li>Main content (900px container): Horizontal layout, generous spacing ✓</li>
+                    <li>Full-width hero (1200px container): Horizontal layout, maximum spacing ✓</li>
+                </ul>
+
+                <p class="mt-1">SAME component. THREE different containers. Perfect adaptation. No viewport queries needed!</p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Container Queries Fundamentals -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Container Queries Fundamentals</h2>
+
+                <p class="mb-2">Prof. Teeters sat me down to explain why viewport queries are extrinsic and container queries are intrinsic:</p>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>Why Viewport Queries Are Extrinsic</h3>
+                        <p><strong>They ask a global question:</strong> "How wide is the SCREEN?"</p>
+                        <pre class="mt-1"><code class="language-css">@media (min-width: 768px) {
+  .card { /* desktop layout */ }
+}
+
+/* Card in main (1200px viewport): Desktop ✓
+   Card in sidebar (1200px viewport): Desktop ✗
+   Viewport is same, containers different! */</code></pre>
+                        <p class="mt-1">Problem: Component can't know its ACTUAL space. It only knows screen size!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Why Container Queries Are Intrinsic</h3>
+                        <p><strong>They ask a local question:</strong> "How wide is MY CONTAINER?"</p>
+                        <pre class="mt-1"><code class="language-css">@container (min-width: 400px) {
+  .card { /* layout when container ≥ 400px */ }
+}
+
+/* Card in main (700px container): Desktop ✓
+   Card in sidebar (300px container): Mobile ✓
+   Adapts to ACTUAL space given! */</code></pre>
+                        <p class="mt-1">Solution: Component is self-aware! Adapts to container, not viewport!</p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Container query setup pattern:</div>
+                    <pre><code class="language-css">/* Step 1: Parent becomes a container */
+.card-container {
+  container-type: inline-size;  /* Query inline dimension (width) */
+  container-name: card;         /* Optional: name for specificity */
+}
+
+/* Step 2: Children query their container */
+@container card (min-width: 400px) {
+  .card {
+    flex-direction: row;  /* Horizontal when container ≥ 400px */
+  }
+}
+
+/* Works in ANY context: sidebar, main, full-width! */</code></pre>
+                </div>
+
+                <p class="mt-2">Then Prof. Teeters showed me something HUGE: <strong>container UNITS</strong>!</p>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>Container Units (The Game-Changer!)</h3>
+                        <ul class="mt-1">
+                            <li><code>cqi</code> - 1% of container inline-size (width in horizontal writing)</li>
+                            <li><code>cqb</code> - 1% of container block-size (height)</li>
+                            <li><code>cqmin</code> - Smaller of cqi or cqb</li>
+                            <li><code>cqmax</code> - Larger of cqi or cqb</li>
+                        </ul>
+                        <p class="mt-1"><strong>Why this matters:</strong> Spacing can scale with ACTUAL container width, not viewport!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Why Container Units &gt; Viewport Units</h3>
+                        <pre class="mt-1"><code class="language-css">/* Station 3: Viewport units */
+.card {
+  padding: clamp(1rem, 0.5rem + 1vw, 1.5rem);
+  /* Scales with viewport - same everywhere */
+}
+
+/* Station 5: Container units */
+.card {
+  padding: clamp(1rem, 0.5rem + 2cqi, 3rem);
+  /* Scales with CONTAINER - adapts to space! */
+}</code></pre>
+                        <p class="mt-1">Sidebar (300px): Compact padding. Main (900px): Generous padding. SAME CSS!</p>
+                    </div>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-brain-explodes_wu0or8.jpg"
+                        alt="HAP having a mind-blowing realization" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Container Units Mind Explosion:</h3>
+                        <p><strong>Me:</strong> "Wait... my SPACING can respond to the container width?!"</p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Exactly! Remember Station 3's computed slope pattern? <code>clamp(min, base + slope × vw, max)</code>? Same formula with container units: <code>clamp(1rem, 0.5rem + 2cqi, 3rem)</code>!"</em></p>
+                        <p class="mt-1"><strong>Me:</strong> "So padding scales with ACTUAL container, not screen? A card in a narrow sidebar gets compact spacing, same card in wide main content gets generous spacing—automatically?!"</p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"That's the magic! Container-relative spacing with computed slopes. It's intrinsic spacing taken to the next level!"</em></p>
+                    </div>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Container-relative spacing pattern (computed slopes!):</div>
+                    <pre><code class="language-css">.card {
+  /* Same pattern as Station 3, but with container units */
+  padding: clamp(1rem, 0.5rem + 2cqi, 3rem);
+  /* Formula: base (0.5rem) + slope (2% of container width) */
+
+  gap: clamp(0.5rem, 0.25rem + 1.5cqmin, 2rem);
+  /* Based on smaller container dimension */
+}
+
+/* Why computed slope instead of just cqi:
+   - clamp(1rem, 5cqi, 3rem) - jumps unpredictably
+   - clamp(1rem, 0.5rem + 2cqi, 3rem) - smooth scaling ✓ */</code></pre>
+                    <p class="code-comment mt-1">Just like viewport units from Station 3, use <code>base + slope × cqi</code> pattern for predictable scaling!</p>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Custom properties for container breakpoints:</div>
+                    <pre><code class="language-css">:root {
+  /* Container breakpoints (like viewport breakpoints) */
+  --container-sm: 400px;
+  --container-md: 600px;
+  --container-lg: 900px;
+}
+
+.card-container {
+  container-type: inline-size;
+}
+
+@container (min-width: var(--container-sm)) {
+  .card {
+    flex-direction: row;  /* Horizontal when container ≥ 400px */
+  }
+}
+
+@container (min-width: var(--container-md)) {
+  .card {
+    gap: var(--space-lg);  /* More spacing at medium+ */
+  }
+}</code></pre>
+                    <p class="code-comment mt-1">Systematic container breakpoints using custom properties—maintainable and semantic!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Intrinsic Media -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Intrinsic Media</h2>
+
+                <p class="mb-2">Container queries solved component layout. But Prof. Teeters asked: "HAP, what about images and videos? They need to adapt too!" She taught me intrinsic media properties:</p>
+
+                <!-- Analysis grid with 3 points (alternative layout) -->
+                <div class="analysis-grid">
+                    <div class="analysis-point">
+                        <h3>aspect-ratio - Maintain Proportions</h3>
+                        <pre class="mt-1"><code class="language-css">.video-wrapper {
+  aspect-ratio: 16 / 9;
+  /* Always 16:9 regardless of container size */
+}
+
+.square-image {
+  aspect-ratio: 1;
+  /* Always square (1:1) */
+}
+
+.portrait-image {
+  aspect-ratio: 3 / 4;
+  /* Portrait orientation */
+}</code></pre>
+                        <p class="mt-1"><strong>Why intrinsic:</strong> No fixed dimensions! Ratio maintained automatically as container changes!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>object-fit - How Content Fits</h3>
+                        <ul class="mt-1">
+                            <li><code>cover</code> - Fill container, crop edges (intrinsic - container defines boundary)</li>
+                            <li><code>contain</code> - Fit inside, letterbox if needed</li>
+                            <li><code>fill</code> - Stretch to fill (extrinsic - distorts content!)</li>
+                            <li><code>scale-down</code> - Smaller of contain or none</li>
+                        </ul>
+                        <p class="mt-1"><strong>Most common:</strong> <code>object-fit: cover</code> for images that fill space beautifully!</p>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>object-position - Cropping Control</h3>
+                        <pre class="mt-1"><code class="language-css">img {
+  object-fit: cover;
+  object-position: top left;
+  /* Crop from top-left */
+}
+
+img {
+  object-position: center;
+  /* Default: crop from center */
+}
+
+img {
+  object-position: 50% 25%;
+  /* Custom: horizontal center, 25% from top */
+}</code></pre>
+                        <p class="mt-1"><strong>Smart cropping:</strong> Control which part of image shows when space is tight!</p>
+                    </div>
+                </div>
+
+                <!-- Code example -->
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Responsive images without fixed dimensions:</div>
+                    <pre><code class="language-css">img {
+  max-width: 100%;           /* Never overflow container */
+  height: auto;              /* Maintain aspect ratio */
+  aspect-ratio: 16 / 9;      /* Explicit ratio */
+  object-fit: cover;         /* Fill space, crop edges */
+}
+
+/* Result: Image adapts to ANY container!
+   - Sidebar (300px): Image 300px wide, maintains 16:9
+   - Main (900px): Image 900px wide, maintains 16:9
+   - No media queries, no JavaScript! */</code></pre>
+                    <p class="code-comment mt-1">Fully intrinsic images—respond to container, maintain proportions, never distort!</p>
+                </div>
+
+                <div class="prompt-box mt-2">
+                    <div class="prompt-label">Custom properties for aspect ratios:</div>
+                    <pre><code class="language-css">:root {
+  /* Systematic aspect ratios */
+  --aspect-wide: 16 / 9;
+  --aspect-square: 1;
+  --aspect-portrait: 3 / 4;
+  --aspect-ultrawide: 21 / 9;
+}
+
+.hero-image {
+  aspect-ratio: var(--aspect-wide);
+  object-fit: cover;
+}
+
+.avatar {
+  aspect-ratio: var(--aspect-square);
+  object-fit: cover;
+}
+
+.product-photo {
+  aspect-ratio: var(--aspect-portrait);
+  object-fit: cover;
+}</code></pre>
+                    <p class="code-comment mt-1">Semantic naming makes media systematic and maintainable!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Complete Intrinsic Component -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Complete Intrinsic Component</h2>
+
+                <p class="mb-2">Prof. Teeters said: "HAP, you've learned 5 stations worth of intrinsic techniques. Let's combine them ALL into one perfect component!"</p>
+
+                <div class="prompt-box">
+                    <div class="prompt-label">Complete intrinsic component (combining all 5 stations):</div>
+                    <pre><code class="language-css">:root {
+  /* Station 3: Fluid spacing with computed slopes */
+  --space-sm: clamp(1rem, 0.75rem + 0.625vw, 1.5rem);
+  --space-md: clamp(1.5rem, 1rem + 1.25vw, 2.5rem);
+
+  /* Station 5: Container breakpoints */
+  --container-sm: 400px;
+
+  /* Station 5: Aspect ratios */
+  --aspect-wide: 16 / 9;
+}
+
+/* Container setup */
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* Base card: Compact vertical layout */
+.card {
+  display: flex;
+  flex-direction: column;
+
+  /* Station 5: Container-relative spacing with computed slope */
+  padding: clamp(1rem, 0.5rem + 2cqi, 3rem);
+  gap: clamp(0.5rem, 0.25rem + 1.5cqmin, 2rem);
+}
+
+/* Station 3 + 5: Content-aware with container units */
+.card:has(img) {
+  padding: clamp(1.5rem, 0.75rem + 3cqi, 4rem);
+  /* More padding when has image, scales with container! */
+}
+
+/* Station 5: Container query for horizontal layout */
+@container card (min-width: var(--container-sm)) {
+  .card {
+    flex-direction: row;
+    gap: var(--space-md);
+  }
+}
+
+/* Station 5: Intrinsic media */
+.card img {
+  aspect-ratio: var(--aspect-wide);
+  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}</code></pre>
+                </div>
+
+                <div class="analysis-grid mt-2">
+                    <div class="analysis-point">
+                        <h3>Why This Is Fully Intrinsic</h3>
+                        <ol class="mt-1">
+                            <li><strong>Container queries (St5):</strong> Responds to actual space given</li>
+                            <li><strong>Container units (St5):</strong> Spacing scales with container width</li>
+                            <li><strong>:has() selector (St3):</strong> Spacing adapts to content presence</li>
+                            <li><strong>aspect-ratio (St5):</strong> Media maintains proportions</li>
+                            <li><strong>Custom properties (St1):</strong> Systematic and maintainable</li>
+                        </ol>
+                    </div>
+
+                    <div class="analysis-point">
+                        <h3>Self-Aware Component in Action</h3>
+                        <ul class="mt-1">
+                            <li><strong>Sidebar (300px):</strong> Vertical layout, compact padding (0.5rem + 6px = ~11px), maintains 16:9 image</li>
+                            <li><strong>Main (700px):</strong> Horizontal layout, medium padding (0.5rem + 14px = ~24px), maintains 16:9 image</li>
+                            <li><strong>Full-width (1200px):</strong> Horizontal layout, generous padding (0.5rem + 24px = ~32px), maintains 16:9 image</li>
+                        </ul>
+                        <p class="mt-1"><strong>Same HTML, same CSS—perfect adaptation!</strong></p>
+                    </div>
+                </div>
+
+                <!-- HAP's breakthrough moment callout -->
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-scientist_safwtg.jpg"
+                        alt="HAP in scientist mode with lab equipment" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Complete Intrinsic Victory:</h3>
+                        <p><strong>Me:</strong> "I tested this component in sidebar, main content, and full-width hero. Every placement: PERFECT!"</p>
+                        <p class="mt-1"><strong>Sidebar test:</strong> Component asked its 300px container, switched to vertical, used compact padding scaled to 300px width, image maintained 16:9 ratio!</p>
+                        <p class="mt-1"><strong>Main content test:</strong> Same component asked its 700px container, switched to horizontal, used generous padding scaled to 700px width, image still 16:9!</p>
+                        <p class="mt-1"><strong>Full-width test:</strong> Same component asked its 1200px container, horizontal layout, maximum padding scaled to 1200px, image STILL 16:9!</p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"That's the power of complete intrinsic design, HAP. Your component is truly self-aware!"</em></p>
+                    </div>
+                </div>
+
+                <p class="mt-2">This component combines everything I learned:</p>
+                <ul class="mt-1">
+                    <li>Station 1: Custom properties for systematic values</li>
+                    <li>Station 2: Content-based sizing (fit-content, min-content)</li>
+                    <li>Station 3: Fluid spacing with computed slopes + :has() content-awareness</li>
+                    <li>Station 4: Intrinsic grids (could place multiple cards in grid)</li>
+                    <li>Station 5: Container queries, container units, intrinsic media!</li>
+                </ul>
+
+                <p class="mt-1"><strong>Everything responds to context. That's intrinsic design!</strong></p>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Quick Reference -->
+        <section class="content-section">
+            <h2 class="section-heading-centered">Quick Reference</h2>
+
+            <div class="tips-grid mt-2">
+                <div class="tip-card">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <h3>Container query setup</h3>
+                        <p><code>container-type: inline-size</code> on parent, <code>@container (min-width: 400px)</code> on children. Components ask "How wide is MY container?" not "How wide is the screen?"</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <h3>Container units</h3>
+                        <p><code>cqi</code>, <code>cqb</code>, <code>cqmin</code>, <code>cqmax</code> - Better than viewport units for components! Spacing scales with ACTUAL container, not viewport.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <h3>Container-relative spacing</h3>
+                        <p><code>padding: clamp(1rem, 0.5rem + 2cqi, 3rem)</code> - Same computed slope pattern as Station 3, but with container units! Use <code>base + slope × cqi</code>, not arbitrary percentages.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <h3>Intrinsic media</h3>
+                        <p><code>aspect-ratio: 16 / 9</code>, <code>object-fit: cover</code>, <code>object-position: center</code> - Images/videos adapt to containers, maintain proportions, no distortion!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <h3>Complete pattern</h3>
+                        <p>Container queries + container units + :has() + aspect-ratio + custom properties = fully intrinsic component. Everything responds to context!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">6</div>
+                    <div>
+                        <h3>Custom properties</h3>
+                        <p><code>--container-sm: 400px</code>, <code>--aspect-wide: 16 / 9</code> - Systematic container breakpoints and aspect ratios for maintainable code.</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">7</div>
+                    <div>
+                        <h3>Why container &gt; viewport</h3>
+                        <p>Container queries respond to ACTUAL space given, not screen size. Same component works in sidebar (300px), main (700px), or full-width (1200px)—adapts perfectly!</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-number">8</div>
+                    <div>
+                        <h3>Cross-references</h3>
+                        <p>→ Station 3: <code>:has()</code> for content-aware spacing<br>
+                            → Station 4: Bento-box grids with adaptive widgets<br>
+                            → Station 6: Verify AI uses container queries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Learning Objectives Checklist -->
+        <section class="content-section">
+            <div class="topic-section">
+                <h2>Check Your Understanding</h2>
+
+                <p class="mb-2">Before moving to Station 6, make sure these concepts are clear:</p>
+
+                <div class="hap-info-grid">
+                    <div>
+                        <h3>Understanding</h3>
+                        <ul>
+                            <li>Explain why viewport queries are extrinsic</li>
+                            <li>Describe how container queries are intrinsic</li>
+                            <li>Understand container units (<code>cqi</code>, <code>cqmin</code>)</li>
+                            <li>Know how <code>aspect-ratio</code> maintains proportions</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Application</h3>
+                        <ul>
+                            <li>Set up container queries with <code>container-type</code></li>
+                            <li>Use container units for component-relative spacing</li>
+                            <li>Apply <code>aspect-ratio</code> and <code>object-fit</code> to media</li>
+                            <li>Combine <code>:has()</code> with container units</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3>Creation</h3>
+                        <ul>
+                            <li>Build self-aware components working anywhere</li>
+                            <li>Create bento-box layouts with adaptive widgets</li>
+                            <li>Design complete intrinsic component systems</li>
+                            <li>Implement container-relative spacing with computed slopes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hap-note-callout mt-2">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-celebrating_bljvgl.jpg"
+                        alt="HAP celebrating a coding success" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
+                    <div class="hap-note-content">
+                        <h3>HAP's Closing Thoughts:</h3>
+                        <p>Components are SELF-AWARE! Container queries ask "what space am I given?" Container units make spacing scale with ACTUAL container, not viewport. Same component works in sidebar (300px), main content (700px), or full-width (1200px)—adapts perfectly!</p>
+                        <p class="mt-1">Images maintain aspect ratios with <code>aspect-ratio</code>. Spacing responds to content via <code>:has()</code>. EVERYTHING IS INTRINSIC!</p>
+                        <p class="mt-1">Stations 1-5 complete: intrinsic widths, content-based sizing, fluid spacing, responsive grids, AND self-aware components. Container units (<code>cqi</code>) make spacing scale with ACTUAL container. Prof. Teeters was right: "Ask 'How wide is MY space?' not 'How wide is the viewport?'" Now on to Station 6 for AI assistance! 🟠</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Bottom navigation (required) -->
+    <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+        <a href="station4.html" class="nav-link prev-link">← Previous: Station 4 - Flexible Grids</a>
+        <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+        <a href="station6.html" class="nav-link next-link">Next: Station 6 - AI Assistance →</a>
+    </nav>
+
+    <!-- Footer (required - do not modify) -->
+    <footer class="footer">
+        <p><strong>HAP's Learning Lab</strong> | An AI-Enhanced Educational Experience by Prof. Cynthia Teeters</p>
+
+        <!-- CUSTOMIZE: HAP's closing mantra/quote about this station's topic -->
+        <p class="footer-reminder">
+            Container queries make components self-aware! Prof. Teeters taught me to ask "How wide is MY space?" not "How wide is the viewport?" Container units (<code>cqi</code>) make spacing scale with ACTUAL container. <code>@container (min-width: var(--container-sm))</code> = perfection! 🟠 — HAP
+        </p>
+
+        <div class="footer-copyright">
+            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80"
+                height="80" decoding="async" loading="lazy">
+            <div>
+                <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+                <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are
+                    proprietary educational innovations.</p>
+                <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+                    Visual elements created with AI assistance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Easter egg system (required) -->
+    <script src="../js/easter-egg.js"></script>
+
+    <!-- Syntax highlighting (optional - only if showing code) -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
+        integrity="sha384-MXybTpajaBV0AkcBaCPT4KIvo0FzoCiWXgcihYsw4FUkEz0Pv3JGV6tk2G8vJtDc"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"
+        integrity="sha384-HkMr0bZB9kBW4iVtXn6nd35kO/L/dQtkkUBkL9swzTEDMdIe5ExJChVDSnC79aNA"
+        crossorigin="anonymous"></script>
+
+    <!-- Copy button functionality (optional - only if showing code) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add copy buttons to all code blocks in .prompt-box
+            document.querySelectorAll('.prompt-box pre').forEach(pre => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.setAttribute('aria-label', 'Copy code to clipboard');
+
+                button.addEventListener('click', async () => {
+                    const code = pre.querySelector('code').textContent;
+                    try {
+                        await navigator.clipboard.writeText(code);
+                        button.classList.add('copied');
+                        button.textContent = 'Copied';
+                        setTimeout(() => {
+                            button.classList.remove('copied');
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                    }
+                });
+
+                pre.appendChild(button);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+<!--
+HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+Visual elements created with AI assistance.
+-->
