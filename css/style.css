@@ -679,12 +679,12 @@ h2 {
 
 h3 {
   font-size: clamp(1.1rem, 2.5vw + 0.5rem, 1.5rem);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 h4 {
   font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
-  font-weight: 600;
+  /* font-weight: 600; */
 }
 
 .subtitle {
@@ -700,9 +700,9 @@ h4 {
   margin: 2rem auto;
   max-width: 800px;
   border: 2px solid var(--soft-orange);
-  display: flex;
+  /* display: flex;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: flex-start; */
 }
 
 .intro-hap-image {
@@ -851,11 +851,11 @@ h4 {
 }
 
 /* Responsive: Stack on mobile, image on right for desktop */
-@media (min-width: 769px) {
+/* @media (min-width: 769px) {
   .intro-box {
     flex-direction: row-reverse;
   }
-}
+} */
 
 @media (max-width: 768px) {
 
@@ -1030,7 +1030,7 @@ h4 {
 
 .analysis-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
 }
@@ -1367,7 +1367,7 @@ h4 {
 /* Metrics & Statistics */
 .stat-large {
   font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.5rem);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--orange-darker);
   /* WCAG AA compliant for large bold text: 3.1:1 contrast ratio */
   margin: 0.5rem 0;
@@ -2313,6 +2313,52 @@ pre {
   .comparison-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ================================================
+   Table Grid Layouts (for table-like data displays)
+   ================================================ */
+
+/* Container for 3-column table-style grids */
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--ui-border-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Header cells (peach background with orange bottom border) */
+.table-grid-header {
+  background: var(--peach-background);
+  color: var(--dark-brown);
+  padding: clamp(0.75rem, 0.5rem + 0.625vw, 1rem);
+  font-weight: 700;
+  border-bottom: 2px solid var(--warm-orange);
+  border-right: 1px solid var(--ui-border-light);
+}
+
+/* Last header cell (no right border) */
+.table-grid-header:nth-child(3n) {
+  border-right: none;
+}
+
+/* Data cells with borders on bottom and right */
+.table-grid-cell {
+  padding: clamp(0.75rem, 0.5rem + 0.625vw, 1rem);
+  border-bottom: 1px solid var(--ui-border-light);
+  border-right: 1px solid var(--ui-border-light);
+}
+
+/* Last column cells (no right border) */
+.table-grid-cell:nth-child(3n) {
+  border-right: none;
+}
+
+/* Last row cells (no bottom border) - apply to cells in final row */
+.table-grid-cell-last-row {
+  border-bottom: none;
 }
 
 /* ================================================

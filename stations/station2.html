@@ -126,7 +126,7 @@
 
                 <div class="warning-box mt-2">
                     <h3>Prof. Teeters' Intervention</h3>
-                    <p class="mt-1"><em>"HAP, stop. You're fighting content. Content KNOWS how wide it wants to be. CSS
+                    <p class="mt-1"><em>"HAP, stop. You're fighting content. Content already has a natural width. CSS
                             has keywords that let content tell the browser its natural size. Watch this:"</em></p>
                     <pre class="mt-1"><code class="language-css">.nav-item {
   width: max-content;
@@ -214,37 +214,32 @@
 
                 <div class="prompt-box mt-2">
                     <div class="prompt-label">Decision table Prof. Teeters gave me:</div>
-                    <table class="mt-1">
-                        <thead>
-                            <tr>
-                                <th>Goal</th>
-                                <th>Keyword</th>
-                                <th>Example</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Narrowest possible</td>
-                                <td><code>min-content</code></td>
-                                <td>Compact sidebar</td>
-                            </tr>
-                            <tr>
-                                <td>Natural, no wrap</td>
-                                <td><code>max-content</code></td>
-                                <td>Navigation items</td>
-                            </tr>
-                            <tr>
-                                <td>Natural with limit</td>
-                                <td><code>fit-content(X)</code></td>
-                                <td>Article text (60ch)</td>
-                            </tr>
-                            <tr>
-                                <td>Fill space</td>
-                                <td><code>auto</code></td>
-                                <td>Main content area</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-grid mt-1">
+                        <!-- Header Row -->
+                        <div class="table-grid-header">Goal</div>
+                        <div class="table-grid-header">Keyword</div>
+                        <div class="table-grid-header">Example</div>
+
+                        <!-- Row 1: min-content -->
+                        <div class="table-grid-cell">Narrowest possible</div>
+                        <div class="table-grid-cell"><code>min-content</code></div>
+                        <div class="table-grid-cell">Compact sidebar</div>
+
+                        <!-- Row 2: max-content -->
+                        <div class="table-grid-cell">Natural, no wrap</div>
+                        <div class="table-grid-cell"><code>max-content</code></div>
+                        <div class="table-grid-cell">Navigation items</div>
+
+                        <!-- Row 3: fit-content -->
+                        <div class="table-grid-cell">Natural with limit</div>
+                        <div class="table-grid-cell"><code>fit-content(X)</code></div>
+                        <div class="table-grid-cell">Article text (60ch)</div>
+
+                        <!-- Row 4: auto (last row) -->
+                        <div class="table-grid-cell table-grid-cell-last-row">Fill space</div>
+                        <div class="table-grid-cell table-grid-cell-last-row"><code>auto</code></div>
+                        <div class="table-grid-cell table-grid-cell-last-row">Main content area</div>
+                    </div>
                 </div>
 
                 <div class="hap-note-callout mt-2">

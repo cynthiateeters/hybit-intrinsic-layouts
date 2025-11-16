@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>HAP's Learning Lab - Station 6: AI Assistance for Intrinsic Layouts</title>
+
+  <meta name="description"
+    content="Join HAP as he learns to use AI responsibly for intrinsic layouts. Discover how to prevent AI drift to old CSS patterns, create project rules files, and maintain modern CSS standards while coding faster with AI assistance.">
+
+  <meta property="og:image"
+    content="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_1200,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg">
+
+  <!-- Standard HAP favicon (do not modify) -->
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+  <!-- Preconnect for Cloudinary CDN -->
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+
+  <!-- HAP Design System -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/demos.css">
+  <link href="../css/prism-hap-theme.css" rel="stylesheet">
+</head>
+
+<body>
+  <!--
+  ================================================================================
+  STATION 6 TEMPLATE: AI Assistance for [TOPIC]
+  ================================================================================
+
+  This template is specifically for Station 6, which ALWAYS follows this format:
+
+  TITLE: "Station 6: AI Assistance for [Topic from Stations 1-5]"
+
+  12-SECTION STRUCTURE:
+  1. What You'll Learn (3 insight cards + HAP's confession)
+  2. What AI Can and Can't Do
+  3. [First Specific Topic Example with AI]
+  4. [Second Specific Topic Example with AI]
+  5. AI for [Topic] Accessibility
+  6. Optimizing [Topic] Performance with AI
+  7. Try It Yourself: AI [Topic] Challenge
+  8. HAP's Rules for Working with AI (6 numbered rules)
+  9. Advanced Prompt Strategies
+  10. When NOT to Use AI
+  11. Quick Reference: AI [Topic] Tasks
+  12. Learning Objectives Checklist
+
+  HAP'S VOICE IN STATION 6:
+  - First-person reflection on using AI while learning Stations 1-5
+  - Shares specific examples of prompts that worked/failed
+  - References Prof. Teeters' guidance on responsible AI use
+  - Shows prompt evolution from vague to detailed
+  - Emphasizes verification and accountability
+
+  KEY THEMES:
+  - AI as assistant, not replacement
+  - Accessibility is non-negotiable (always request explicitly)
+  - Performance requires explicit prompting
+  - Verification is mandatory (you own the code)
+  - Detailed prompts get better results
+  - Understanding beats speed
+
+  ================================================================================
+  -->
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header">
+    <div class="header-content">
+      <div class="hybit-welcome">
+        <div class="hybit-avatar">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_200,c_limit/v1759495998/hap-laptop_xiewar.jpg"
+            alt="HAP (HyBit A. ProtoBot) studying on his laptop" width="200" height="200" decoding="async"
+            fetchpriority="high">
+        </div>
+        <div>
+          <h1>Station 6: AI Assistance for Intrinsic Layouts</h1>
+          <p class="subtitle">AI helps code faster, but you're still responsible for modern CSS standards</p>
+        </div>
+      </div>
+      <div class="intro-box">
+        <p><strong>Welcome to Station 6!</strong> After mastering intrinsic layouts (Stations 1-5), I was feeling confident about CSS custom properties, content-based sizing, fluid spacing with clamp(), intrinsic Grid patterns, and container queries. Then I discovered AI could generate layouts in seconds instead of hours! I was so excited—I asked an AI for a responsive card grid, got beautiful code back, and shipped it immediately. Then Prof. Teeters reviewed my work and found it was FULL of old patterns: fixed pixel widths (width: 300px), hex colors (#3498db), viewport media queries (@media), and wrapper divs nested 5 levels deep. Everything we'd spent 5 stations learning to AVOID! She sat me down and explained: "HAP, everyone is figuring this out right now. What you're experiencing is called AI drift—AI reverting to the most common patterns in its training data. Modern CSS features like container queries are newer than most of what AI learned from. If you don't provide persistent context through project rules and verification, AI naturally drifts to older examples. That's not AI failing—that's just how it works. Let me show you how to guide it." That conversation changed everything. Let me share what I learned about using AI responsibly for intrinsic layouts—the project rules that prevent drift, the verification that's mandatory, and the workflow that keeps modern CSS standards intact! 🟠</p>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="Page navigation" class="page-navigation top-nav">
+    <a href="../index.html" class="nav-link hub-link">🏠 Back to Hub</a>
+    <div class="page-position" data-page="6">Station 6 of 6</div>
+  </nav>
+
+  <main id="main-content" class="content-container">
+
+    <!-- SECTION 1: What You'll Learn -->
+    <section class="content-section">
+      <h2 class="section-heading-centered">What you'll learn</h2>
+
+      <div class="overview-grid mt-2">
+        <div class="insight-card">
+          <h3><span class="insight-icon">🎯</span> Preventing AI Drift</h3>
+          <p class="stat-large">Modern CSS ≠ AI default patterns</p>
+          <p><strong>Learn why AI reverts to older CSS patterns</strong></p>
+          <p>I learned from Prof. Teeters that AI tools default to older CSS patterns because that's what's most common in their training data. Container queries, <code>:has()</code>, and intrinsic sizing are newer than most AI training. When I asked AI for layouts, it gave me fixed pixels, hex colors, and viewport media queries—all the OLD stuff we learned to avoid in Stations 1-5! Prof. Teeters taught me about persistent context strategies: project rules files, plan-first approach, and verification checklists. These keep AI aligned with modern CSS instead of drifting backward.</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">📋</span> Project Rules Files</h3>
+          <p class="stat-large stat-teal">.github/copilot-instructions.md</p>
+          <p><strong>Create rules file teaching AI your CSS standards</strong></p>
+          <p>I discovered I can create a <code>.github/copilot-instructions.md</code> file (or <code>CLAUDE.md</code> for Claude Code) that teaches AI about project standards. I write "ALWAYS use hsl() colors, NEVER hex" and "Use container queries over media queries" ONCE in this file, and AI applies these rules automatically to every request! Prof. Teeters showed me how different AI tools use different file locations—Copilot uses <code>.github/copilot-instructions.md</code>, Claude Code uses <code>CLAUDE.md</code>, Cursor uses <code>.cursorrules</code>—but the content strategy is identical across tools. Write rules once, prevent drift forever!</p>
+        </div>
+
+        <div class="insight-card">
+          <h3><span class="insight-icon">✅</span> Verification Workflow</h3>
+          <p class="stat-large stat-brown">5-item quick check</p>
+          <p><strong>Develop habits for recognizing drift early</strong></p>
+          <p>Before I learned this, I'd copy AI code without checking. Prof. Teeters caught fixed pixels, hex colors, and viewport queries all over my work. She taught me a 5-item quick check I run before accepting ANY AI code: (1) No fixed pixels (2) hsl() colors only (3) Container queries for components (4) CSS custom properties used (5) Keyboard accessible. Takes 10 seconds, saves hours of rework! I also learned AI self-review—asking "Check your last response against project-rules file" makes AI catch its own drift. Verification isn't optional—it's how professionals use AI responsibly.</p>
+        </div>
+      </div>
+
+      <div class="hap-note-callout mt-3">
+        <img
+          src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+          alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+          decoding="async" loading="lazy">
+        <div class="hap-note-content">
+          <h3>HAP's confession: I shipped code I didn't understand</h3>
+          <p>I treated AI like magic. I'd type "create a responsive card grid" and copy whatever it generated. Fast! Easy! Until Prof. Teeters reviewed my code. She found fixed pixel widths everywhere (<code>width: 300px</code>), hex colors (<code>#3498db</code>), viewport media queries (<code>@media (min-width: 768px)</code>), and wrapper divs nested 5 levels deep. All the OLD patterns we'd spent 5 stations learning to avoid! I'd asked AI to help me write modern CSS, but I got 2015-era layouts instead. I was embarrassed—why didn't I notice?</p>
+          <p class="mt-1">Prof. Teeters understood completely. She said, "HAP, everyone is figuring this out right now. What you're experiencing is called AI drift—AI reverting to the most common patterns in its training data. Modern CSS features like container queries and intrinsic sizing are newer than most of what the AI learned from. If you don't provide persistent context through project rules and verification, AI naturally drifts to older, more common examples. That's not AI failing—that's just how it works. And you're not the only one learning this. Let me show you how to guide it."</p>
+          <p class="mt-1">That conversation changed everything. I stopped treating AI as a magic wand and started treating it as a tool that needs guidance. I created <code>.github/copilot-instructions.md</code> with our modern CSS standards. I learned "plan first" approach—getting AI to outline before coding. I built drift detection skills—10-second visual scan for red flags. I taught AI to self-review against project rules. Now AI helps me code FASTER while maintaining modern CSS standards. The key? Persistent context prevents drift. I provide context (rules file, open files, clear prompts), AI provides assistance. We collaborate!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Understanding AI Drift -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Understanding AI drift</h2>
+        <p class="mb-2">After 5 stations of learning modern CSS, I was excited to use AI to help me code faster. I imagined asking for layouts and getting perfect intrinsic designs instantly. Reality was... different. My first AI-generated layouts used fixed pixels, hex colors, and viewport media queries—everything we'd learned to avoid! Prof. Teeters sat me down: "HAP, let me explain why this happens. It's something every developer encounters with AI tools. Understanding the cause helps you fix it." She taught me about training data lag, and suddenly AI drift made perfect sense.</p>
+
+        <h3 class="mt-3">Why AI defaults to older CSS patterns</h3>
+
+        <div class="analysis-grid mt-2">
+          <div class="analysis-point">
+            <h3>Training data is historical, not cutting-edge</h3>
+            <p>AI tools learn from millions of code examples. Most of those examples are from 2010-2020 when fixed pixels, hex colors, and float layouts dominated. Container queries (2023), <code>:has()</code> selector (2023), and widespread intrinsic sizing patterns (2020+) are NEWER than most training data. Prof. Teeters explained: "The AI isn't wrong—it's working with what it learned. If 90% of layout examples in training used <code>width: 300px</code>, that's the AI's default. Modern techniques are less common in training data, so AI needs explicit guidance to use them."</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>AI reverts to most common patterns</h3>
+            <p>When I gave vague prompts like "create a card grid," AI generated the MOST COMMON card grid pattern from its training—fixed columns with <code>repeat(3, 1fr)</code>, fixed widths, viewport media queries. All extrinsic! Without context about OUR project's intrinsic layout standards, AI couldn't know I wanted <code>repeat(auto-fit, minmax(16rem, 1fr))</code> with container queries. It defaulted to what it had seen most often. Prof. Teeters: "That's drift. Not AI making mistakes—AI working with incomplete context. Our job is to provide the missing context through project rules and clear prompts."</p>
+          </div>
+        </div>
+
+        <div class="warning-box mt-3">
+          <h3>🟠 What AI generates WITHOUT context</h3>
+          <p class="mt-1"><strong>❌ AI's default output (no project rules):</strong></p>
+          <pre class="mt-2"><code class="language-css">/* AI-generated card grid WITHOUT project rules */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* ❌ Fixed 3 columns (ignores Station 4) */
+  gap: 24px;                               /* ❌ Fixed spacing (ignores Station 3) */
+  max-width: 1200px;                       /* ❌ Fixed width (ignores Station 2) */
+  margin: 0 auto;                          /* ❌ Centering hack */
+}
+
+.card {
+  background: #ffffff;                     /* ❌ Hex color (ignores Station 1) */
+  border: 1px solid #e0e0e0;              /* ❌ Hex color */
+  padding: 24px;                           /* ❌ Fixed spacing */
+  border-radius: 8px;                      /* ❌ Fixed radius */
+}
+
+/* Viewport media query (ignores Station 5 container queries!) */
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}</code></pre>
+
+          <p class="mt-2"><strong>Problems with this code:</strong></p>
+          <ul class="mt-1">
+            <li><strong>Fixed 3 columns</strong> — Ignores Station 4's <code>auto-fit</code> magic pattern</li>
+            <li><strong>Fixed spacing (24px)</strong> — Ignores Station 3's <code>clamp()</code> fluid spacing</li>
+            <li><strong>Fixed width (1200px)</strong> — Ignores Station 2's content-based sizing</li>
+            <li><strong>Hex colors</strong> — Ignores Station 1's hsl() and custom properties</li>
+            <li><strong>Viewport media queries</strong> — Ignores Station 5's container queries</li>
+            <li><strong>Extrinsic thinking</strong> — Forces layouts instead of setting flexible boundaries</li>
+          </ul>
+          <p class="mt-1">This code WORKS, but it's 2015-era CSS. None of the intrinsic techniques from Stations 1-5! Prof. Teeters: "See? AI defaulted to patterns it saw most often in training. Now let me show you what happens when we provide context."</p>
+        </div>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230331/hap-brain-explodes_wu0or8.jpg"
+            alt="HAP having a mind-blowing realization" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's training data realization</h3>
+            <p>Prof. Teeters showed me publication dates for modern CSS features. Container queries: March 2023. <code>:has()</code> selector: December 2022. Widespread <code>clamp()</code> adoption: 2021-2022. Intrinsic Grid patterns with <code>auto-fit</code>: 2020-2021. Most AI training data: Pre-2023, dominated by 2015-2020 examples. My mind exploded! Of COURSE AI defaults to older patterns—that's most of what it learned from!</p>
+            <p class="mt-1">She explained: "HAP, imagine you learned to code from books written 2010-2020. You'd know float layouts, fixed pixels, and viewport breakpoints really well. Container queries? You'd never seen them! That's AI's situation. It CAN learn modern CSS—but only if we teach it through project rules, context, and examples. Once you understand this, AI drift stops being frustrating and starts being predictable. You know what to expect and how to guide it."</p>
+            <p class="mt-1">This changed my entire approach! I stopped expecting AI to know modern CSS automatically. Instead, I treat AI like a colleague who learned CSS from older books—incredibly helpful, fast at generating code, BUT needs guidance on our project's modern conventions. Project rules file teaches it. Plan-first approach anchors it. Verification catches drift. Now AI is genuinely helpful because I understand its strengths (code generation) AND limitations (training data lag).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Strategy 1 - Project Rules File -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Strategy 1: Project rules file</h2>
+
+        <div class="warning-box mb-2">
+          <h3>🔗 How this protects what you learned in Stations 1-5</h3>
+          <p>This strategy helps you maintain modern CSS patterns by teaching AI about:</p>
+          <ul class="mt-1">
+            <li><strong>Station 1</strong>: hsl() colors and CSS custom properties (<code>:root</code> definitions, semantic naming like <code>--space-md</code>)</li>
+            <li><strong>Station 2</strong>: Content-based sizing keywords (<code>min-content</code>, <code>max-content</code>, <code>fit-content()</code>)</li>
+            <li><strong>Station 3</strong>: Contextual spacing with <code>clamp()</code>, viewport units, and <code>:has()</code> selector</li>
+            <li><strong>Station 4</strong>: Intrinsic Grid patterns (<code>repeat(auto-fit, minmax())</code>, <code>fr</code> units, bento-box layouts)</li>
+            <li><strong>Station 5</strong>: Container queries and container units instead of viewport media queries</li>
+          </ul>
+          <p class="mt-1"><strong>Without project rules</strong>, AI will drift back to:</p>
+          <ul class="mt-1">
+            <li>❌ Fixed pixel widths (ignoring Station 2's content-based sizing)</li>
+            <li>❌ Fixed pixel spacing (ignoring Station 3's <code>clamp()</code> and fluid scales)</li>
+            <li>❌ Hex colors (ignoring Station 1's hsl() standard and custom properties)</li>
+            <li>❌ Media queries (ignoring Station 5's container queries)</li>
+            <li>❌ Fixed column counts (ignoring Station 4's <code>auto-fit</code> magic pattern)</li>
+          </ul>
+        </div>
+
+        <p class="mb-2">Prof. Teeters showed me the <code>.github</code> folder in my project. "HAP, see this empty folder? This is where you teach AI about your project's conventions. If it's not written down here, the AI doesn't know about it—but that's okay, we're all learning this together. Let's create your first <code>copilot-instructions.md</code> file. You'll write your CSS standards once, and AI will apply them automatically to every request." I was skeptical—could one file really prevent all that drift? YES. Game-changer!</p>
+
+        <h3 class="mt-3">Creating .github/copilot-instructions.md</h3>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">✅ Complete project rules file for modern CSS:</div>
+          <pre><code class="language-markdown"># HAP Intrinsic Layout Project - CSS Standards
+
+## CRITICAL: Read these rules FIRST before generating any code
+
+### CSS Colors (MANDATORY)
+- ALWAYS use hsl() format: `hsl(210, 50%, 50%)`
+- NEVER use hex (#3498db) or rgb()
+- NEVER use named colors (blue, red, etc.)
+- Define colors as CSS custom properties in :root
+- Example: `:root { --primary-color: hsl(210, 76%, 54%); }`
+
+### Layout Philosophy (from Stations 1-5)
+- **Primary**: CSS Grid for two-dimensional layouts
+- **Secondary**: Flexbox for one-dimensional layouts
+- **Intrinsic sizing**: Use `minmax()`, `auto-fit`, `auto-fill`
+- **Container queries**: Prefer `@container` over `@media` for components
+- **Fluid spacing**: Use `clamp()` with computed slopes (base + vw), NEVER arbitrary percentages
+
+### Spacing Standards (Station 3)
+- Use CSS custom properties for spacing: `--space-xs` through `--space-xl`
+- ALWAYS use `clamp()` for fluid spacing with computed slope formula
+- NEVER use fixed pixels: NO `padding: 24px`
+- Example: `padding: clamp(1rem, 0.5rem + 1vw, 1.5rem)`
+
+### Grid Patterns (Station 4)
+- Use magic pattern: `repeat(auto-fit, minmax(16rem, 1fr))`
+- NEVER use fixed column counts: NO `repeat(3, 1fr)`
+- Use `fr` units, not percentages
+- Example: `grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-min), 1fr))`
+
+### Container Queries (Station 5)
+- Components use `@container`, NOT `@media`
+- Set `container-type: inline-size` on parent
+- Use container units (`cqi`, `cqmin`) for component-relative spacing
+- Example: `padding: clamp(1rem, 0.5rem + 2cqi, 3rem)`
+
+### Terminology (IMPORTANT)
+- Say "CSS custom property" NEVER "CSS variable"
+- Say "intrinsic layout" NEVER "responsive layout"
+- Say "container query" NOT "element query"
+
+### HTML Standards
+- Use semantic HTML5 elements (&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;)
+- Avoid unnecessary wrapper divs
+- Maximum 3 levels of nesting for layout containers
+- All images need alt, width, height attributes
+
+### Accessibility (WCAG 2.2 Level AA REQUIRED)
+- All interactive elements keyboard accessible
+- Proper heading hierarchy (no skipping levels: h1 → h2 → h3)
+- Color contrast: 4.5:1 for normal text, 3:1 for large text
+- ARIA labels on navigation landmarks
+
+## What to AVOID (Old CSS patterns)
+- ❌ Fixed pixel widths: NO `width: 300px`
+- ❌ Fixed pixel spacing: NO `padding: 24px`
+- ❌ Hex colors: NO `#3498db`
+- ❌ rgb/rgba: NO `rgb(52, 152, 219)`
+- ❌ Named colors: NO `background: blue`
+- ❌ float or clearfix patterns
+- ❌ Viewport media queries in components: NO `@media (min-width: 768px)` for cards/widgets
+- ❌ Fixed Grid columns: NO `repeat(3, 1fr)`
+- ❌ Excessive nesting: NO 4+ wrapper divs
+
+## Modern CSS Examples (USE THESE)
+
+### Color System
+```css
+:root {
+  --primary-color: hsl(210, 76%, 54%);
+  --text-color: hsl(0, 0%, 20%);
+  --bg-color: hsl(0, 0%, 98%);
+}
+
+.button {
+  background: var(--primary-color);
+  color: var(--text-color);
+}
+```
+
+### Intrinsic Grid Pattern
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: clamp(1rem, 0.5rem + 1.25vw, 2.5rem);
+}
+```
+
+### Container Query Pattern
+```css
+.card-container {
+  container-type: inline-size;
+}
+
+.card {
+  padding: clamp(1rem, 0.5rem + 2cqi, 3rem);
+}
+
+@container (min-width: 400px) {
+  .card {
+    flex-direction: row;
+  }
+}
+```</code></pre>
+          <p class="code-comment mt-1">I keep this file in EVERY project. When AI reads these rules before generating code, it matches my modern CSS style automatically. No more drift to fixed pixels and hex colors!</p>
+        </div>
+
+        <h3 class="mt-3">Project rules across different AI tools</h3>
+
+        <div class="table-grid mt-2">
+          <!-- Header Row -->
+          <div class="table-grid-header">AI Tool</div>
+          <div class="table-grid-header">Rules File Location</div>
+          <div class="table-grid-header">Notes</div>
+
+          <!-- Row 1: GitHub Copilot -->
+          <div class="table-grid-cell"><strong>GitHub Copilot</strong></div>
+          <div class="table-grid-cell"><code>.github/copilot-instructions.md</code></div>
+          <div class="table-grid-cell">Standard location, loaded automatically in VS Code</div>
+
+          <!-- Row 2: Claude Code -->
+          <div class="table-grid-cell"><strong>Claude Code</strong></div>
+          <div class="table-grid-cell"><code>CLAUDE.md</code> (root) or <code>.claude/CLAUDE.md</code></div>
+          <div class="table-grid-cell">Loaded at startup, supports markdown</div>
+
+          <!-- Row 3: Cursor IDE -->
+          <div class="table-grid-cell"><strong>Cursor IDE</strong></div>
+          <div class="table-grid-cell"><code>.cursorrules</code></div>
+          <div class="table-grid-cell">Plain text or markdown format</div>
+
+          <!-- Row 4: Cline -->
+          <div class="table-grid-cell"><strong>Cline</strong></div>
+          <div class="table-grid-cell">Custom instructions in settings</div>
+          <div class="table-grid-cell">Set in tool preferences</div>
+
+          <!-- Row 5: Windsurf (last row) -->
+          <div class="table-grid-cell table-grid-cell-last-row"><strong>Windsurf</strong></div>
+          <div class="table-grid-cell table-grid-cell-last-row">Project settings file</div>
+          <div class="table-grid-cell table-grid-cell-last-row">Tool-specific configuration</div>
+        </div>
+
+        <p class="mt-2">I use Claude Code for some projects and Copilot for others. I keep the same rules in both <code>CLAUDE.md</code> and <code>.github/copilot-instructions.md</code>—just copy/paste. The strategies we're learning work for any AI tool, not just one. Location differs by tool, but content strategy is identical: define CSS standards, specify terminology, list anti-patterns, include accessibility requirements.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Strategy 2 - Plan First Approach -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Strategy 2: Plan first approach</h2>
+
+        <div class="warning-box mb-2">
+          <h3>🔗 How planning prevents drift</h3>
+          <p>When AI creates a plan, it should reference modern patterns from Stations 1-5:</p>
+          <ul class="mt-1">
+            <li>Plan should mention <strong>Grid with <code>auto-fit</code></strong> (Station 4), not "repeat(3, 1fr)"</li>
+            <li>Plan should mention <strong><code>clamp()</code> for spacing</strong> (Station 3), not "24px padding"</li>
+            <li>Plan should mention <strong>container queries</strong> (Station 5), not "media queries at 768px"</li>
+            <li>Plan should mention <strong>hsl() colors</strong> (Station 1), not "hex colors"</li>
+          </ul>
+          <p class="mt-1"><strong>Red flag in plans</strong>: If AI's plan says "use media queries for responsiveness" or "fixed 300px width," that's drift happening at PLANNING stage—much easier to catch and fix here than in code!</p>
+        </div>
+
+        <p class="mb-2">I used to jump straight to "build me a card grid" and review code after generation. By then, fixing drift meant rewriting everything. Prof. Teeters suggested: "HAP, try asking for a plan first, before any code. Watch what happens." I was skeptical—seemed like extra steps. But she was right! Planning forces AI to re-read project rules and outline approach. I catch drift at planning stage (takes 10 seconds) instead of debugging stage (takes 30 minutes). Prof. Teeters: "See? You just discovered a technique professional developers are using. The plan step helps both you AND the AI stay aligned with modern CSS."</p>
+
+        <h3 class="mt-3">The plan-first workflow</h3>
+
+        <ol class="mt-2">
+          <li><strong>Ask</strong>: "Give me a short implementation plan using the project rules file"</li>
+          <li><strong>AI reads rules</strong> + generates plan mentioning modern CSS patterns</li>
+          <li><strong>YOU review plan</strong> for drift signals (fixed pixels? hex colors? media queries?)</li>
+          <li><strong>Approve plan</strong> or request corrections if drift detected</li>
+          <li><strong>Then request</strong>: "Now implement that plan" → code follows approved plan</li>
+        </ol>
+
+        <h3 class="mt-3">Comparison: Code first vs. plan first</h3>
+
+        <div class="warning-box mt-2">
+          <h3>❌ OLD APPROACH: Code first (drift risk high)</h3>
+          <p class="mt-1"><strong>Vague prompt without planning:</strong></p>
+          <div class="prompt-box mt-2">
+            <div class="prompt-label">What I used to ask:</div>
+            <pre><code class="language-text">User: "Create a responsive card grid for product listings"
+
+AI: *immediately generates code*</code></pre>
+          </div>
+
+          <p class="mt-2"><strong>What AI generated:</strong></p>
+          <pre class="mt-1"><code class="language-css">/* AI generates code WITHOUT reading rules first */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* ❌ Fixed columns */
+  gap: 24px;                               /* ❌ Fixed spacing */
+  padding: 40px;                           /* ❌ Fixed padding */
+}
+
+.card {
+  background: #ffffff;                     /* ❌ Hex color */
+  border: 1px solid #e0e0e0;              /* ❌ Hex color */
+  padding: 20px;                           /* ❌ Fixed padding */
+}
+
+@media (max-width: 768px) {              /* ❌ Viewport media query */
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}</code></pre>
+
+          <p class="mt-1"><strong>Result</strong>: ❌ Code full of drift! Now I have to manually fix fixed pixels, hex colors, media queries. Takes 20+ minutes.</p>
+        </div>
+
+        <div class="prompt-box mt-3">
+          <h3>✅ NEW APPROACH: Plan first (drift caught early)</h3>
+          <div class="prompt-label mt-1">Plan-first prompt:</div>
+          <pre class="mt-2"><code class="language-text">User: "Give me a short implementation plan for a responsive product card grid using the project rules file"
+
+AI: *reads copilot-instructions.md, creates plan*
+
+Plan:
+1. Use CSS Grid with auto-fit magic pattern: repeat(auto-fit, minmax(16rem, 1fr))
+2. Container queries for card layouts (not viewport media queries)
+3. Fluid spacing with clamp() computed slopes
+4. hsl() colors via CSS custom properties
+5. Semantic HTML with proper heading hierarchy
+6. WCAG 2.2 Level AA compliant
+
+User: "Perfect! That follows our modern CSS standards. Now implement that plan."
+
+AI: *generates code aligned with approved plan*</code></pre>
+
+          <p class="mt-2"><strong>Generated code following plan:</strong></p>
+          <pre class="mt-1"><code class="language-css">/* AI generates code following modern CSS plan */
+:root {
+  --grid-item-min: 16rem;
+  --space-md: clamp(1.5rem, 1rem + 1.25vw, 2.5rem);
+  --card-bg: hsl(0, 0%, 100%);
+  --card-border: hsl(0, 0%, 88%);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-item-min), 1fr));
+  gap: var(--space-md);
+  padding: var(--space-md);
+}
+
+.card-container {
+  container-type: inline-size;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: clamp(1rem, 0.5rem + 2cqi, 2rem);
+}
+
+@container (min-width: 400px) {
+  .card {
+    flex-direction: row;
+  }
+}</code></pre>
+
+          <p class="code-comment mt-1"><strong>Result</strong>: ✅ Modern CSS! Auto-fit Grid, container queries, hsl() colors, fluid spacing. Zero drift. Ready to use!</p>
+        </div>
+
+        <p class="mt-2">Planning adds 30 seconds to my workflow but saves 20 minutes of fixing drift. I review the PLAN for red flags (fixed pixels, hex colors, viewport queries), approve or request corrections, THEN get code. By catching drift at planning stage, generated code follows modern CSS from the start. Prof. Teeters was right—plan first transformed my AI collaboration!</p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Strategy 3 - Provide Clear Context -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Strategy 3: Provide clear context</h2>
+
+        <div class="warning-box mb-2">
+          <h3>🔗 How context shows AI your modern CSS patterns</h3>
+          <p>Opening the right files helps AI see your modern CSS in action:</p>
+          <ul class="mt-1">
+            <li>Open files showing <strong>CSS custom properties</strong> (Station 1) → AI learns your <code>--space-md</code> naming</li>
+            <li>Open files with <strong><code>clamp()</code> spacing</strong> (Station 3) → AI sees fluid spacing in practice</li>
+            <li>Open files with <strong><code>repeat(auto-fit, minmax())</code></strong> (Station 4) → AI understands your grid patterns</li>
+            <li>Open files with <strong>container queries</strong> (Station 5) → AI sees component-level responsiveness</li>
+          </ul>
+          <p class="mt-1"><strong>Why context matters</strong>: Without seeing your existing code, AI generates generic layouts with old patterns. With your files open, AI matches your project's modern CSS style.</p>
+        </div>
+
+        <p class="mb-2">I gave vague prompts with no context files open. AI had to guess what I wanted—and guessed based on training data defaults (old patterns). Prof. Teeters worked with me: "HAP, let's try opening some of your existing layout files first. AI works better when it can see what you're working with." Opening relevant files changed EVERYTHING! AI saw my <code>clamp()</code> usage, container queries, and hsl() colors. Suddenly outputs matched my project style instead of generic 2015 CSS. Prof. Teeters: "Context is key. You're getting the hang of this!"</p>
+
+        <h3 class="mt-3">Context hierarchy</h3>
+
+        <ol class="mt-2">
+          <li><strong>Open relevant files</strong> (automatic context) - AI reads from open editor tabs</li>
+          <li><strong>Select code blocks</strong> before asking for changes - AI focuses on selection</li>
+          <li><strong>Use @workspace</strong> for project-wide questions - AI searches entire codebase</li>
+          <li><strong>Use #file</strong> to reference specific patterns - AI reads that file</li>
+          <li><strong>Project rules</strong> (<code>.github/copilot-instructions.md</code>) - Always applied automatically</li>
+        </ol>
+
+        <div class="analysis-grid mt-3">
+          <div class="analysis-point">
+            <h3>❌ Bad context</h3>
+            <p><strong>No files open, vague prompt</strong></p>
+            <p class="mt-1">Prompt: "make a sidebar layout"</p>
+            <p class="mt-1">AI has to guess:</p>
+            <ul class="mt-1">
+              <li>What colors? (Defaults to hex)</li>
+              <li>What spacing? (Defaults to fixed pixels)</li>
+              <li>What Grid pattern? (Defaults to <code>repeat(3, 1fr)</code>)</li>
+              <li>Viewport or container queries? (Defaults to viewport)</li>
+            </ul>
+            <p class="mt-1"><strong>Result</strong>: Generic CSS that doesn't match project. Requires heavy editing.</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>✅ Good context</h3>
+            <p><strong>Existing layout files open + @workspace</strong></p>
+            <p class="mt-1">Prompt: "@workspace create a sidebar layout following the patterns in our existing pages"</p>
+            <p class="mt-1">AI can see:</p>
+            <ul class="mt-1">
+              <li>Color system: <code>var(--primary-color)</code> using hsl()</li>
+              <li>Spacing patterns: <code>clamp(1rem, 0.5rem + 1vw, 1.5rem)</code></li>
+              <li>Grid patterns: <code>repeat(auto-fit, minmax(16rem, 1fr))</code></li>
+              <li>Container queries for components</li>
+            </ul>
+            <p class="mt-1"><strong>Result</strong>: Sidebar matches project style automatically. Minimal editing needed!</p>
+          </div>
+        </div>
+
+        <p class="mt-2">I learned that AI assistance isn't magic—it's context-aware code generation. The better my context, the better the output. Now I ALWAYS open 2-3 related files before asking for anything. Takes 5 seconds, dramatically improves results. AI sees my patterns and matches them instead of defaulting to training data patterns. Prof. Teeters: "Intentional context is the difference between helpful AI and frustrating AI."</p>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Strategy 4 - Recognize Drift Early -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Strategy 4: Recognize drift early</h2>
+
+        <div class="warning-box mb-2">
+          <h3>🔗 Drift patterns are OPPOSITE of what you learned in Stations 1-5</h3>
+          <div class="table-grid mt-2">
+            <!-- Header Row -->
+            <div class="table-grid-header">Drift Pattern (OLD)</div>
+            <div class="table-grid-header">Modern Pattern You Learned</div>
+            <div class="table-grid-header">Station</div>
+
+            <!-- Row 1: Fixed width -->
+            <div class="table-grid-cell"><code>width: 300px</code></div>
+            <div class="table-grid-cell"><code>width: clamp(16rem, 80%, 60rem)</code> or <code>fit-content()</code></div>
+            <div class="table-grid-cell">Station 2</div>
+
+            <!-- Row 2: Fixed padding -->
+            <div class="table-grid-cell"><code>padding: 24px</code></div>
+            <div class="table-grid-cell"><code>padding: clamp(1rem, 0.5rem + 1vw, 1.5rem)</code></div>
+            <div class="table-grid-cell">Station 3</div>
+
+            <!-- Row 3: Hex colors -->
+            <div class="table-grid-cell"><code>#3498db</code> hex colors</div>
+            <div class="table-grid-cell"><code>hsl(210, 100%, 50%)</code></div>
+            <div class="table-grid-cell">Station 1</div>
+
+            <!-- Row 4: Media queries -->
+            <div class="table-grid-cell"><code>@media (min-width: 768px)</code></div>
+            <div class="table-grid-cell"><code>@container (min-width: 400px)</code></div>
+            <div class="table-grid-cell">Station 5</div>
+
+            <!-- Row 5: Fixed Grid columns -->
+            <div class="table-grid-cell"><code>repeat(3, 1fr)</code> fixed</div>
+            <div class="table-grid-cell"><code>repeat(auto-fit, minmax(16rem, 1fr))</code></div>
+            <div class="table-grid-cell">Station 4</div>
+
+            <!-- Row 6: No :has() (last row) -->
+            <div class="table-grid-cell table-grid-cell-last-row">No <code>:has()</code></div>
+            <div class="table-grid-cell table-grid-cell-last-row"><code>.card:has(img) { padding: var(--space-lg); }</code></div>
+            <div class="table-grid-cell table-grid-cell-last-row">Station 3</div>
+          </div>
+          <p class="mt-1"><strong>Recognition skill</strong>: The faster you spot these anti-patterns, the less time you waste on rework. 10-second visual scan catches most drift!</p>
+        </div>
+
+        <p class="mb-2">I used to accept AI code without checking. Prof. Teeters ran accessibility audit on my work—found tons of issues. We reviewed together: fixed widths everywhere, hex colors, no semantic HTML, viewport media queries in components. She showed me: "HAP, this happens to everyone at first. These patterns are recognizable—let me teach you what to look for so you can catch them before they become problems." She taught me the drift detection checklist. Now I scan code in 10 seconds before accepting. Catches drift immediately!</p>
+
+        <h3 class="mt-3">The drift detection checklist</h3>
+
+        <p class="mt-1"><strong>When AI generates CSS or HTML, check for these OLD PATTERNS:</strong></p>
+
+        <ol class="mt-2">
+          <li>❌ <strong>Fixed pixel widths</strong> - <code>width: 300px</code> (Should be: <code>clamp()</code> or <code>fit-content()</code>)</li>
+          <li>❌ <strong>Fixed pixel spacing</strong> - <code>padding: 24px</code> (Should be: <code>clamp()</code> with computed slope)</li>
+          <li>❌ <strong>Hex colors</strong> - <code>#1a1a1a</code> (Should be: <code>hsl()</code> via custom properties)</li>
+          <li>❌ <strong>rgb/rgba colors</strong> - <code>rgb(26, 26, 26)</code> (Should be: <code>hsl()</code>)</li>
+          <li>❌ <strong>float or clearfix</strong> - <code>float: left</code> (Should be: Grid or Flexbox)</li>
+          <li>❌ <strong>Viewport media queries in components</strong> - <code>@media (min-width: 768px)</code> (Should be: <code>@container</code>)</li>
+          <li>❌ <strong>Wrapper divs nested 4+ levels</strong> - Too many containers (Should be: Semantic HTML, max 3 levels)</li>
+          <li>❌ <strong>No CSS custom properties</strong> - Hardcoded values everywhere (Should be: <code>:root</code> definitions)</li>
+          <li>❌ <strong>Fixed Grid columns</strong> - <code>repeat(3, 1fr)</code> (Should be: <code>repeat(auto-fit, minmax())</code>)</li>
+        </ol>
+
+        <h3 class="mt-3">Recovery strategy</h3>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">If you spot drift, say to AI:</div>
+          <pre><code class="language-text">"Rewrite using the project rules. Use intrinsic layout, container queries, and hsl(). Avoid fixed pixels or viewport media queries."</code></pre>
+        </div>
+
+        <p class="mt-2">Before accepting ANY AI code, I do 10-second visual scan for these 9 patterns. If I see hex colors or <code>width: 300px</code>, I immediately ask for rewrite using project rules. Catching drift takes 10 seconds. Fixing drifted code after accepting takes 20-30 minutes. The scan is automatic now—my eyes jump to color values, width properties, and media queries instantly. Prof. Teeters: "That's the skill. Recognition speed prevents rework."</p>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Strategy 5 - AI Self-Review -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Strategy 5: AI self-review</h2>
+
+        <div class="warning-box mb-2">
+          <h3>🔗 What AI self-review should catch</h3>
+          <p>When you ask AI to self-review, it should notice violations of Stations 1-5 patterns:</p>
+          <ul class="mt-1">
+            <li>AI should notice it used <code>padding: 24px</code> instead of <strong><code>clamp()</code> from Station 3</strong></li>
+            <li>AI should notice it used hex colors instead of <strong>hsl() from Station 1</strong></li>
+            <li>AI should notice it used media queries instead of <strong>container queries from Station 5</strong></li>
+            <li>AI should notice it used <code>repeat(3, 1fr)</code> instead of <strong><code>auto-fit</code> from Station 4</strong></li>
+          </ul>
+          <p class="mt-1"><strong>The power</strong>: AI re-reads your project rules and compares its output systematically. Often catches drift better than visual scanning!</p>
+        </div>
+
+        <p class="mb-2">I discovered AI can catch its own mistakes! Prof. Teeters shared: "HAP, here's a trick I've been using—ask the AI to review its own work. Watch what happens." I tried it. AI found 3 rule violations it had just made seconds ago! My mind was blown! Prof. Teeters: "Isn't that fascinating? The AI can self-correct when you remind it to check. That's the power of good prompting. It's not that AI is careless—it's that generation happens fast and AI doesn't automatically verify. You prompt verification explicitly."</p>
+
+        <h3 class="mt-3">The self-review prompt</h3>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">After AI generates code, ask:</div>
+          <pre><code class="language-text">"Check your last response against the project-rules file. List any violations and fix them."</code></pre>
+        </div>
+
+        <h3 class="mt-3">Why this works</h3>
+
+        <ol class="mt-2">
+          <li><strong>Forces AI to re-read</strong> project rules (rules might not have been in initial context)</li>
+          <li><strong>AI compares output to rules</strong> systematically (checks ALL rules, not just what you noticed)</li>
+          <li><strong>Often catches drift initially missed</strong> (AI generated fast, didn't verify on first pass)</li>
+          <li><strong>You see corrections</strong> - AI explains what it missed, you learn the patterns</li>
+          <li><strong>Creates teaching moment</strong> - Understanding AI's violations improves your own drift detection</li>
+        </ol>
+
+        <h3 class="mt-3">Example interaction</h3>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Self-review workflow:</div>
+          <pre><code class="language-text">User: "Create a responsive navigation bar"
+
+AI: *generates nav with fixed widths and hex colors*
+
+.nav {
+  max-width: 1200px;         /* fixed width */
+  padding: 20px;             /* fixed spacing */
+  background: #ffffff;       /* hex color */
+}
+
+@media (max-width: 768px) {  /* viewport query */
+  .nav { padding: 10px; }
+}
+
+User: "Check your last response against the project-rules file. List violations and fix them."
+
+AI: "I found these violations of the project rules:
+
+1. ❌ Used fixed width (max-width: 1200px) instead of intrinsic sizing
+2. ❌ Used fixed pixel spacing (padding: 20px) instead of clamp()
+3. ❌ Used hex color (#ffffff) instead of hsl() via custom property
+4. ❌ Used viewport media query instead of container query
+5. ❌ No CSS custom properties for spacing values
+
+Here's the corrected version following project rules:"
+
+.nav-container {
+  container-type: inline-size;
+}
+
+.nav {
+  max-width: clamp(16rem, 90%, 80rem);
+  padding: clamp(1rem, 0.5rem + 1vw, 1.5rem);
+  background: var(--nav-bg);
+}
+
+@container (min-width: 600px) {
+  .nav { gap: var(--space-md); }
+}</code></pre>
+        </div>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
+            decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's self-review ritual</h3>
+            <p>I now use self-review on EVERY AI-generated code block. My workflow: (1) Request with plan-first approach (2) AI generates code (3) I run 10-second drift scan (4) If scan looks good, I ask for self-review anyway (5) AI often finds 1-2 violations I missed (6) Accept corrected version. This two-layer verification (my scan + AI self-check) catches 99% of drift before it enters my codebase. Takes 20 seconds total.</p>
+            <p class="mt-1">Prof. Teeters saw my workflow: "HAP, that's exactly how professionals use AI. You're not blindly trusting—you're verifying. And you're teaching the AI to verify itself. That's responsible collaboration." The ritual is automatic now. Generate → Scan → Self-review → Accept. Every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Try It Yourself Challenge -->
+    <section class="content-section">
+      <h2>Try it yourself: AI intrinsic layout challenge</h2>
+      <p class="mt-1">Ready to practice everything you've learned? This challenge tests your ability to guide AI toward modern CSS while preventing drift. The goal isn't just getting AI to generate code—it's generating code that meets professional standards for intrinsic layout, accessibility, and performance! Apply all 5 strategies. You'll build muscle memory for responsible AI collaboration.</p>
+
+      <div class="warning-box mt-2">
+        <h3>🎯 The challenge: Responsive product showcase grid</h3>
+        <p class="mt-1">Create a responsive product showcase grid using AI assistance (GitHub Copilot, Claude Code, or Cursor) that demonstrates modern intrinsic layout techniques from Stations 1-5. The grid must work beautifully from 320px mobile to 3840px ultrawide without media queries. Products displayed as cards with images, titles, prices, and "Add to Cart" buttons.</p>
+
+        <h4 class="mt-2">Requirements:</h4>
+        <ul class="mt-1">
+          <li><strong>Performance</strong>: Auto-fit grid adapts column count automatically, no layout shift, images have dimensions</li>
+          <li><strong>Accessibility</strong>: WCAG 2.2 Level AA compliant, keyboard navigation, semantic HTML, proper headings</li>
+          <li><strong>Intrinsic Layout</strong>: Container queries for card layouts, <code>clamp()</code> spacing, hsl() colors, CSS custom properties</li>
+          <li><strong>Modern CSS</strong>: No fixed pixels, no hex colors, no viewport media queries in components</li>
+          <li><strong>Maintainability</strong>: Systematic spacing scale, semantic naming, max 3 nesting levels</li>
+        </ul>
+
+        <h4 class="mt-2">Your mission (5 steps):</h4>
+        <ol class="mt-1">
+          <li><strong>Create <code>.github/copilot-instructions.md</code></strong> with modern CSS rules (or equivalent for your AI tool)</li>
+          <li><strong>Use "plan first" approach</strong> - Get implementation plan, review for drift, approve, then implement</li>
+          <li><strong>Provide clear context</strong> - Open existing CSS files showing modern patterns before prompting</li>
+          <li><strong>Run drift detection</strong> - 10-second visual scan for fixed pixels, hex colors, viewport queries</li>
+          <li><strong>Request AI self-review</strong> - "Check against project-rules file" before accepting</li>
+        </ol>
+      </div>
+
+      <div class="analysis-grid mt-2">
+        <div class="analysis-point">
+          <h3>✅ Success criteria</h3>
+          <ul class="mt-1">
+            <li>Grid uses <code>repeat(auto-fit, minmax(16rem, 1fr))</code> magic pattern</li>
+            <li>Spacing uses <code>clamp()</code> with computed slopes (<code>base + vw</code>)</li>
+            <li>Cards use container queries (<code>@container</code>), not viewport queries</li>
+            <li>All colors use <code>hsl()</code> via CSS custom properties (<code>:root</code> definitions)</li>
+            <li>Images have <code>alt</code>, <code>width</code>, <code>height</code>, <code>loading="lazy"</code></li>
+            <li>Keyboard accessible (tab through cards, buttons)</li>
+            <li>No drift patterns (checked with AI self-review)</li>
+            <li>Semantic HTML (<code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, proper headings)</li>
+          </ul>
+        </div>
+
+        <div class="analysis-point">
+          <h3>💡 HAP's tips for the challenge</h3>
+          <ul class="mt-1">
+            <li>Start with rules file BEFORE prompting AI</li>
+            <li>Plan-first prevents 90% of drift (catch at planning stage!)</li>
+            <li>Open 2-3 existing layout files for context</li>
+            <li>After generation, run drift scan THEN self-review (two-layer verification)</li>
+            <li>If AI drifts, don't fix manually—ask for rewrite using project rules</li>
+            <li>Test responsive behavior (resize browser 320px → 1920px)</li>
+            <li>Run accessibility audit (browser DevTools Lighthouse)</li>
+            <li>WCAG targets: Accessibility 100/100, Performance 99+/100</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="mt-2"><strong>Expected time</strong>: 15-20 minutes with strategies applied. Would take 1-2 hours without them!</p>
+    </section>
+
+    <!-- SECTION 9: HAP's Rules for Working with AI -->
+    <section class="content-section">
+      <div class="tips-container">
+        <h2 class="section-heading-centered">HAP's rules for working with AI</h2>
+        <p class="mb-2">After months of working with AI for intrinsic layouts, I've developed six non-negotiable rules. These aren't suggestions—they're requirements that Prof. Teeters approves and enforces. Following these rules is the difference between AI being helpful versus AI being harmful. Ignore them, and you'll ship code you don't understand. Follow them, and AI becomes a powerful collaborative tool for writing modern CSS faster while maintaining professional standards.</p>
+
+        <div class="tip-card">
+          <div class="tip-number">1</div>
+          <div>
+            <h3>Never ship code you don't understand</h3>
+            <p>If AI generates code and I can't explain what every line does, I don't ship it. Period. Prof. Teeters taught me: "HAP, you own every line of code, whether you wrote it or AI did. If something breaks, users don't care who generated the bug—they care that you shipped it." I read AI-generated code line by line. If I don't understand a pattern, I ask AI to explain it. If explanation doesn't make sense, I request a simpler approach or research the technique. Understanding beats speed. Always.</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">2</div>
+          <div>
+            <h3>Always request accessibility explicitly</h3>
+            <p>AI consistently forgets accessibility unless I explicitly request it. I learned this the hard way when Prof. Teeters found my "perfect" card grid had zero keyboard navigation and color contrast violations everywhere. Now my prompts ALWAYS include: "WCAG 2.2 Level AA compliant with keyboard navigation." I verify with Lighthouse audit (target: 100/100 accessibility). If AI's output isn't accessible, I request rewrite emphasizing accessibility first. Prof. Teeters' rule: "Accessibility is not optional. It's not a nice-to-have. It's a requirement. Every. Single. Time." I never forget now.</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">3</div>
+          <div>
+            <h3>Project rules file prevents drift</h3>
+            <p>I maintain <code>.github/copilot-instructions.md</code> (or <code>CLAUDE.md</code> for Claude Code) with project CSS standards: hsl() colors, container queries, <code>clamp()</code> spacing, intrinsic Grid patterns. This file is ALWAYS applied to AI requests automatically. I update it when I learn new patterns or catch drift repeatedly. Rules file is single source of truth for AI context. Without it, AI drifts to training data defaults (fixed pixels, hex colors, viewport queries). With it, AI generates modern CSS matching my project automatically. Write rules once, prevent drift forever. Non-negotiable.</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">4</div>
+          <div>
+            <h3>Plan before code catches drift early</h3>
+            <p>I NEVER ask AI for code directly. I always request plan first: "Give me implementation plan using project rules." I review plan for drift signals (hex colors mentioned? fixed widths? media queries?). If plan shows drift, I correct at planning stage (takes 10 seconds). If plan looks good, I approve and request: "Now implement that plan." Code follows approved plan, dramatically reducing drift. Prof. Teeters: "Catching drift at planning stage saves 20 minutes per feature." She's right. Plan-first approach is fastest way to get modern CSS from AI. Always plan, always review, then code.</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">5</div>
+          <div>
+            <h3>Two-layer verification is mandatory</h3>
+            <p>Before accepting ANY AI code, I run two-layer verification: (1) My 10-second drift scan—visual check for fixed pixels, hex colors, viewport queries, excessive nesting (2) AI self-review—"Check your last response against project-rules file. List violations and fix them." My scan catches obvious drift. AI self-review catches subtle violations I missed. Together they catch 99% of drift before code enters my codebase. Takes 20 seconds total. Saves hours of debugging. Prof. Teeters: "Verification isn't overhead—it's how professionals work with AI." She's right. Generate → Scan → Self-review → Accept. Every time.</p>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-number">6</div>
+          <div>
+            <h3>Test before committing (always!)</h3>
+            <p>AI-generated code that looks perfect in editor can break in browser. I ALWAYS test before committing: (1) Visual test—resize browser 320px to 1920px, verify responsive behavior (2) Keyboard test—tab through interactive elements, verify accessibility (3) Lighthouse audit—target: Performance 99+/100, Accessibility 100/100 (4) Console check—zero errors/warnings. If any test fails, I don't commit. I request AI fix or investigate manually. Prof. Teeters caught me committing untested AI code once. Never again. Her rule: "Test everything like you wrote it yourself. Because you're responsible for it either way." Testing is non-negotiable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Advanced Prompt Strategies -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>Advanced prompt strategies</h2>
+        <p class="mb-2">Real AI collaboration isn't one-shot perfection—it's conversational refinement. I learned that best results come from treating AI like a colleague I'm working with, not a magic wand I wave once. These advanced prompts help me iterate, troubleshoot, and refine AI output safely. Prof. Teeters calls this "conversational refinement" and it's how professionals actually work with AI. You generate, review, refine. You iterate toward the right solution instead of expecting perfection on first try.</p>
+
+        <h3 class="mt-3">Iteration prompt for refinement</h3>
+        <p class="mt-1">Code works but doesn't feel right—spacing feels off, naming could be clearer, structure seems complex. You want same functionality with better quality.</p>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Refinement prompt:</div>
+          <pre><code class="language-text">Revise this layout code. Keep the same technical approach (container queries,
+intrinsic Grid, hsl() colors) but adjust spacing and naming to feel more
+intuitive and maintainable.
+
+Current code:
+[paste the code AI generated]
+
+Make it more semantic with clearer custom property names and smoother
+responsive transitions.</code></pre>
+          <p class="code-comment mt-1"><strong>When to use this</strong>: Generated code technically correct but naming generic (<code>--size-1</code>), spacing jumps awkwardly, or structure feels over-complicated. Refinement prompt preserves good parts (intrinsic patterns) while improving clarity and maintainability.</p>
+        </div>
+
+        <h3 class="mt-3">Troubleshooting prompt for problems</h3>
+        <p class="mt-1">Something doesn't work—Grid gaps too large on mobile, container query not triggering, colors wrong contrast. You need AI to diagnose and fix.</p>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Debugging prompt:</div>
+          <pre><code class="language-text">This card grid layout doesn't work correctly: cards overflow container
+on mobile viewports below 400px.
+
+Current code:
+[paste the problematic code]
+
+Explain what might be wrong with the current implementation, then provide
+a corrected version that maintains intrinsic sizing, container queries,
+and WCAG AA accessibility.
+
+Specific problem: Cards should shrink to fit on mobile but they're
+overflowing horizontally.</code></pre>
+          <p class="code-comment mt-1"><strong>When to use this</strong>: Responsive behavior breaks, accessibility issues found in Lighthouse, performance poor, layout doesn't match design. Troubleshooting prompt asks AI to diagnose THEN fix while maintaining modern CSS standards.</p>
+        </div>
+
+        <h3 class="mt-3">Safety prompt for production code</h3>
+        <p class="mt-1">Refactoring existing working code to improve maintainability. You need changes without breaking functionality users depend on.</p>
+
+        <div class="prompt-box mt-2">
+          <div class="prompt-label">Safe refactoring prompt:</div>
+          <pre><code class="language-text">Refactor this product grid layout without breaking existing functionality.
+Preserve all:
+- Responsive behavior (320px to 3840px)
+- Accessibility (keyboard navigation, ARIA labels)
+- Performance (no layout shift, lazy-loaded images)
+- Container queries for card layouts
+
+Current code:
+[paste existing working code]
+
+Goal: Convert spacing from hardcoded clamp() values to systematic CSS
+custom properties (--space-xs through --space-xl) while maintaining
+all current behavior.</code></pre>
+          <p class="code-comment mt-1"><strong>When to use this</strong>: Production code works but needs improvement—consolidate spacing into custom properties, update to newer CSS patterns, improve naming. Safety prompt emphasizes preserving functionality while making targeted improvements.</p>
+        </div>
+
+        <div class="hap-note-callout mt-3">
+          <img
+            src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+            alt="HAP with his study book and tools" width="150" height="150"
+            class="hap-note-image" decoding="async" loading="lazy">
+          <div class="hap-note-content">
+            <h3>HAP's workflow evolution: From one-shot to conversational</h3>
+            <p>I used to treat AI like a vending machine: insert prompt, receive code, done. When code wasn't perfect, I was frustrated. Why couldn't AI read my mind?! Prof. Teeters explained: "HAP, AI collaboration is iterative, not transactional. You generate, review, refine. Professionals don't expect perfection on first try—they iterate toward the right solution. These advanced prompts help you refine conversationally."</p>
+            <p class="mt-1">Now my workflow: (1) Initial prompt with plan-first approach (2) Review generated code (3) If refinement needed, use iteration prompt (4) If problem found, use troubleshooting prompt (5) If refactoring production code, use safety prompt (6) Verify at each step. Results are BETTER and I get them FASTER. Conversational refinement beats waiting for perfect one-shot generation. Prof. Teeters: "You're collaborating with AI now, not just using it. That's the difference."</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: When NOT to Use AI -->
+    <section class="content-section">
+      <div class="topic-section">
+        <h2>When NOT to use AI</h2>
+        <p class="mb-2">AI is powerful for intrinsic layouts, but it's not always the right tool. Prof. Teeters taught me to recognize situations where manual work is better than AI assistance. Using AI when you shouldn't creates dependency on tools for things you should understand deeply yourself. Understanding when NOT to use AI is just as important as knowing when to use it. These are the scenarios where I deliberately avoid AI and work manually instead.</p>
+
+        <div class="analysis-grid mt-2">
+          <div class="analysis-point">
+            <h3>When learning fundamentals</h3>
+            <p><strong>The principle</strong>: Foundation knowledge must be earned, not copied.</p>
+            <p class="mt-1">When I was learning <code>clamp()</code> (Station 3), I was tempted to ask AI "give me 10 clamp() examples." Prof. Teeters stopped me: "HAP, if you let AI teach you fundamentals, you won't internalize the patterns. Work through the exercises manually first. Understand WHY <code>clamp(1rem, 0.5rem + 1vw, 1.5rem)</code> works. Build intuition for the formula. THEN use AI to help you apply it faster." She was right. Stations 1-5 taught me WHAT makes layouts intrinsic and WHY it matters. Now I can evaluate AI-generated code because I understand the principles. If I'd used AI to learn fundamentals, I wouldn't recognize drift.</p>
+            <p class="mt-1"><strong>When to work manually</strong>: Learning new CSS features, building mental models, practicing concepts, understanding WHY techniques work. Master fundamentals first, THEN use AI to accelerate application.</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>When debugging complex issues</h3>
+            <p><strong>The principle</strong>: Debugging builds understanding. Outsourcing it prevents learning.</p>
+            <p class="mt-1">I had a layout where Grid items overlapped unpredictably. Tempting to paste code into AI: "fix this." Prof. Teeters: "HAP, stop. This is a teaching moment. Debug it yourself using DevTools. Inspect the Grid. Check <code>grid-auto-flow</code>. Understand WHY items overlap. Then fix it. You'll internalize the lesson and recognize this pattern forever." Debugging took 20 minutes. AI could have fixed it in 30 seconds. But I learned that <code>grid-auto-flow: dense</code> causes overlap when items have different spans. Now I recognize that pattern instantly. If AI had fixed it, I'd never have learned.</p>
+            <p class="mt-1"><strong>When to work manually</strong>: Unexpected behavior, layout bugs, performance issues, accessibility failures. Debug manually, understand root cause, THEN use AI to implement fix if needed. Understanding beats speed when learning is the goal.</p>
+          </div>
+
+          <div class="analysis-point">
+            <h3>When making architectural decisions</h3>
+            <p><strong>The principle</strong>: Architecture requires understanding your project's specific needs and constraints. AI doesn't know your users, goals, or future plans.</p>
+            <p class="mt-1">I asked AI: "Should I use Grid or Flexbox for this product showcase?" AI gave generic answer favoring Grid. Prof. Teeters: "HAP, YOU need to make that decision. You know the content structure, responsive requirements, and browser support needs. AI gives generic advice based on training data patterns. You make contextual decisions based on YOUR project." She taught me decision-making framework: one-dimensional (Flexbox) vs. two-dimensional (Grid), known item count vs. unknown, content-first vs. layout-first. Now I make architectural choices confidently and use AI to IMPLEMENT my decisions, not make them for me.</p>
+            <p class="mt-1"><strong>When to work manually</strong>: Choosing layout systems, designing component hierarchies, planning responsive strategies, accessibility approaches. Decide architecture yourself, use AI to implement decisions.</p>
+          </div>
+        </div>
+
+        <div class="warning-box mt-3">
+          <h3>🟠 Prof. Teeters' warning about AI and learning</h3>
+          <p class="mt-1"><strong>"Here's what worries me about students using AI too early: they can generate code they don't understand, ship it successfully once or twice, and convince themselves they know CSS. Then a bug happens, or they need to modify something, and they realize they can't. They're dependent on AI for everything. That's not learning—that's outsourcing understanding."</strong></p>
+          <p class="mt-1">She said this when I wanted to skip Station 5 exercises and "just use AI." She made me complete all exercises manually first.</p>
+          <p class="mt-1">Prof. Teeters was absolutely right. My knowledge from Stations 1-5 makes AI VALUABLE. I can evaluate AI output, catch drift, request corrections, and verify quality because I understand intrinsic layouts deeply. Without that foundation, AI would be dangerous—I'd ship code I couldn't debug, modify, or maintain. Learn fundamentals manually, THEN use AI to accelerate application. That's the right order. Understanding enables responsible AI use. AI without understanding creates dependency, not skill.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: Learning Objectives Checklist -->
+    <section class="content-section">
+      <h2>Learning objectives checklist</h2>
+      <p class="mt-1"><strong>Congratulations on completing all six stations of HAP's Intrinsic Layout Learning Lab!</strong> You've learned modern CSS techniques (Stations 1-5) AND how to use AI responsibly while maintaining those standards (Station 6). Before you finish, let me share final verification questions. Can you confidently say yes to these? These objectives represent the complete learning journey—from intrinsic mindset to AI-powered workflow.</p>
+
+      <div class="hap-info-grid mt-2">
+        <div>
+          <h3>Understanding AI capabilities and limitations</h3>
+          <ul>
+            <li>Explain why AI defaults to older CSS patterns (training data lag)</li>
+            <li>Identify modern CSS features newer than most AI training data</li>
+            <li>Understand the difference between AI drift and AI error</li>
+            <li>Recognize when AI needs explicit guidance vs. when it excels automatically</li>
+            <li>Describe how training data composition affects AI output defaults</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Creating effective project rules</h3>
+          <ul>
+            <li>Create <code>.github/copilot-instructions.md</code> (or tool equivalent) from scratch</li>
+            <li>Write clear, specific rules for color formats (hsl() only)</li>
+            <li>Specify layout standards (Grid patterns, container queries, <code>clamp()</code> spacing)</li>
+            <li>List anti-patterns to avoid (fixed pixels, hex colors, viewport queries)</li>
+            <li>Adapt same rules across different AI tools (Copilot, Claude Code, Cursor)</li>
+            <li>Update rules file when discovering new drift patterns</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Plan-first workflow mastery</h3>
+          <ul>
+            <li>Request implementation plans before code generation</li>
+            <li>Review plans for drift signals (fixed pixels, hex colors, media queries)</li>
+            <li>Approve or correct plans before implementation</li>
+            <li>Use plan review to catch drift at planning stage (not debugging stage)</li>
+            <li>Understand why planning forces AI to re-read project rules</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Providing strategic context</h3>
+          <ul>
+            <li>Open relevant files before prompting AI (automatic context)</li>
+            <li>Use <code>@workspace</code> for project-wide questions</li>
+            <li>Use <code>#file</code> to reference specific examples</li>
+            <li>Select code blocks to focus AI attention</li>
+            <li>Understand how context quality affects output quality</li>
+            <li>Recognize when insufficient context caused generic output</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Drift detection and verification</h3>
+          <ul>
+            <li>Run 10-second visual scan for drift patterns before accepting code</li>
+            <li>Identify all 9 drift signals (fixed pixels, hex colors, etc.)</li>
+            <li>Request AI self-review against project rules</li>
+            <li>Interpret AI's self-identified violations</li>
+            <li>Use two-layer verification (manual scan + AI self-check)</li>
+            <li>Know when to request rewrite vs. manual fixes</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Integration with Stations 1-5 knowledge</h3>
+          <ul>
+            <li>Recognize when AI violates Station 1 standards (hsl() colors, custom properties)</li>
+            <li>Catch Station 2 violations (fixed widths instead of content-based sizing)</li>
+            <li>Identify Station 3 violations (fixed spacing, no <code>clamp()</code>, missing <code>:has()</code>)</li>
+            <li>Spot Station 4 violations (fixed Grid columns instead of <code>auto-fit</code>)</li>
+            <li>Notice Station 5 violations (viewport queries instead of container queries)</li>
+            <li>Request corrections using specific Station concepts</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Professional responsibility and ethics</h3>
+          <ul>
+            <li>Own every line of code (whether you wrote it or AI did)</li>
+            <li>Never ship code you don't understand</li>
+            <li>Always request accessibility explicitly (WCAG 2.2 Level AA)</li>
+            <li>Test AI-generated code before committing (visual, keyboard, Lighthouse)</li>
+            <li>Know when NOT to use AI (learning fundamentals, debugging, architecture)</li>
+            <li>Treat AI as collaborative tool requiring verification, not magic wand</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hap-note-callout mt-3">
+        <img
+          src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+          alt="HAP with his study book and tools" width="150" height="150"
+          class="hap-note-image" decoding="async" loading="lazy">
+        <div class="hap-note-content">
+          <h3>Prof. Teeters on completing all six stations</h3>
+          <p><strong>"HAP, I'm incredibly proud of how far you've come. When we started Station 1, you were fighting unpredictability with fixed values. Now you design FOR unpredictability with intrinsic layouts. That's a fundamental shift in thinking."</strong></p>
+          <p class="mt-1">Watching your growth through these six stations has been remarkable. Station 1 taught you to think intrinsically. Stations 2-5 gave you the techniques—content-based sizing, fluid spacing, responsive Grids, container-aware components. Station 6 taught you to maintain those standards while using AI to code faster. You're not just copying modern CSS patterns anymore. You UNDERSTAND them. You can explain WHY container queries beat media queries for components, WHY <code>clamp()</code> needs computed slopes not arbitrary percentages, WHY hsl() colors matter for maintainability. That understanding lets you evaluate AI output critically instead of accepting blindly.</p>
+          <p class="mt-1">The most important lesson? You learned that AI is a tool requiring guidance, not a replacement for understanding. Your knowledge from Stations 1-5 makes AI valuable. You catch drift because you know what modern CSS looks like. You request corrections using specific terminology. You verify output against principles you internalized. Without that foundation, AI would be dangerous—you'd ship code you couldn't debug or maintain. With it, AI accelerates your work while you maintain quality. That's the right relationship with AI tools.</p>
+          <p class="mt-1">Remember these six stations as you continue coding: Think intrinsically (Station 1). Let content determine size (Station 2). Make spacing contextual (Station 3). Design grids that adapt (Station 4). Build container-aware components (Station 5). And use AI responsibly with persistent context (Station 6). Modern CSS is about setting smart boundaries and letting browsers adapt. AI assistance is about setting clear rules and letting tools help within those boundaries. You provide guidance—CSS provides flexibility, AI provides speed. Together, they create powerful, maintainable, accessible web experiences. Keep learning, keep verifying, keep building. You're ready! 🟠 — Prof. Teeters</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav aria-label="Station pagination" class="page-navigation bottom-nav">
+    <a href="station5.html" class="nav-link prev-link">← Previous: Station 5 - Intrinsic Components</a>
+    <a href="../index.html" class="nav-link hub-link">🏠 Hub</a>
+  </nav>
+
+  <footer class="footer">
+    <p class="footer-reminder">
+      AI needs persistent context to generate modern CSS! Prof. Teeters taught me: Create <code>.github/copilot-instructions.md</code> with rules (hsl() colors, container queries, <code>clamp()</code> spacing), use plan-first approach to catch drift early, provide clear context (open files!), run 10-second drift scan, request AI self-review before accepting. Two-layer verification (my scan + AI check) catches 99% of drift. Never ship code I don't understand. Always request WCAG 2.2 Level AA accessibility. Test before committing (visual + keyboard + Lighthouse). Understanding from Stations 1-5 makes AI valuable. Without it, AI creates dependency. With it, AI accelerates work while I maintain quality. Generate → Scan → Self-review → Verify → Accept. Responsible AI collaboration! 🟠 — HAP
+    </p>
+
+    <div class="footer-copyright">
+      <img
+        src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_80,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+        alt="HAP the apprentice learner with his study book and tools" class="footer-hybit" width="80" height="80"
+        decoding="async" loading="lazy">
+      <div>
+        <p>HAP&trade; Educational Content &copy; 2025 Cynthia Teeters. All rights reserved.</p>
+        <p>HyBit A. ProtoBot&trade; (HAP&trade;) character and the apprentice learning methodology are proprietary
+          educational innovations.</p>
+        <p>Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters. Visual
+          elements created with AI assistance.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Prism.js for syntax highlighting (loaded last for performance) -->
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js" defer></script>
+
+  <!-- Copy button functionality for code blocks -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('pre').forEach(function (codeBlock) {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.textContent = 'Copy';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+
+        button.addEventListener('click', function () {
+          const code = codeBlock.querySelector('code');
+          const text = code ? code.textContent : codeBlock.textContent;
+          navigator.clipboard.writeText(text).then(function () {
+            button.textContent = 'Copied!';
+            button.classList.add('copied');
+            setTimeout(function () {
+              button.textContent = 'Copy';
+              button.classList.remove('copied');
+            }, 2000);
+          });
+        });
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+        wrapper.appendChild(codeBlock);
+        wrapper.appendChild(button);
+      });
+    });
+  </script>
+
+  <!-- Easter Egg System -->
+  <script src="../js/easter-egg.js"></script>
+
+  <!--
+  HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+  HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+  Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+  Visual elements created with AI assistance.
+  -->
+</body>
+
+</html>
