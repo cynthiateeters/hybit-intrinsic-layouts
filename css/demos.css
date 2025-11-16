@@ -1,0 +1,2094 @@
+/* ============================================================================
+   HAP's Learning Lab - Interactive Demo Styles
+
+   Demo-specific CSS for interactive demonstrations throughout the learning lab.
+   This file is loaded after style.css for demo components.
+   ============================================================================ */
+
+/* CSS Custom Properties for Demos
+   ================================= */
+:root {
+    --heart-gray: hsl(0, 0%, 60%);
+    /* Unhovered/unliked state */
+    --heart-red: hsl(0, 73%, 50%);
+    /* Liked state */
+    --heart-red-hover: hsl(0, 73%, 60%);
+    /* Hover preview */
+    --warm-orange: hsl(32, 76%, 63%);
+    --very-dark-brown: hsl(25, 42%, 17%);
+}
+
+/* Three-Column Animation Comparison Demo
+   ========================================= */
+
+.demo-section {
+    margin: 2rem 0;
+}
+
+.three-column-demo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.demo-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: hsl(0, 0%, 98%);
+    border-radius: 8px;
+    border: 1px solid hsl(0, 0%, 90%);
+}
+
+.demo-column p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: hsl(0, 0%, 40%);
+}
+
+/* Demo Buttons
+   ============ */
+
+.button-instant,
+.button-smooth {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    transform: scale(1);
+}
+
+/* Button without transition - instant change */
+.button-instant:hover {
+    background: hsl(32, 76%, 53%);
+    transform: scale(1.05);
+}
+
+.button-instant:active {
+    transform: scale(0.98);
+}
+
+/* Button with smooth transition */
+.button-smooth {
+    transition: background 300ms ease-out,
+        transform 300ms ease-out;
+}
+
+.button-smooth:hover {
+    background: hsl(32, 76%, 53%);
+    transform: scale(1.05);
+}
+
+.button-smooth:active {
+    transform: scale(0.98);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .button-smooth {
+        transition: none;
+    }
+}
+
+/* Simulated reduced motion (when checkbox is checked) */
+.demo-reduced-motion .button-smooth {
+    transition: none;
+}
+
+/* Checkbox Control
+   ================ */
+
+.demo-column label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.demo-column input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+/* Focus states for accessibility */
+.button-instant:focus-visible,
+.button-smooth:focus-visible {
+    outline: 3px solid var(--warm-orange);
+    outline-offset: 3px;
+}
+
+.demo-column input[type="checkbox"]:focus-visible {
+    outline: 3px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+
+.layout-demo-container {
+    padding: 2rem;
+    background: hsl(48, 100%, 97%);
+    border-radius: 8px;
+}
+
+.layout-demo-box {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--warm-orange);
+    color: white;
+    color: var(--very-dark-brown) font-weight: bold;
+    transition: transform 300ms ease-out;
+}
+
+.layout-demo-box:hover {
+    transform: translateX(50px);
+}
+
+.layout-demo-static {
+    width: 100px;
+    height: 100px;
+    background: hsl(168, 28%, 54%);
+    border-radius: 8px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    color: var(--very-dark-brown) font-weight: bold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .layout-demo-box {
+        transition: none;
+    }
+
+    .layout-demo-box:hover {
+        transform: none;
+        opacity: 0.8;
+    }
+}
+
+/* Scale Demo
+   =========== */
+.scale-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.scale-demo-item {
+    text-align: center;
+}
+
+.scale-demo-box {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    margin: 0 auto 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    color: var(--very-dark-brown) font-weight: bold;
+    font-size: 0.875rem;
+    transition: transform 300ms ease-out;
+    cursor: pointer;
+}
+
+.scale-demo-box-1 {
+    background: var(--warm-orange);
+    color: var(--very-dark-brown)
+}
+
+.scale-demo-box-1:hover {
+    transform: scale(1.2);
+}
+
+.scale-demo-box-2 {
+    background: hsl(168, 28%, 54%);
+}
+
+.scale-demo-box-2:hover {
+    transform: scale(1.5);
+}
+
+.scale-demo-box-3 {
+    background: hsl(28, 25%, 25%);
+    color: white;
+}
+
+.scale-demo-box-3:hover {
+    transform: scale(0.8);
+}
+
+.scale-demo-label-code {
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.scale-demo-label-explain {
+    font-size: 0.75rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0.25rem 0 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scale-demo-box {
+        transition: none;
+    }
+
+    .scale-demo-box-1:hover,
+    .scale-demo-box-2:hover {
+        transform: none;
+        opacity: 0.85;
+    }
+
+    .scale-demo-box-3:hover {
+        transform: none;
+        opacity: 0.95;
+    }
+}
+
+@media (max-width: 600px) {
+    .scale-demo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Transform Order Demo
+   ===================== */
+.order-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.order-demo-item {
+    text-align: center;
+}
+
+.order-demo-container {
+    width: 200px;
+    height: 200px;
+    background: hsl(48, 100%, 97%);
+    border: 2px dashed hsl(0, 0%, 80%);
+    border-radius: 8px;
+    margin: 1rem auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-demo-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--warm-orange);
+    color: white;
+    color: var(--very-dark-brown) font-weight: bold;
+    font-size: 0.75rem;
+    position: absolute;
+}
+
+.order-demo-box-1 {
+    /* rotate THEN translate */
+    transform: rotate(45deg) translateY(50px);
+}
+
+.order-demo-box-2 {
+    /* translate THEN rotate */
+    transform: translateY(50px) rotate(45deg);
+}
+
+.order-demo-origin {
+    width: 60px;
+    height: 60px;
+    border: 2px solid hsl(168, 28%, 54%);
+    border-radius: 4px;
+    position: absolute;
+}
+
+.order-demo-label-bold {
+    font-weight: bold;
+    margin: 0 0 0.5rem;
+}
+
+.order-demo-label-code {
+    font-size: 0.875rem;
+    margin: 0.5rem 0 0;
+}
+
+.order-demo-label-code-sub {
+    font-size: 0.875rem;
+    margin: 0.25rem 0 0;
+}
+
+.order-demo-label-explain {
+    font-size: 0.75rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0.5rem 0 0;
+}
+
+@media (max-width: 600px) {
+    .order-demo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+
+
+/* Responsive: Stack vertically on mobile
+   ====================================== */
+
+@media (max-width: 768px) {
+    .three-column-demo {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .demo-column {
+        padding: 1rem;
+    }
+}
+
+/* Demo Section Heading and Context
+   ================================= */
+
+.demo-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.demo-section .demo-context {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: hsl(32, 76%, 95%);
+    border-left: 4px solid var(--warm-orange);
+    border-radius: 4px;
+}
+
+.demo-section .demo-context p {
+    margin: 0;
+}
+
+.demo-section .demo-context strong {
+    color: hsl(32, 76%, 25%);
+}
+
+/* ============================================================================
+   STATION 2: CSS Transitions Demos
+   ============================================================================ */
+
+/* Duration Comparison Demo
+   ========================= */
+
+.duration-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.duration-demo-item {
+    text-align: center;
+}
+
+.duration-demo-button {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    margin-bottom: 0.75rem;
+}
+
+/* Different durations */
+.duration-100ms {
+    transition: background 100ms ease-out;
+}
+
+.duration-300ms {
+    transition: background 300ms ease-out;
+}
+
+.duration-1000ms {
+    transition: background 1000ms ease-out;
+}
+
+.duration-2000ms {
+    transition: background 2000ms ease-out;
+}
+
+.duration-demo-button:hover {
+    background: hsl(32, 76%, 53%);
+}
+
+.duration-demo-button:active {
+    background: hsl(32, 76%, 43%);
+}
+
+.duration-demo-label {
+    font-size: 0.875rem;
+    font-weight: bold;
+    margin: 0 0 0.25rem;
+}
+
+.duration-demo-note {
+    font-size: 0.75rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0;
+}
+
+/* Highlight the sweet spot */
+.duration-demo-item.sweet-spot .duration-demo-label {
+    color: hsl(142, 71%, 25%);
+}
+
+.duration-demo-item.sweet-spot .duration-demo-button {
+    border: 2px solid hsl(142, 71%, 25%);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .duration-100ms,
+    .duration-300ms,
+    .duration-1000ms,
+    .duration-2000ms {
+        transition: none;
+    }
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .duration-demo-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+
+/* Property Comparison Demo: Specific vs All
+   ========================================== */
+
+.property-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.property-demo-column {
+    text-align: center;
+    padding: 1.5rem;
+    background: hsl(0, 0%, 98%);
+    border-radius: 8px;
+    border: 1px solid hsl(0, 0%, 90%);
+}
+
+.property-demo-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    transform: scale(1);
+    margin-bottom: 1rem;
+}
+
+/* Specific properties (RECOMMENDED) */
+.property-demo-specific {
+    transition: transform 300ms ease-out,
+        background 300ms ease-out;
+}
+
+/* All properties (NOT RECOMMENDED) */
+.property-demo-all {
+    transition: all 300ms ease-out;
+}
+
+.property-demo-button:hover {
+    background: hsl(32, 76%, 53%);
+    transform: scale(1.05);
+}
+
+.property-demo-button:active {
+    background: hsl(32, 76%, 43%);
+    transform: scale(0.98);
+}
+
+.property-demo-label {
+    font-weight: bold;
+    margin: 0 0 0.5rem;
+}
+
+.property-demo-code {
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+    color: hsl(0, 0%, 40%);
+}
+
+.property-demo-note {
+    font-size: 0.75rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0.5rem 0 0;
+}
+
+/* Highlight the correct approach */
+.property-demo-column.recommended {
+    border: 2px solid hsl(142, 71%, 25%);
+}
+
+.property-demo-column.recommended .property-demo-label {
+    color: hsl(142, 71%, 25%);
+}
+
+.property-demo-column.not-recommended {
+    border: 2px solid hsl(0, 71%, 55%);
+}
+
+.property-demo-column.not-recommended .property-demo-label {
+    color: hsl(0, 71%, 25%);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .property-demo-specific,
+    .property-demo-all {
+        transition: none;
+    }
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .property-demo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Reduced Motion Toggle Demo
+   =========================== */
+
+.reduced-motion-demo-container {
+    padding: 2rem;
+    background: hsl(48, 100%, 97%);
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.reduced-motion-demo-content {
+    text-align: center;
+}
+
+.reduced-motion-demo-button {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    transform: scale(1);
+    transition: transform 300ms ease-out,
+        background 300ms ease-out;
+    margin: 1.5rem 0;
+}
+
+.reduced-motion-demo-button:hover {
+    background: hsl(32, 76%, 53%);
+    transform: scale(1.05);
+}
+
+.reduced-motion-demo-button:active {
+    background: hsl(32, 76%, 43%);
+    transform: scale(0.98);
+}
+
+/* When simulated reduced motion is enabled */
+.demo-motion-reduced .reduced-motion-demo-button {
+    transition: none;
+}
+
+.reduced-motion-toggle {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid hsl(0, 0%, 85%);
+}
+
+.reduced-motion-toggle label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+}
+
+.reduced-motion-toggle input[type="checkbox"] {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+.reduced-motion-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: hsl(0, 0%, 95%);
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.reduced-motion-status.motion-on {
+    background: hsl(142, 71%, 95%);
+    color: hsl(142, 71%, 25%);
+    border: 1px solid hsl(142, 71%, 70%);
+}
+
+.reduced-motion-status.motion-off {
+    background: hsl(32, 76%, 95%);
+    color: hsl(32, 76%, 25%);
+    border: 1px solid hsl(32, 76%, 70%);
+}
+
+/* Focus states for accessibility */
+.duration-demo-button:focus-visible,
+.property-demo-button:focus-visible,
+.reduced-motion-demo-button:focus-visible {
+    outline: 3px solid var(--warm-orange);
+    outline-offset: 3px;
+}
+
+.reduced-motion-toggle input[type="checkbox"]:focus-visible {
+    outline: 3px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+/* Respect system reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .reduced-motion-demo-button {
+        transition: none;
+    }
+}
+
+/* =============================================================================
+   Station 3: Timing Functions Demos
+   ============================================================================= */
+
+/* Demo 1: Timing Function Comparison
+   ==================================== */
+
+.timing-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.timing-demo-item {
+    text-align: center;
+}
+
+.timing-demo-button {
+    width: 100%;
+    padding: 1rem 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    transform: scale(1);
+    margin-bottom: 0.75rem;
+}
+
+/* Different timing functions for each button */
+.timing-linear {
+    transition: transform 300ms linear;
+}
+
+.timing-ease {
+    transition: transform 300ms ease;
+}
+
+.timing-ease-in {
+    transition: transform 300ms ease-in;
+}
+
+.timing-ease-out {
+    transition: transform 300ms ease-out;
+}
+
+.timing-ease-in-out {
+    transition: transform 300ms ease-in-out;
+}
+
+.timing-demo-button:hover {
+    transform: scale(1.1);
+}
+
+.timing-demo-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0.25rem 0;
+    color: hsl(0, 0%, 40%);
+}
+
+.timing-demo-note {
+    font-size: 0.85rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0;
+}
+
+/* Highlight the recommended option */
+.timing-demo-item.recommended .timing-demo-label {
+    color: hsl(142, 71%, 25%);
+}
+
+.timing-demo-item.recommended .timing-demo-button {
+    border: 2px solid hsl(142, 71%, 45%);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .timing-linear,
+    .timing-ease,
+    .timing-ease-in,
+    .timing-ease-out,
+    .timing-ease-in-out {
+        transition: none;
+    }
+}
+
+/* Responsive: Stack on tablets */
+@media (max-width: 900px) {
+    .timing-demo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 600px) {
+    .timing-demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* Demo 2: Custom Cubic-Bezier Curves
+   ===================================== */
+
+.custom-curves-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.custom-curves-item {
+    text-align: center;
+}
+
+.custom-curves-button {
+    width: 100%;
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    transform: scale(1);
+    margin-bottom: 0.75rem;
+}
+
+/* Custom bezier curves */
+.curve-bouncy {
+    transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.curve-anticipation {
+    transition: transform 400ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.curve-smooth {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.custom-curves-button:hover {
+    transform: scale(1.15);
+}
+
+.custom-curves-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0.5rem 0 0.5rem 0;
+    color: hsl(0, 0%, 40%);
+}
+
+.custom-curves-bezier {
+    font-size: 0.8rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0;
+    word-break: break-all;
+}
+
+.custom-curves-bezier code {
+    font-size: 0.75rem;
+    background: hsl(0, 0%, 95%);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .curve-bouncy,
+    .curve-anticipation,
+    .curve-smooth {
+        transition: none;
+    }
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .custom-curves-demo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Demo 3: Brand Personality Comparison
+   ======================================= */
+
+.brand-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.brand-demo-item {
+    text-align: center;
+}
+
+.brand-demo-button {
+    width: 100%;
+    padding: 1rem 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: hsl(0, 0%, 100%);
+    transform: scale(1);
+    margin-bottom: 0.75rem;
+}
+
+/* Brand personality timing */
+.brand-energetic {
+    background: var(--warm-orange);
+    color: var(--very-dark-brown) transition: transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.brand-professional {
+    background: hsl(220, 13%, 18%);
+    transition: transform 400ms ease-in-out,
+        opacity 400ms ease-in-out;
+}
+
+.brand-friendly {
+    background: hsl(200, 60%, 40%);
+    transition: transform 300ms ease-out;
+}
+
+.brand-technical {
+    background: hsl(210, 13%, 45%);
+    transition: transform 300ms linear;
+}
+
+.brand-demo-button:hover {
+    transform: scale(1.08);
+}
+
+.brand-professional:hover {
+    opacity: 0.9;
+}
+
+.brand-demo-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0.5rem 0 0.25rem 0;
+    color: hsl(0, 0%, 40%);
+}
+
+.brand-demo-note {
+    font-size: 0.85rem;
+    color: hsl(0, 0%, 40%);
+    margin: 0;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .brand-energetic,
+    .brand-professional,
+    .brand-friendly,
+    .brand-technical {
+        transition: none;
+    }
+}
+
+/* Responsive: Stack on tablets */
+@media (max-width: 900px) {
+    .brand-demo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 600px) {
+    .brand-demo-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Focus states for all Station 3 demos */
+.timing-demo-button:focus-visible,
+.custom-curves-button:focus-visible,
+.brand-demo-button:focus-visible {
+    outline: 3px solid var(--warm-orange);
+    outline-offset: 3px;
+}
+
+/* ============================================
+   STATION 4: MICRO-INTERACTIONS DEMOS
+   ============================================ */
+
+/* Demo 1: Button States Demo */
+.button-states-demo {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.button-states-demo h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.button-states-demo p {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.demo-button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.demo-note {
+    font-size: 0.9rem;
+    color: hsl(0, 0%, 40%);
+    margin-top: 1rem;
+}
+
+.solution-section {
+    border-left: 4px solid var(--warm-orange);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.solution-section h4 {
+    color: var(--very-dark-brown);
+    margin-bottom: 0.5rem;
+}
+
+.micro-button-demo {
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px hsl(0, 0%, 0% / 0.1);
+    transition: transform 300ms ease-out,
+        box-shadow 300ms ease-out;
+}
+
+.micro-button-demo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px hsl(0, 0%, 0% / 0.15);
+}
+
+.micro-button-demo:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px hsl(0, 0%, 0% / 0.1);
+}
+
+.micro-button-demo:focus-visible {
+    outline: 2px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .micro-button-demo {
+        transition: none;
+    }
+}
+
+/* Demo 2: Form Feedback Demo */
+.form-feedback-demo {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.form-feedback-demo h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.form-feedback-demo p {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.form-demo-field {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.form-demo-input {
+    width: 100%;
+    padding: 0.75rem;
+    padding-right: 3rem;
+    border: 2px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 300ms ease-out;
+}
+
+.form-demo-input:focus {
+    outline: none;
+    border-color: var(--warm-orange);
+}
+
+.form-demo-field.input-success .form-demo-input {
+    border-color: hsl(142, 71%, 35%);
+}
+
+.form-demo-field.input-error .form-demo-input {
+    border-color: hsl(0, 73%, 50%);
+    animation: errorShake 300ms ease-out;
+}
+
+@keyframes errorShake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.form-demo-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 300ms ease-out,
+        transform 300ms ease-out;
+}
+
+.form-demo-field.input-success .success-icon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.form-demo-field.input-error .error-icon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+.form-demo-validate-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--warm-orange);
+    color: var(--very-dark-brown);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: background 200ms ease-out;
+}
+
+.form-demo-validate-btn:hover {
+    background: hsl(32, 76%, 55%);
+}
+
+.form-demo-validate-btn:focus-visible {
+    outline: 2px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+.form-demo-message {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+}
+
+.form-demo-field.input-success .form-demo-message {
+    opacity: 1;
+    color: hsl(142, 71%, 35%);
+}
+
+.form-demo-field.input-error .form-demo-message {
+    opacity: 1;
+    color: hsl(0, 73%, 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .form-demo-input,
+    .form-demo-icon,
+    .form-demo-message {
+        transition: none;
+    }
+
+    .form-demo-field.input-error .form-demo-input {
+        animation: none;
+    }
+}
+
+/* Demo 3: Toggle Animations Demo */
+.toggle-demo {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.toggle-demo h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.toggle-demo p {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.toggle-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.toggle-demo-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toggle-demo-label {
+    font-weight: 600;
+    color: hsl(0, 0%, 20%);
+}
+
+/* Checkbox demo */
+.checkbox-demo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.checkbox-demo-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-checkbox-demo {
+    width: 24px;
+    height: 24px;
+    border: 2px solid hsl(0, 0%, 60%);
+    background: hsl(0, 0%, 100%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 200ms ease-out,
+        border-color 200ms ease-out;
+}
+
+.custom-checkbox-demo .checkmark {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 200ms ease-out,
+        transform 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-size: 1.25rem;
+}
+
+.checkbox-demo-input:checked + .custom-checkbox-demo {
+    background: var(--warm-orange);
+    border-color: var(--warm-orange);
+}
+
+.checkbox-demo-input:checked + .custom-checkbox-demo .checkmark {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.checkbox-demo-input:focus-visible + .custom-checkbox-demo {
+    outline: 2px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+/* Switch demo */
+.switch-demo-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.switch-demo-input {
+    position: absolute;
+    opacity: 0;
+}
+
+.toggle-switch-demo {
+    width: 50px;
+    height: 26px;
+    background: hsl(0, 0%, 80%);
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: background 250ms ease-out;
+}
+
+.toggle-circle-demo {
+    width: 20px;
+    height: 20px;
+    background: hsl(0, 0%, 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    box-shadow: 0 2px 4px hsl(0, 0%, 0% / 0.2);
+    transition: transform 250ms ease-out;
+}
+
+.switch-demo-input:checked + .toggle-switch-demo {
+    background: var(--warm-orange);
+}
+
+.switch-demo-input:checked + .toggle-switch-demo .toggle-circle-demo {
+    transform: translateX(24px);
+}
+
+.switch-demo-input:focus-visible + .toggle-switch-demo {
+    outline: 2px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .custom-checkbox-demo,
+    .custom-checkbox-demo .checkmark,
+    .toggle-switch-demo,
+    .toggle-circle-demo {
+        transition: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .toggle-demo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Demo 4: Hamburger to X Demo */
+.hamburger-demo {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.hamburger-demo h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.hamburger-demo p {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.hamburger-button-demo {
+    background: transparent;
+    border: 2px solid hsl(0, 0%, 80%);
+    border-radius: 4px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: border-color 200ms ease-out;
+}
+
+.hamburger-button-demo:hover {
+    border-color: var(--warm-orange);
+}
+
+.hamburger-button-demo:focus-visible {
+    outline: 2px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+.hamburger-icon-demo {
+    width: 30px;
+    height: 24px;
+    position: relative;
+    display: block;
+}
+
+.hamburger-line-demo {
+    width: 100%;
+    height: 3px;
+    background: hsl(0, 0%, 20%);
+    position: absolute;
+    left: 0;
+    transition: transform 300ms ease-out,
+        opacity 300ms ease-out;
+}
+
+.hamburger-line-demo:nth-child(1) {
+    top: 0;
+}
+
+.hamburger-line-demo:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hamburger-line-demo:nth-child(3) {
+    bottom: 0;
+}
+
+.hamburger-button-demo.open .hamburger-line-demo:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger-button-demo.open .hamburger-line-demo:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-button-demo.open .hamburger-line-demo:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hamburger-line-demo {
+        transition: none;
+    }
+}
+
+/* Demo 5: Loading Dots Demo */
+.loading-demo {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.loading-demo h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.loading-demo p {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.loading-dots-demo {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.loading-dot-demo {
+    width: 12px;
+    height: 12px;
+    background: var(--warm-orange);
+    border-radius: 50%;
+    animation: dotBounce 1.4s infinite ease-out;
+}
+
+.loading-dot-demo:nth-child(2) {
+    animation-delay: 0.16s;
+}
+
+.loading-dot-demo:nth-child(3) {
+    animation-delay: 0.32s;
+}
+
+@keyframes dotBounce {
+
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .loading-dot-demo {
+        animation: none;
+    }
+}
+
+/* Demo 6: Like Button Demo (Exercise Solution) */
+.like-button-demo-container {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.like-button-demo-container h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.like-button-demo-container p {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.like-button-demo {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    transform: scale(1);
+    transition: transform 300ms ease-out;
+}
+
+.like-button-demo:hover {
+    transform: scale(1.05);
+    /* 5% scale - micro constraint + 48px icon = visible */
+}
+
+.like-button-demo:focus-visible {
+    outline: 2px solid var(--warm-orange);
+    outline-offset: 2px;
+}
+
+.heart-icon-demo {
+    transition: fill 300ms ease-out;
+}
+
+/* Default fill for the path */
+.heart-icon-demo path {
+    fill: var(--heart-gray);
+}
+
+/* Hover state: preview the red color */
+.like-button-demo:hover .heart-icon-demo path {
+    fill: var(--heart-red-hover);
+}
+
+/* Liked state: solid red + bounce animation */
+.like-button-demo.liked .heart-icon-demo {
+    fill: var(--heart-red);
+    /* Keep for compatibility */
+    animation: heartBounceDemo 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.like-button-demo.liked .heart-icon-demo path {
+    fill: var(--heart-red);
+}
+
+@keyframes heartBounceDemo {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .like-button-demo {
+        transition: none;
+    }
+
+    .like-button-demo.liked .heart-icon-demo {
+        animation: none;
+    }
+}
+
+/* ============================================
+   STATION 5: KEYFRAME ANIMATIONS DEMOS
+   ============================================ */
+
+/* Demo 1: Basic Keyframes (Section 2) */
+.basic-keyframes-demo-container {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.basic-keyframes-demo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.demo-card {
+    background: hsl(0, 0%, 100%);
+    border: 2px solid hsl(32, 76%, 70%);
+    border-radius: 8px;
+    padding: 1.5rem;
+    max-width: 400px;
+    box-shadow: 0 4px 8px hsl(0, 0%, 0% / 0.1);
+    animation: fadeIn 400ms ease-out forwards;
+}
+
+.demo-card p {
+    margin: 0;
+}
+
+.demo-card p + p {
+    margin-top: 0.5rem;
+}
+
+/* Keyframes definition */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Replay button */
+.replay-button {
+    display: block;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    background: hsl(32, 76%, 63%);
+    color: var(--very-dark-brown);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background 200ms ease-out;
+}
+
+.replay-button:hover {
+    background: hsl(32, 76%, 55%);
+}
+
+.replay-button:focus-visible {
+    outline: 2px solid hsl(32, 76%, 63%);
+    outline-offset: 2px;
+}
+
+/* Accessibility: Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .demo-card {
+        animation: none;
+        opacity: 1;
+        /* Appears instantly */
+    }
+}
+
+/* Demo 2: Animation Controls (Section 3) */
+.animation-controls-demo-container {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.demo-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--very-dark-brown);
+}
+
+.control-group select {
+    padding: 0.5rem;
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 4px;
+    background: hsl(0, 0%, 100%);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.control-group select:focus {
+    outline: 2px solid hsl(32, 76%, 63%);
+    outline-offset: 2px;
+}
+
+.control-button {
+    padding: 0.5rem 1rem;
+    background: hsl(32, 76%, 63%);
+    color: var(--very-dark-brown);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 200ms ease-out;
+}
+
+.control-button:hover {
+    background: hsl(32, 76%, 55%);
+}
+
+.control-button:focus-visible {
+    outline: 2px solid hsl(32, 76%, 63%);
+    outline-offset: 2px;
+}
+
+.demo-animation-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    background: hsl(0, 0%, 95%);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.animated-box {
+    width: 120px;
+    height: 120px;
+    background: hsl(32, 76%, 63%);
+    color: var(--very-dark-brown);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    animation: pulse 2s ease-in-out 3 normal forwards running;
+}
+
+.animated-box.paused {
+    animation-play-state: paused;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        background: hsl(32, 76%, 63%);
+    }
+
+    50% {
+        transform: scale(1.2);
+        background: hsl(32, 76%, 53%);
+    }
+}
+
+.current-css-display {
+    background: hsl(0, 0%, 100%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.current-css-display h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--very-dark-brown);
+}
+
+.current-css-display pre {
+    margin: 0;
+}
+
+.current-css-display code {
+    font-size: 0.85rem;
+}
+
+/* Demo 3: Pattern Library (Section 4) */
+.pattern-library-demo-container {
+    background: hsl(0, 0%, 98%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+.demo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.demo-header h4 {
+    margin: 0;
+    color: var(--very-dark-brown);
+}
+
+.reduced-motion-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reduced-motion-toggle label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.reduced-motion-toggle input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+.pattern-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.pattern-category h4 {
+    margin: 0 0 1rem 0;
+    color: var(--very-dark-brown);
+    font-size: 1.1rem;
+}
+
+.pattern-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.pattern-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.pattern-demo-box {
+    background: hsl(0, 0%, 100%);
+    border: 2px solid hsl(32, 76%, 70%);
+    border-radius: 8px;
+    padding: 1.5rem;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    color: var(--very-dark-brown);
+}
+
+.replay-pattern-button {
+    padding: 0.5rem 1rem;
+    background: hsl(32, 76%, 63%);
+    color: var(--very-dark-brown);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 200ms ease-out;
+}
+
+.replay-pattern-button:hover {
+    background: hsl(32, 76%, 55%);
+}
+
+.replay-pattern-button:focus-visible {
+    outline: 2px solid hsl(32, 76%, 63%);
+    outline-offset: 2px;
+}
+
+.reduced-motion-status {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: hsl(0, 0%, 100%);
+    border: 2px solid hsl(32, 76%, 85%);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.reduced-motion-status p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Pattern keyframes */
+@keyframes fadeInPattern {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRightPattern {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutPattern {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes slideOutRightPattern {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes pulsePattern {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes spinPattern {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Pattern demo classes with animations */
+.entrance-fade {
+    animation: fadeInPattern 400ms ease-out forwards;
+}
+
+.entrance-slide {
+    animation: slideInRightPattern 400ms ease-out forwards;
+}
+
+.exit-fade {
+    animation: fadeOutPattern 300ms ease-in forwards;
+}
+
+.exit-slide {
+    animation: slideOutRightPattern 300ms ease-in forwards;
+}
+
+.attention-pulse {
+    animation: pulsePattern 1.5s ease-in-out 3;
+}
+
+.spinner-demo {
+    width: 40px;
+    height: 40px;
+    border: 4px solid hsl(0, 0%, 90%);
+    border-top-color: hsl(32, 76%, 63%);
+    border-radius: 50%;
+    animation: spinPattern 1s linear infinite;
+}
+
+/* Reduced motion simulation class */
+.pattern-library-demo-container.reduced-motion-active .entrance-fade,
+.pattern-library-demo-container.reduced-motion-active .entrance-slide {
+    animation: none;
+    opacity: 1;
+    transform: none;
+}
+
+.pattern-library-demo-container.reduced-motion-active .exit-fade,
+.pattern-library-demo-container.reduced-motion-active .exit-slide {
+    animation: none;
+    opacity: 0;
+    transform: none;
+}
+
+.pattern-library-demo-container.reduced-motion-active .attention-pulse {
+    animation: none;
+}
+
+.pattern-library-demo-container.reduced-motion-active .spinner-demo {
+    animation: none;
+    border-color: hsl(32, 76%, 63%);
+}
+
+.pattern-library-demo-container.reduced-motion-active .spinner-demo::after {
+    content: 'Loading...';
+    position: absolute;
+    margin-left: 50px;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    color: var(--very-dark-brown);
+}
+
+/* Accessibility: Respect actual reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .animated-box {
+        animation: none;
+        transform: none;
+    }
+
+    .entrance-fade,
+    .entrance-slide {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .exit-fade,
+    .exit-slide {
+        animation: none;
+        opacity: 0;
+        transform: none;
+    }
+
+    .attention-pulse {
+        animation: none;
+    }
+
+    .spinner-demo {
+        animation: none;
+    }
+}
