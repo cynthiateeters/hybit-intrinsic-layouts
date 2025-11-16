@@ -45,7 +45,9 @@
                     Then the client changed "Services" to "Our Services & Solutions" and it overflowed! I tried
                     different widths for each link, but they looked mismatched. Prof. Teeters said: "HAP, you're
                     fighting content. Content KNOWS how wide it wants. CSS has keywords that let content tell you."
-                    That's when I discovered <code>max-content</code>, <code>min-content</code>, and <code>fit-content()</code>—and stopped guessing widths forever! 🟠</p>
+                    That's when I discovered <code>max-content</code>, <code>min-content</code>, and
+                    <code>fit-content()</code>—and stopped guessing widths forever! 🟠
+                </p>
             </div>
         </div>
     </header>
@@ -107,14 +109,15 @@
                     navigation bar!</p>
 
                 <div class="hap-note-callout">
-                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759331555/HyBit_frustrated_while_coding_and_looking_at_screen_wl4rzg.jpg"
-                        alt="HAP looking frustrated" width="150" height="150" class="hap-note-image" decoding="async"
-                        loading="lazy">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-confused-map_q8q0ej.jpg"
+                        alt="HAP looking confused while studying a map" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Navigation Disaster:</h3>
                         <p>I measured the widest label ("Portfolio" = 120px) and set ALL navigation items to
                             <code>width: 120px</code>. Perfect! Shipped it to the client. Next day: "Can you change
-                            'Services' to 'Our Services & Solutions'?" My heart sank. The text overflowed!</p>
+                            'Services' to 'Our Services & Solutions'?" My heart sank. The text overflowed!
+                        </p>
                         <p class="mt-1">I increased width to <code>150px</code>—now "Home" and "About" swam in huge
                             whitespace. I tried different widths for each link, but they looked visually mismatched. I
                             made all items <code>200px</code>—wasted space everywhere!</p>
@@ -245,15 +248,17 @@
                 </div>
 
                 <div class="hap-note-callout mt-2">
-                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495994/hap-aha_ktnttc.jpg"
-                        alt="HAP having an aha moment" width="150" height="150" class="hap-note-image" decoding="async"
-                        loading="lazy">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-brain-explodes_wu0or8.jpg"
+                        alt="HAP having a mind-blowing realization" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Aha Moment:</h3>
                         <p>The magic happened when I stopped asking "How wide should this be?" and started asking "What
-                            determines this width?" Navigation? <code>max-content</code>—labels determine width. Article?
+                            determines this width?" Navigation? <code>max-content</code>—labels determine width.
+                            Article?
                             <code>fit-content(60ch)</code>—optimal reading determines width. Sidebar?
-                            <code>min-content</code>—narrowest content determines width.</p>
+                            <code>min-content</code>—narrowest content determines width.
+                        </p>
                         <p class="mt-1">Content changed from "Services" to "Our Services & Solutions"? Layout adapted
                             automatically. No JavaScript. No media queries. No manual updates. The content told the
                             browser what it needed! 🔬</p>
@@ -310,7 +315,8 @@
                     <p class="code-comment mt-1"><strong>What changed:</strong> Instead of
                         <code>width: fit-content(60ch)</code> scattered everywhere, I define
                         <code>--width-readable</code> once. All articles reference it. Need to adjust optimal reading
-                        width? Change ONE variable. Every article updates automatically.</p>
+                        width? Change ONE variable. Every article updates automatically.
+                    </p>
                 </div>
 
                 <div class="analysis-grid mt-2">
@@ -318,21 +324,24 @@
                         <h3>Benefit 1: Semantic Naming</h3>
                         <p><code>--width-readable</code> communicates intent better than
                             <code>fit-content(60ch)</code>. Future me (or teammates) understands WHY this width was
-                            chosen, not just WHAT it is.</p>
+                            chosen, not just WHAT it is.
+                        </p>
                     </div>
 
                     <div class="analysis-point">
                         <h3>Benefit 2: Consistency</h3>
                         <p>All articles use the same optimal width. All navigation items use the same behavior. No
                             accidental variations where one article is <code>60ch</code> and another is
-                            <code>65ch</code>.</p>
+                            <code>65ch</code>.
+                        </p>
                     </div>
 
                     <div class="analysis-point">
                         <h3>Benefit 3: Maintainability</h3>
                         <p>Change <code>--width-readable</code> from <code>60ch</code> to <code>65ch</code> once in
                             <code>:root</code>. Every component using it updates automatically. No searching through
-                            files!</p>
+                            files!
+                        </p>
                     </div>
 
                     <div class="analysis-point">
@@ -351,7 +360,8 @@
 
                 <p class="mb-2">The real power came when Prof. Teeters showed me how to combine content-sizing keywords
                     with Station 1's intrinsic constraints: <code>clamp()</code>, <code>min()</code>, and
-                    <code>max()</code>. Content determines size, BUT with intelligent boundaries.</p>
+                    <code>max()</code>. Content determines size, BUT with intelligent boundaries.
+                </p>
 
                 <div class="prompt-box">
                     <div class="prompt-label">Content sizing with boundaries:</div>
@@ -375,8 +385,8 @@
                 </div>
 
                 <div class="hap-note-callout mt-2">
-                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759331586/HyBit_excited_about_coding_bzrkl7.jpg"
-                        alt="HAP excited about content sizing" width="150" height="150" class="hap-note-image"
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-thumbs-up_s4si0j.jpg"
+                        alt="HAP giving a confident thumbs up" width="150" height="150" class="hap-note-image"
                         decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Mind Blown (Again):</h3>
@@ -421,7 +431,8 @@
                     <p class="code-comment mt-1"><strong>Why this works:</strong> I define minimum, ideal, and maximum
                         as semantic custom properties. The <code>clamp()</code> combines them. Future me understands the
                         purpose of each boundary. Changing navigation's maximum from <code>60rem</code> to
-                        <code>80rem</code>? Update ONE variable.</p>
+                        <code>80rem</code>? Update ONE variable.
+                    </p>
                 </div>
             </div>
         </section>
@@ -463,11 +474,13 @@
                     <div class="prompt-label">Your Tasks:</div>
                     <ul class="mt-1">
                         <li>Create CSS custom properties for content sizing (<code>--width-max</code>,
-                            <code>--space-sm</code>)</li>
+                            <code>--space-sm</code>)
+                        </li>
                         <li>Convert navigation to <code>width: var(--width-max)</code></li>
                         <li>Convert links to <code>width: max-content</code></li>
                         <li>Update spacing to use custom properties</li>
-                        <li>Test by changing "Services" to "Our Services & Solutions"—it should adapt automatically!</li>
+                        <li>Test by changing "Services" to "Our Services & Solutions"—it should adapt automatically!
+                        </li>
                     </ul>
                 </div>
 
@@ -495,13 +508,14 @@
                     <p class="code-comment mt-1"><strong>What changed:</strong> Fixed widths (<code>800px</code>,
                         <code>120px</code>) → content-based sizing. Random spacing (<code>16px</code>,
                         <code>8px</code>) → systematic custom properties. Change "Services" to "Our Services &
-                        Solutions"? Layout adapts automatically. No manual width adjustments ever again!</p>
+                        Solutions"? Layout adapts automatically. No manual width adjustments ever again!
+                    </p>
                 </div>
 
                 <div class="hap-note-callout mt-2">
-                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759331584/HyBit_working_on_laptop_with_coffee_loxwue.jpg"
-                        alt="HAP encouraging learners" width="150" height="150" class="hap-note-image" decoding="async"
-                        loading="lazy">
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/HAP-learner_dvehmt.jpg"
+                        alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Challenge Tip:</h3>
                         <p>The magic moment is when I changed "Services" to "Our Services & Solutions" in the solution
@@ -525,7 +539,8 @@
                         <p><code>min-content</code> - Narrowest, aggressive wrap<br>
                             <code>max-content</code> - Widest natural, no wrap<br>
                             <code>fit-content(60ch)</code> - Natural up to max<br>
-                            <code>auto</code> - Fill available space</p>
+                            <code>auto</code> - Fill available space
+                        </p>
                     </div>
                 </div>
 
@@ -547,7 +562,8 @@
                         <p><code>--width-readable: fit-content(60ch);</code><br>
                             <code>--width-wide: fit-content(80ch);</code><br>
                             <code>--width-max: max-content;</code><br>
-                            Use semantic names, not pixel values!</p>
+                            Use semantic names, not pixel values!
+                        </p>
                     </div>
                 </div>
 
@@ -557,7 +573,8 @@
                         <h3>Combining with clamp()</h3>
                         <p><code>width: min(fit-content(60ch), 100% - 2rem);</code><br>
                             <code>width: clamp(20rem, max-content, 60rem);</code><br>
-                            Content-based + smart boundaries!</p>
+                            Content-based + smart boundaries!
+                        </p>
                     </div>
                 </div>
 
@@ -643,15 +660,16 @@
                 </div>
 
                 <div class="hap-note-callout mt-2">
-                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497912/hap-reflecting_z6kbkg.jpg"
-                        alt="HAP reflecting on his learning" width="150" height="150" class="hap-note-image"
+                    <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/hap-has-tools_kgoeys.jpg"
+                        alt="HAP with his study book and tools" width="150" height="150" class="hap-note-image"
                         decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Closing Thoughts:</h3>
                         <p>I stopped asking "How wide should this be?" and started asking "What determines this width?"
                             Navigation? <code>max-content</code>—labels determine width. Article?
                             <code>fit-content(60ch)</code>—optimal reading determines width. Sidebar?
-                            <code>min-content</code>—narrowest content determines width.</p>
+                            <code>min-content</code>—narrowest content determines width.
+                        </p>
                         <p class="mt-1">Content changes? Layout adapts. No JavaScript. No media queries. No manual
                             updates. Prof. Teeters was right: "Listen to content." Station 1 taught me philosophy.
                             Station 2 taught me sizing. Now on to Station 3 for spacing! 🟠</p>

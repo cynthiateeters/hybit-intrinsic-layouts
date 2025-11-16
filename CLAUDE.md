@@ -534,16 +534,17 @@ Visual elements created with AI assistance.
 ## Common pitfalls to avoid
 
 1. **Don't use Write tool on existing files** - Use Edit instead
-2. **Don't break HAP's voice** - First-person, humble, references Prof. Teeters
-3. **Don't skip performance testing** - Use DevTools MCP or Lighthouse to maintain 99+ scores
-4. **Don't use hex/rgb colors** - Use hsl() format exclusively
-5. **Don't use arbitrary percentages in clamp()** - CRITICAL: Use computed slope formulas (`base + slope × vw`), not arbitrary `%` like `clamp(1rem, 5%, 3rem)`. See "CRITICAL: clamp() formula requirement" section above.
-6. **Don't create new files unnecessarily** - Use templates provided
-7. **Don't forget width/height on images** - Causes layout shift
-8. **Don't use color alone** - Pair with icons/text for accessibility
-9. **Don't commit without testing locally** - Ensure JSON loads, images display
-10. **Don't skip Skills validation** - Each Skill prevents specific problems
-11. **Don't use title case in markdown** - Sentence case for `.md` files
+2. **Don't copy from existing stations** - CRITICAL: Always use `templates/station-template.html` as starting point for new stations, never copy from `station1.html`, `station2.html`, etc. This ensures consistent structure and CUSTOMIZE comments.
+3. **Don't break HAP's voice** - First-person, humble, references Prof. Teeters
+4. **Don't skip performance testing** - Use DevTools MCP or Lighthouse to maintain 99+ scores
+5. **Don't use hex/rgb colors** - Use hsl() format exclusively
+6. **Don't use arbitrary percentages in clamp()** - CRITICAL: Use computed slope formulas (`base + slope × vw`), not arbitrary `%` like `clamp(1rem, 5%, 3rem)`. See "CRITICAL: clamp() formula requirement" section above.
+7. **Don't create new files unnecessarily** - Use templates provided
+8. **Don't forget width/height on images** - Causes layout shift
+9. **Don't use color alone** - Pair with icons/text for accessibility
+10. **Don't commit without testing locally** - Ensure JSON loads, images display
+11. **Don't skip Skills validation** - Each Skill prevents specific problems
+12. **Don't use title case in markdown** - Sentence case for `.md` files
 
 ## Project-specific resources
 
