@@ -18,6 +18,172 @@
     --very-dark-brown: hsl(25, 42%, 17%);
 }
 
+/* ========================================
+   STATION 1: Three Eras Comparison Demo
+   ======================================== */
+
+.three-eras-demo-container {
+    background: var(--cream-white);
+    border: 2px solid var(--warm-orange);
+    border-radius: 8px;
+    padding: clamp(1rem, 0.5rem + 1vw, 2rem);
+    margin: 2rem 0;
+}
+
+.demo-controls {
+    margin-bottom: 2rem;
+}
+
+.demo-controls label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.demo-controls input[type="range"] {
+    width: 100%;
+    max-width: 600px;
+}
+
+.demo-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.era-panel {
+    border: 1px solid var(--ui-border-light);
+    border-radius: 8px;
+    padding: 1rem;
+    background: hsl(0, 0%, 98%);
+}
+
+.era-panel.recommended {
+    border: 2px solid hsl(142, 71%, 45%);
+    background: hsl(142, 20%, 95%);
+}
+
+.viewport-simulator {
+    background: hsl(0, 0%, 100%);
+    border: 2px dashed var(--ui-border-light);
+    overflow-x: auto;
+    padding: 1rem;
+    margin: 1rem 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 120px;
+}
+
+.demo-card {
+    background: var(--peach-background);
+    border: 2px solid var(--warm-orange);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: width 300ms ease-out;
+    flex-shrink: 0;
+    /* Prevent shrinking in flexbox parent */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+/* Table layout: Fixed 600px (set by JavaScript) */
+.table-layout {
+    min-width: 600px;
+    /* Force minimum width to create overflow */
+}
+
+/* Float layout: Discrete breakpoints (set by JavaScript) */
+.float-layout {
+    /* Width set by JavaScript to simulate breakpoint jumps */
+}
+
+/* Intrinsic layout: Fluid clamp() (calculated by JavaScript) */
+.intrinsic-layout {
+    /* Width calculated by JavaScript to simulate clamp(16rem, 10rem + 40vw, 60rem) */
+}
+
+.slider-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.era-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* ========================================
+   STATION 1: Extrinsic vs Intrinsic Width Demo
+   ======================================== */
+
+.extrinsic-intrinsic-demo {
+    background: var(--cream-white);
+    border: 2px solid var(--warm-orange);
+    border-radius: 8px;
+    padding: clamp(1rem, 0.5rem + 1vw, 2rem);
+    margin: 2rem 0;
+}
+
+.comparison-containers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.comparison-column h5 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.resizable-container {
+    background: hsl(0, 0%, 95%);
+    border: 2px dashed var(--ui-border-light);
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 200px;
+    overflow-x: auto;
+    transition: width 300ms ease-out;
+}
+
+/* Note: .demo-card is already defined in Three Eras section above */
+
+.extrinsic-card {
+    width: 300px;
+    /* Fixed! */
+}
+
+.intrinsic-card {
+    width: clamp(16rem, 10rem + 40vw, 60rem);
+    /* Fluid! */
+}
+
+.card-meta {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+    color: var(--medium-brown);
+}
+
+.container-width {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .demo-card,
+    .resizable-container {
+        transition: none;
+    }
+}
+
 /* Three-Column Animation Comparison Demo
    ========================================= */
 

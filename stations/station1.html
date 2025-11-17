@@ -29,6 +29,9 @@
     <!-- HAP Design System -->
     <link rel="stylesheet" href="../css/style.css">
 
+    <!-- Interactive Demo Styles -->
+    <link rel="stylesheet" href="../css/demos.css">
+
     <!-- Syntax highlighting theme -->
     <link href="../css/prism-hap-theme.css" rel="stylesheet">
 </head>
@@ -90,10 +93,10 @@
             <!-- 3 insight cards -->
             <div class="overview-grid mt-2">
                 <div class="insight-card">
-                    <h3><span class="insight-icon">🕰️</span> The Three Eras</h3>
-                    <p class="stat-large">Tables → Floats → Intrinsic</p>
-                    <p>Web design evolved from tables (no flexibility) to floats (fixed breakpoints) to intrinsic
-                        layouts (content + space = design). Understanding this history helped me see why modern CSS
+                    <h3><span class="insight-icon">🎯</span> The Mindset Shift</h3>
+                    <p class="stat-large">Fixed-Width → Intrinsic</p>
+                    <p>Web design evolved from fixed pixel widths (rigid, breaks easily) to flexible boundaries
+                        (adapts smoothly). Understanding this shift helped me see why modern CSS
                         works the way it does.</p>
                 </div>
 
@@ -117,8 +120,8 @@
             <!-- HAP's confession callout -->
             <div class="hap-note-callout">
                 <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-broke-things_qtbum4.jpg"
-                    alt="HAP surrounded by tangled code with an 'oops' expression" width="150" height="150" class="hap-note-image"
-                    decoding="async" loading="lazy">
+                    alt="HAP surrounded by tangled code with an 'oops' expression" width="150" height="150"
+                    class="hap-note-image" decoding="async" loading="lazy">
                 <div class="hap-note-content">
                     <h3>HAP's Confession:</h3>
                     <p>I tried EVERYTHING to make my 300px cards work. I added media queries at 320px, 768px, and
@@ -146,8 +149,8 @@
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-sconcerned-laptop_frh5ua.jpg"
-                        alt="HAP looking concerned while coding" width="150" height="150" class="hap-note-image" decoding="async"
-                        loading="lazy">
+                        alt="HAP looking concerned while coding" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>My Frustration:</h3>
                         <p><strong>"I set exact pixel widths! Why doesn't it work everywhere?"</strong></p>
@@ -175,81 +178,144 @@
             </div>
         </section>
 
-        <!-- SECTION 3: The Three Eras of Web Design -->
+        <!-- SECTION 3: Fixed-Width vs Intrinsic: The Mindset Shift -->
         <section class="content-section">
             <div class="topic-section">
-                <h2>The Three Eras of Web Design</h2>
+                <h2>Fixed-Width vs Intrinsic: The Mindset Shift</h2>
 
-                <p class="mb-2">Prof. Teeters showed me that web design has evolved through three major eras. Each one
-                    taught us something important about flexibility and adaptation.</p>
+                <p class="mb-2">Prof. Teeters showed me the fundamental mindset shift in modern CSS. For decades,
+                    designers used fixed pixel widths and wondered why layouts broke. Intrinsic design changes
+                    how we think—from forcing exact dimensions to setting flexible boundaries.</p>
 
                 <div class="analysis-grid">
                     <div class="analysis-point">
-                        <h3>Era 1: Tables (1996-2004)</h3>
-                        <p><strong>Layout approach:</strong> Using <code>&lt;table&gt;</code> elements for page layout
-                        </p>
-                        <p class="mt-1"><strong>Flexibility:</strong> Zero. Everything was fixed width.</p>
-                        <p class="mt-1"><strong>Problem:</strong> Accessibility nightmare. Screen readers couldn't
-                            distinguish layout tables from data tables. Any width change required restructuring the
-                            entire table.</p>
-                        <p class="mt-1"><strong>Example:</strong>
-                            <code>&lt;table&gt;&lt;tr&gt;&lt;td width="300"&gt;Content&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code>
-                        </p>
+                        <h3>Fixed-Width Approach (The Old Way)</h3>
+                        <p><strong>Mindset:</strong> Designer predicts all screen sizes and sets exact widths</p>
+                        <p class="mt-1"><strong>Code pattern:</strong> <code>width: 600px;</code></p>
+                        <p class="mt-1"><strong>Problem:</strong> Breaks on screens narrower than 600px.
+                            Wastes space on screens wider than 600px. Requires constant maintenance.</p>
+                        <p class="mt-1"><strong>Still seen in:</strong> Old tutorials, legacy codebases,
+                            beginners learning from outdated resources</p>
                     </div>
 
                     <div class="analysis-point">
-                        <h3>Era 2: Floats + Breakpoints (2005-2016)</h3>
-                        <p><strong>Layout approach:</strong> CSS floats + media queries at fixed breakpoints</p>
-                        <p class="mt-1"><strong>Flexibility:</strong> Discrete jumps at 3-4 breakpoints (320px, 768px,
-                            1024px)</p>
-                        <p class="mt-1"><strong>Problem:</strong> Designer predicts screen sizes. Always playing
-                            catch-up with new devices. Layouts jump abruptly, don't adapt smoothly.</p>
-                        <p class="mt-1"><strong>Example:</strong> <code>float: left; width: 33.33%;</code> with
-                            <code>@media (min-width: 768px)</code>
+                        <h3>Intrinsic Approach (The Modern Way)</h3>
+                        <p><strong>Mindset:</strong> Designer sets smart boundaries, browser adapts to context</p>
+                        <p class="mt-1"><strong>Code pattern:</strong>
+                            <code>width: clamp(16rem, 10rem + 40vw, 60rem);</code>
                         </p>
-                    </div>
-
-                    <div class="analysis-point">
-                        <h3>Era 3: Intrinsic Design (2017-present)</h3>
-                        <p><strong>Layout approach:</strong> Modern CSS: Grid, Flexbox, container queries, intrinsic
-                            sizing</p>
-                        <p class="mt-1"><strong>Flexibility:</strong> Continuous adaptation. Content + available space =
-                            design.</p>
-                        <p class="mt-1"><strong>Advantage:</strong> Browser calculates perfect layout for ANY size.
-                            Works everywhere automatically—no device-specific code.</p>
-                        <p class="mt-1"><strong>Example:</strong>
-                            <code>grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));</code>
-                        </p>
+                        <p class="mt-1"><strong>Advantage:</strong> Works perfectly on ANY screen size.
+                            Adapts smoothly and continuously. Future-proof design.</p>
+                        <p class="mt-1"><strong>Modern CSS features:</strong> clamp(), min(), max(),
+                            CSS Grid, Flexbox, container queries</p>
                     </div>
                 </div>
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1763230331/hap-brain-explodes_wu0or8.jpg"
-                        alt="HAP having a mind-blowing realization" width="150" height="150" class="hap-note-image" decoding="async"
-                        loading="lazy">
+                        alt="HAP having a mind-blowing realization" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Insight:</h3>
                         <p><strong>"Modern CSS isn't just new features—it's a different way of thinking!"</strong></p>
-                        <p class="mt-1">Watching the evolution, I had a lightbulb moment. I'd been learning modern CSS
-                            syntax while still thinking in the old extrinsic way. That's why I kept writing things like
-                            <code>width: 300px</code> with media queries instead of
-                            <code>width: clamp(16rem, 10rem + 40vw, 60rem)</code> with no media queries needed!
+                        <p class="mt-1">Watching this comparison, I had a lightbulb moment. I'd been learning modern CSS
+                            syntax while still thinking in the old extrinsic way. Fixed-width thinking tries to control
+                            every detail. Intrinsic thinking sets boundaries and trusts the browser. That's why
+                            <code>width: clamp(16rem, 10rem + 40vw, 60rem)</code> works so much better than
+                            <code>width: 300px</code>!
                         </p>
                     </div>
                 </div>
 
-                <div class="interactive-demo mt-2">
-                    <h3>Imagine This Demo:</h3>
-                    <p>Picture three side-by-side panels showing the same card in each era. When I drag a viewport width
-                        slider from 320px to 1920px:</p>
-                    <ul class="mt-1">
-                        <li>The <strong>Table layout</strong> breaks immediately with horizontal scroll at narrow widths
-                        </li>
-                        <li>The <strong>Float layout</strong> jumps at only 3 discrete breakpoints (320px, 768px,
-                            1024px)</li>
-                        <li>The <strong>Intrinsic layout</strong> adapts continuously and smoothly to every size—no
-                            jumps, no breaks</li>
-                    </ul>
+                <p class="mb-2">
+                    When Prof. Teeters first showed me these two approaches side-by-side, I finally understood
+                    why my old tutorials weren't working. I'd been learning from outdated resources teaching fixed-width
+                    thinking! Try dragging the viewport slider below from mobile (320px)
+                    to desktop (1000px) and watch how each approach handles the same card. The difference is dramatic!
+                </p>
+
+                <div class="three-eras-demo-container">
+                    <p
+                        style="margin-bottom: 1.5rem; padding: 1rem; background: hsl(32, 35%, 95%); border-left: 4px solid var(--warm-orange); border-radius: 4px;">
+                        <strong>Try this:</strong> Drag the slider all the way to the left (320px) to see the
+                        fixed-width layout break with horizontal scroll.
+                        Then slowly drag right to watch how each approach responds differently. By 1000px, you've seen
+                        the full story—the fixed-width layout stays rigid at 600px while the intrinsic layout smoothly
+                        scales from 256px to 560px.
+                    </p>
+
+
+
+                    <div class="demo-panels">
+                        <div class="era-panel">
+                            <h4>Fixed-Width (Old Way)</h4>
+                            <div class="viewport-simulator" id="tableViewport">
+                                <div class="demo-card table-layout">
+                                    <h5>Product Card</h5>
+                                    <p><strong>Premium Headphones</strong></p>
+                                    <p>High-fidelity wireless audio with 30-hour battery life and active noise
+                                        cancellation.</p>
+                                    <p><strong>$299.99</strong></p>
+                                    <button
+                                        style="padding: 0.5rem 1rem; background: var(--warm-orange); border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Add
+                                        to Cart</button>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+
+                                <p class="era-status" id="tableStatus">Status: ...</p>
+                                <p
+                                    style="text-align: center; font-size: 0.85rem; color: hsl(0, 0%, 50%); margin-top: 0.5rem;">
+                                    Card width: <strong id="tableCardWidth">600</strong>px</p>
+                            </div>
+
+                        </div>
+
+                        <div class="era-panel recommended">
+                            <h4>Intrinsic (Modern Way) ✓</h4>
+                            <div class="viewport-simulator" id="intrinsicViewport">
+                                <div class="demo-card intrinsic-layout">
+                                    <h5>Product Card</h5>
+                                    <p><strong>Premium Headphones</strong></p>
+                                    <p>High-fidelity wireless audio with 30-hour battery life and active noise
+                                        cancellation.</p>
+                                    <p><strong>$299.99</strong></p>
+                                    <button
+                                        style="padding: 0.5rem 1rem; background: var(--warm-orange); border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">Add
+                                        to Cart</button>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+                                <p class="era-status" id="intrinsicStatus">Status: ...</p>
+                                <p
+                                    style="text-align: center; font-size: 0.85rem; color: hsl(0, 0%, 50%); margin-top: 0.5rem;">
+                                    Card width: <strong id="intrinsicCardWidth">...</strong>px</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-controls">
+                        <label for="viewportSlider">Viewport Width: <span id="viewportValue">600</span>px</label>
+                        <input type="range" id="viewportSlider" min="320" max="1000" value="600" step="10"
+                            aria-label="Adjust viewport width from 320px to 1000px">
+                    </div>
+                </div>
+
+                <p class="mt-1 code-comment">
+                    Did you see that? The fixed-width layout broke at narrow widths (horizontal scroll!).
+                    But the intrinsic layout adapted smoothly at EVERY size. Prof. Teeters explained:
+                    "Fixed-width thinking fights unpredictability. Intrinsic design embraces it."
+                    That's the mindset shift! 🟠
+                </p>
+
+                <div class="hap-note-callout mt-2">
+                    <p><strong>🟠 HAP's Note:</strong> What about ultrawide monitors (1920px and beyond)? Great
+                        question!
+                        The clamp() formula we're using here (<code>clamp(16rem, 10rem + 40vw, 60rem)</code>)
+                        maxes out at 960px because that's optimal for card content readability. In
+                        <strong>Station 5: Container Queries</strong>, we'll explore how to build components
+                        that scale based on their container size instead of viewport size—perfect for
+                        ultrawide layouts with multiple columns!
+                    </p>
                 </div>
             </div>
         </section>
@@ -265,7 +331,7 @@
                 <div class="warning-box mt-2">
                     <h3>🟠 The Old Way vs What I Learned</h3>
 
-                    <p><strong class="text-error">❌ EXTRINSIC: Fixed values, rigid breakpoints</strong></p>
+                    <p><strong class="text-error">❌ EXTRINSIC: Fixed values, rigid dimensions</strong></p>
                     <pre><code class="language-css">/* Fighting unpredictability with exact values */
 .card {
   width: 300px;           /* Force exact size */
@@ -303,21 +369,62 @@
                     </p>
                 </div>
 
-                <div class="interactive-demo mt-2">
-                    <h3>Imagine This Demo:</h3>
-                    <p>Picture two cards side-by-side:</p>
-                    <ul class="mt-1">
-                        <li><strong>Left (Extrinsic):</strong> Locked at 300px—too narrow in wide containers (wasted
-                            space), too wide in narrow containers (overflow)</li>
-                        <li><strong>Right (Intrinsic):</strong> Uses <code>clamp(16rem, 10rem + 40vw, 60rem)</code> and
-                            adapts smoothly—always comfortable, never breaking</li>
-                    </ul>
+                <p class="mb-2">
+                    Prof. Teeters told me to try this exact experiment. I created two cards—one with my old
+                    300px fixed width, one with the clamp() formula she taught me. Then I resized the container.
+                    My jaw dropped! The fixed-width card either broke (horizontal scroll at narrow) or wasted
+                    space (tiny card in huge container). The intrinsic card? Perfect at EVERY size. Try it yourself!
+                </p>
+
+                <div class="extrinsic-intrinsic-demo">
+                    <h4>🟠 Live Comparison: Drag to Resize</h4>
+
+                    <div class="comparison-containers">
+                        <div class="comparison-column">
+                            <h5>❌ Extrinsic (Old Way)</h5>
+                            <div class="resizable-container" id="extrinsicContainer">
+                                <div class="demo-card extrinsic-card">
+                                    <h6>Fixed Width</h6>
+                                    <p>width: 300px</p>
+                                    <p class="card-meta">I break at narrow widths!</p>
+                                </div>
+                            </div>
+                            <p class="container-width">Container: <span id="extrinsicWidth">600</span>px</p>
+                        </div>
+
+                        <div class="comparison-column">
+                            <h5>✅ Intrinsic (HAP's Way)</h5>
+                            <div class="resizable-container" id="intrinsicContainer">
+                                <div class="demo-card intrinsic-card">
+                                    <h6>Flexible Boundaries</h6>
+                                    <p>width: clamp(16rem, 10rem + 40vw, 60rem)</p>
+                                    <p class="card-meta">I adapt smoothly!</p>
+                                </div>
+                            </div>
+                            <p class="container-width">Container: <span id="intrinsicWidth">600</span>px</p>
+                        </div>
+                    </div>
+
+                    <div class="demo-controls mt-2">
+                        <label for="containerSlider">Container Width: <span id="containerValue">600</span>px</label>
+                        <input type="range" id="containerSlider" min="280" max="1200" value="600" step="20"
+                            aria-label="Adjust container width from 280px to 1200px">
+                        <p class="demo-note"><strong>Try it:</strong> Drag the slider to see how each card responds to
+                            different container widths.</p>
+                    </div>
                 </div>
+
+                <p class="mt-1 code-comment">
+                    Notice how the extrinsic card stubbornly stays at 300px regardless of container size?
+                    That's what I was doing wrong for months! The intrinsic card uses clamp(16rem, 10rem + 40vw, 60rem)
+                    to smoothly adapt between a minimum (16rem) and maximum (60rem). No media queries needed!
+                    The browser does all the math. That's intrinsic thinking! 🟠
+                </p>
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-celebrating_bljvgl.jpg"
-                        alt="HAP celebrating a coding breakthrough" width="150" height="150" class="hap-note-image" decoding="async"
-                        loading="lazy">
+                        alt="HAP celebrating a coding breakthrough" width="150" height="150" class="hap-note-image"
+                        decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Aha Moment:</h3>
                         <p><strong>"Wait—so <code>clamp()</code> means the browser picks a value between 1rem and
@@ -472,8 +579,8 @@
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-has-tools_kgoeys.jpg"
-                        alt="HAP holding his toolbox full of development tools" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP holding his toolbox full of development tools" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Practice Scenario:</h3>
                         <p><strong>Me:</strong> "So instead of writing <code>margin: 32px</code> everywhere, I write
@@ -621,9 +728,10 @@ button {
                 <div class="tip-card">
                     <div class="tip-number">1</div>
                     <div>
-                        <h3>Intrinsic Mindset Evolution</h3>
-                        <p><strong>Era 1:</strong> Tables (no flexibility) → <strong>Era 2:</strong> Floats (fixed
-                            breakpoints, extrinsic) → <strong>Era 3:</strong> Modern CSS (flexible rules, intrinsic)</p>
+                        <h3>Intrinsic Mindset Shift</h3>
+                        <p><strong>Old way:</strong> Fixed widths (no flexibility, extrinsic) →
+                            <strong>Modern way:</strong> Flexible boundaries (clamp(), intrinsic)
+                        </p>
                     </div>
                 </div>
 
@@ -851,6 +959,89 @@ button {
 
                 pre.appendChild(button);
             });
+        });
+    </script>
+
+    <!-- Interactive Demo Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Demo 1: Fixed-Width vs Intrinsic Comparison
+            const viewportSlider = document.getElementById('viewportSlider');
+            const viewportValue = document.getElementById('viewportValue');
+            const tableViewport = document.getElementById('tableViewport');
+            const intrinsicViewport = document.getElementById('intrinsicViewport');
+            const tableCard = document.querySelector('.table-layout');
+            const intrinsicCard = document.querySelector('.intrinsic-layout');
+            const tableStatus = document.getElementById('tableStatus');
+            const intrinsicStatus = document.getElementById('intrinsicStatus');
+
+            const tableCardWidthDisplay = document.getElementById('tableCardWidth');
+            const intrinsicCardWidthDisplay = document.getElementById('intrinsicCardWidth');
+
+            if (viewportSlider) {
+                viewportSlider.addEventListener('input', (e) => {
+                    const width = parseInt(e.target.value);
+                    viewportValue.textContent = width;
+
+                    // Simulate viewport width by setting container width
+                    [tableViewport, intrinsicViewport].forEach(viewport => {
+                        viewport.style.width = `${width}px`;
+                    });
+
+                    // Fixed-width layout - always 600px (breaks when container < 600px)
+                    tableCard.style.width = '600px';
+                    tableCardWidthDisplay.textContent = '600';
+
+                    // Intrinsic layout - smooth clamp() simulation
+                    // clamp(16rem, 10rem + 40vw, 60rem)
+                    // Converting to px: clamp(256px, 160px + 40% of viewport, 960px)
+                    const minWidth = 256; // 16rem
+                    const maxWidth = 960; // 60rem
+                    const preferredWidth = 160 + (width * 0.4); // 10rem + 40vw
+                    const intrinsicWidth = Math.max(minWidth, Math.min(preferredWidth, maxWidth));
+                    intrinsicCard.style.width = `${intrinsicWidth}px`;
+                    intrinsicCardWidthDisplay.textContent = Math.round(intrinsicWidth);
+
+                    // Update status messages
+                    if (width < 600) {
+                        tableStatus.textContent = '❌ Broken: Horizontal scroll';
+                        tableStatus.style.color = 'hsl(0, 73%, 50%)';
+                    } else {
+                        tableStatus.textContent = '✓ Works at this width';
+                        tableStatus.style.color = 'hsl(142, 71%, 45%)';
+                    }
+
+                    intrinsicStatus.textContent = '✓ Adapts smoothly at all sizes';
+                    intrinsicStatus.style.color = 'hsl(142, 71%, 45%)';
+                });
+
+                // Initialize
+                viewportSlider.dispatchEvent(new Event('input'));
+            }
+
+            // Demo 2: Extrinsic vs Intrinsic Width
+            const containerSlider = document.getElementById('containerSlider');
+            const containerValue = document.getElementById('containerValue');
+            const extrinsicContainer = document.getElementById('extrinsicContainer');
+            const intrinsicContainer = document.getElementById('intrinsicContainer');
+            const extrinsicWidth = document.getElementById('extrinsicWidth');
+            const intrinsicWidth = document.getElementById('intrinsicWidth');
+
+            if (containerSlider) {
+                containerSlider.addEventListener('input', (e) => {
+                    const width = parseInt(e.target.value);
+                    containerValue.textContent = width;
+                    extrinsicWidth.textContent = width;
+                    intrinsicWidth.textContent = width;
+
+                    // Set container widths
+                    extrinsicContainer.style.width = `${width}px`;
+                    intrinsicContainer.style.width = `${width}px`;
+                });
+
+                // Initialize
+                containerSlider.dispatchEvent(new Event('input'));
+            }
         });
     </script>
 
