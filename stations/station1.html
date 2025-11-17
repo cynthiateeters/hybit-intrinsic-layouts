@@ -230,18 +230,18 @@
                 <p class="mb-2">
                     When Prof. Teeters first showed me these two approaches side-by-side, I finally understood
                     why my old tutorials weren't working. I'd been learning from outdated resources teaching fixed-width
-                    thinking! Try dragging the viewport slider below from mobile (320px)
+                    thinking! Try dragging the viewport slider below from mobile (360px)
                     to desktop (800px) and watch how each approach handles the same card. The difference is dramatic!
                 </p>
 
                 <div class="three-eras-demo-container">
                     <p
                         style="margin-bottom: 1.5rem; padding: 1rem; background: hsl(32, 35%, 95%); border-left: 4px solid var(--warm-orange); border-radius: 4px;">
-                        <strong>Try this:</strong> Drag the slider all the way to the left (320px) to see the
+                        <strong>Try this:</strong> Drag the slider all the way to the left (360px) to see the
                         fixed-width layout break with horizontal scroll.
                         Then slowly drag right to watch how each approach responds differently. By 800px, you've seen
                         the full story—the fixed-width layout stays rigid at 600px while the intrinsic layout smoothly
-                        scales from 256px to 560px.
+                        scales from 304px to 480px.
                     </p>
 
 
@@ -295,8 +295,8 @@
                     </div>
                     <div class="demo-controls">
                         <label for="viewportSlider">Viewport Width: <span id="viewportValue">600</span>px</label>
-                        <input type="range" id="viewportSlider" min="320" max="800" value="600" step="10"
-                            aria-label="Adjust viewport width from 320px to 800px">
+                        <input type="range" id="viewportSlider" min="360" max="800" value="600" step="10"
+                            aria-label="Adjust viewport width from 360px to 800px">
                     </div>
                 </div>
 
@@ -368,58 +368,6 @@
                     <p>"Modern CSS is about setting smart boundaries and letting the browser adapt."
                     </p>
                 </div>
-
-                <p class="mb-2">
-                    Prof. Teeters told me to try this exact experiment. I created two cards—one with my old
-                    300px fixed width, one with the clamp() formula she taught me. Then I resized the container.
-                    My jaw dropped! The fixed-width card either broke (horizontal scroll at narrow) or wasted
-                    space (tiny card in huge container). The intrinsic card? Perfect at EVERY size. Try it yourself!
-                </p>
-
-                <div class="extrinsic-intrinsic-demo">
-                    <h4>🟠 Live Comparison: Drag to Resize</h4>
-
-                    <div class="comparison-containers">
-                        <div class="comparison-column">
-                            <h5>❌ Extrinsic (Old Way)</h5>
-                            <div class="resizable-container" id="extrinsicContainer">
-                                <div class="demo-card extrinsic-card">
-                                    <h6>Fixed Width</h6>
-                                    <p>width: 300px</p>
-                                    <p class="card-meta">I break at narrow widths!</p>
-                                </div>
-                            </div>
-                            <p class="container-width">Container: <span id="extrinsicWidth">600</span>px</p>
-                        </div>
-
-                        <div class="comparison-column">
-                            <h5>✅ Intrinsic (HAP's Way)</h5>
-                            <div class="resizable-container" id="intrinsicContainer">
-                                <div class="demo-card intrinsic-card">
-                                    <h6>Flexible Boundaries</h6>
-                                    <p>width: clamp(16rem, 10rem + 40vw, 60rem)</p>
-                                    <p class="card-meta">I adapt smoothly!</p>
-                                </div>
-                            </div>
-                            <p class="container-width">Container: <span id="intrinsicWidth">600</span>px</p>
-                        </div>
-                    </div>
-
-                    <div class="demo-controls mt-2">
-                        <label for="containerSlider">Container Width: <span id="containerValue">600</span>px</label>
-                        <input type="range" id="containerSlider" min="280" max="1200" value="600" step="20"
-                            aria-label="Adjust container width from 280px to 1200px">
-                        <p class="demo-note"><strong>Try it:</strong> Drag the slider to see how each card responds to
-                            different container widths.</p>
-                    </div>
-                </div>
-
-                <p class="mt-1 code-comment">
-                    Notice how the extrinsic card stubbornly stays at 300px regardless of container size?
-                    That's what I was doing wrong for months! The intrinsic card uses clamp(16rem, 10rem + 40vw, 60rem)
-                    to smoothly adapt between a minimum (16rem) and maximum (60rem). No media queries needed!
-                    The browser does all the math. That's intrinsic thinking! 🟠
-                </p>
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-celebrating_bljvgl.jpg"
@@ -570,12 +518,7 @@
                         need to change—they inherit the fluidity!</p>
                 </div>
 
-                <div class="interactive-demo mt-2">
-                    <h3>Imagine This Demo:</h3>
-                    <p>Picture a row of 4 cards all using <code>padding: var(--space-md);</code>. Above them, a slider
-                        adjusts the <code>--space-md</code> value from 0.5rem to 3rem. As I move the slider,
-                        all 4 cards update their padding simultaneously—demonstrating single source of truth!</p>
-                </div>
+
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-has-tools_kgoeys.jpg"
@@ -1017,30 +960,6 @@ button {
 
                 // Initialize
                 viewportSlider.dispatchEvent(new Event('input'));
-            }
-
-            // Demo 2: Extrinsic vs Intrinsic Width
-            const containerSlider = document.getElementById('containerSlider');
-            const containerValue = document.getElementById('containerValue');
-            const extrinsicContainer = document.getElementById('extrinsicContainer');
-            const intrinsicContainer = document.getElementById('intrinsicContainer');
-            const extrinsicWidth = document.getElementById('extrinsicWidth');
-            const intrinsicWidth = document.getElementById('intrinsicWidth');
-
-            if (containerSlider) {
-                containerSlider.addEventListener('input', (e) => {
-                    const width = parseInt(e.target.value);
-                    containerValue.textContent = width;
-                    extrinsicWidth.textContent = width;
-                    intrinsicWidth.textContent = width;
-
-                    // Set container widths
-                    extrinsicContainer.style.width = `${width}px`;
-                    intrinsicContainer.style.width = `${width}px`;
-                });
-
-                // Initialize
-                containerSlider.dispatchEvent(new Event('input'));
             }
         });
     </script>
