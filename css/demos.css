@@ -309,6 +309,179 @@
     }
 }
 
+/* ============================================
+   STATION 3: % vs vw Comparison Demo
+   ============================================ */
+
+.percent-vs-vw-demo {
+    margin: 2rem 0;
+}
+
+.comparison-container {
+    margin-bottom: 1.5rem;
+}
+
+.spacing-label {
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 4px 4px 0 0;
+    font-size: 0.95rem;
+}
+
+.wrong-label {
+    background: var(--error-bg-light);
+    color: var(--error-text-accessible);
+    border: 2px solid var(--error-darker);
+    border-bottom: none;
+    font-weight: 700;
+}
+
+.correct-label {
+    background: var(--success-bg-light);
+    color: var(--success-text-accessible);
+    border: 2px solid var(--success-darker);
+    border-bottom: none;
+    font-weight: 700;
+}
+
+.spacing-demo-box {
+    border-radius: 0 0 8px 8px;
+    background: hsl(0, 0%, 100%);
+}
+
+/* WRONG: Arbitrary percentage - unpredictable */
+.wrong-spacing {
+    padding: clamp(1rem, 5%, 3rem);
+    border: 2px solid var(--error-darker);
+    background: var(--error-bg-light);
+}
+
+/* CORRECT: Computed slope formula - predictable */
+.correct-spacing {
+    padding: clamp(1rem, 0.9rem + 0.3125vw, 1.5rem);
+    border: 2px solid var(--success-darker);
+    background: var(--success-bg-light);
+}
+
+.spacing-demo-box h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--warm-orange);
+    font-size: 1.1rem;
+}
+
+.spacing-demo-box p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.spacing-formula {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ui-border-light);
+    font-size: 0.9rem;
+    color: hsl(0, 0%, 30%);
+}
+
+.spacing-formula strong {
+    color: var(--deep-brown);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .spacing-label {
+        font-size: 0.85rem;
+    }
+}
+
+/* ============================================
+   STATION 3: Content-Aware Spacing Demo
+   ============================================ */
+
+.content-aware-spacing-demo {
+    margin: 2rem 0;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Base card styling */
+.adaptive-card {
+    border: 2px solid var(--ui-border-light);
+    border-radius: 8px;
+    background: hsl(0, 0%, 100%);
+    transition: padding 0.3s ease;
+    outline: 2px solid var(--warm-orange);
+}
+
+/* Content-aware spacing - THE MAGIC! */
+.adaptive-card:has(.card-image-placeholder) {
+    /* Cards WITH images get more padding (fluid formula) */
+    --clamp-value: clamp(1.5rem, 1.25rem + 0.625vw, 2.5rem);
+    padding: var(--clamp-value);
+    background: hsl(180, 54%, 95%);
+    outline-offset: calc(-1 * var(--clamp-value));
+    /* Teal background for visual distinction */
+}
+
+.adaptive-card:not(:has(.card-image-placeholder)) {
+    /* Cards WITHOUT images get less padding (fluid formula) */
+    --clamp-value: clamp(1rem, 0.9rem + 0.3125vw, 1.5rem);
+    padding: var(--clamp-value);
+    outline-offset: calc(-1 * var(--clamp-value));
+
+    background: hsl(32, 35%, 95%);
+    /* Peach background for visual distinction */
+}
+
+.card-image-placeholder {
+    background: hsl(0, 0%, 85%);
+    border: 2px dashed var(--ui-border-light);
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    color: hsl(0, 0%, 40%);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.adaptive-card h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--warm-orange);
+    font-size: 1.1rem;
+}
+
+.adaptive-card p {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.spacing-info {
+    font-size: 0.85rem;
+    color: hsl(0, 0%, 40%);
+    font-style: italic;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--ui-border-light);
+}
+
+.spacing-info strong {
+    color: var(--deep-brown);
+    font-style: normal;
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Three-Column Animation Comparison Demo
    ========================================= */
 

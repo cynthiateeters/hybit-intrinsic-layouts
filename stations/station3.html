@@ -10,12 +10,12 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/prism-hap-theme.css">
+    <link rel="stylesheet" href="../css/demos.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-    <link rel="manifest" href="../site.webmanifest">
 </head>
 
 <body>
@@ -108,13 +108,14 @@
                 <h2>My 24px Padding Problem</h2>
 
                 <p class="mb-2">After completing Stations 1 and 2, I felt unstoppable! My layouts used intrinsic widths,
-                    content determined its own size, and everything adapted beautifully. I built a card component library
+                    content determined its own size, and everything adapted beautifully. I built a card component
+                    library
                     and proudly set <code>padding: 24px</code> on everything. It looked perfect on my laptop!</p>
 
                 <div class="hap-note-callout">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-broke-things_qtbum4.jpg"
-                        alt="HAP realizing his fixed pixel spacing broke everything" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP realizing his fixed pixel spacing broke everything" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's 24px Disaster:</h3>
                         <p>Prof. Teeters opened DevTools and resized the viewport to 320px (small mobile). My navigation
@@ -152,7 +153,8 @@
                             <p>Result: Sparse, disconnected, elements float</p>
                         </div>
                     </div>
-                    <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Spacing needs to be intrinsic too, HAP. It should
+                    <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Spacing needs to be intrinsic too, HAP. It
+                            should
                             adapt to the viewport just like your widths do."</em></p>
                 </div>
             </div>
@@ -165,19 +167,22 @@
 
                 <p class="mb-2">My first instinct was to try <code>clamp()</code> from Station 1. I wrote
                     <code>padding: clamp(1rem, 5%, 3rem)</code> thinking "padding scales between 1rem and 3rem based on
-                    5%!" But the behavior was completely unpredictable—sometimes too large, sometimes too small. I showed
+                    5%!" But the behavior was completely unpredictable—sometimes too large, sometimes too small. I
+                    showed
                     Prof. Teeters my code.
                 </p>
 
                 <div class="hap-note-callout">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-sconcerned-laptop_frh5ua.jpg"
-                        alt="HAP looking concerned while working on his laptop" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP looking concerned while working on his laptop" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's 5% Confusion:</h3>
-                        <p><strong>Me:</strong> "I'm using <code>clamp(1rem, 5%, 3rem)</code> for padding. Why doesn't it
+                        <p><strong>Me:</strong> "I'm using <code>clamp(1rem, 5%, 3rem)</code> for padding. Why doesn't
+                            it
                             scale smoothly across viewports?"</p>
-                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"HAP, 5% of WHAT? The parent element's width.
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"HAP, 5% of WHAT? The parent element's
+                                width.
                                 That changes based on container, not viewport. You need the middle value to be a formula
                                 based on viewport units: <code>base + slope × vw</code>. Let me show you how to compute
                                 it."</em></p>
@@ -193,7 +198,8 @@ SLOPE = (max-size - min-size) / (max-viewport - min-viewport)
 BASE = min-size - (SLOPE × min-viewport)</code></pre>
                 </div>
 
-                <p class="mt-2">Prof. Teeters sat me down with a whiteboard. "We want padding to scale from 1rem at 320px
+                <p class="mt-2">Prof. Teeters sat me down with a whiteboard. "We want padding to scale from 1rem at
+                    320px
                     mobile to 1.5rem at 1920px desktop. Let's compute the slope together."</p>
 
                 <div class="analysis-grid mt-2">
@@ -218,7 +224,8 @@ Wait, that's wrong! Let me recalculate...
 SLOPE = (1.5rem - 1rem) / (19.2 - 3.2)
       = 0.5rem / 16vw
       = 0.03125rem/vw</code></pre>
-                        <p class="mt-1">Prof. Teeters showed me the easier way: divide by the vw difference directly.</p>
+                        <p class="mt-1">Prof. Teeters showed me the easier way: divide by the vw difference directly.
+                        </p>
                         <p class="mt-1"><strong>Slope = 0.5rem ÷ 16vw = 0.03125rem/vw</strong></p>
                     </div>
 
@@ -254,7 +261,8 @@ BASE = 0.9rem</code></pre>
   padding: clamp(1rem, 5%, 3rem);
   /* 5% of WHAT? Parent width! Completely unpredictable! */
 }</code></pre>
-                    <p class="mt-1"><strong>Why it fails:</strong> The <code>5%</code> is relative to the parent element's
+                    <p class="mt-1"><strong>Why it fails:</strong> The <code>5%</code> is relative to the parent
+                        element's
                         width, which changes based on container, grid tracks, flex containers—not the viewport. You get
                         random spacing that doesn't scale predictably.</p>
                     <p class="mt-1"><strong>Correct approach:</strong></p>
@@ -277,8 +285,58 @@ BASE = 0.9rem</code></pre>
                             linear! No jumps, no weird gaps. Just like Prof. Teeters' intrinsic width formulas from
                             Station 1—set the boundary conditions, compute the slope, let the browser interpolate
                             smoothly between them.</p>
-                        <p class="mt-1">This is the SAME PATTERN: define min/max, compute the slope mathematically, trust
+                        <p class="mt-1">This is the SAME PATTERN: define min/max, compute the slope mathematically,
+                            trust
                             the browser to scale smoothly. 🔬</p>
+                    </div>
+                </div>
+
+                <!-- Demo 1: % vs vw Comparison -->
+                <div class="percent-vs-vw-demo mt-2">
+                    <h4>🟠 Why Arbitrary % Fails in clamp()</h4>
+                    <p class="demo-instructions">
+                        The top container uses <code>clamp(1rem, 5%, 3rem)</code> - the <code>5%</code>
+                        is relative to the <strong>parent container's width</strong>, making spacing unpredictable.
+                        The bottom container uses <code>clamp(1rem, 0.9rem + 0.3125vw, 1.5rem)</code> - the
+                        formula is relative to the <strong>viewport width</strong>, creating smooth, predictable
+                        scaling.
+                        Resize your browser to see the difference!
+                    </p>
+
+                    <!-- WRONG: Using arbitrary % -->
+                    <div class="comparison-container">
+                        <div class="spacing-label wrong-label">❌ WRONG: clamp(1rem, 5%, 3rem)</div>
+                        <div class="spacing-demo-box wrong-spacing">
+                            <h5>Unpredictable Spacing</h5>
+                            <p>Padding is <code>5%</code> of THIS container's width (parent-relative, not
+                                viewport-relative!).</p>
+                            <p class="mt-1">Resize the browser - spacing changes unpredictably based on container width.
+                            </p>
+                            <p class="spacing-formula"><strong>Formula:</strong> <code>clamp(1rem, 5%, 3rem)</code></p>
+                        </div>
+                    </div>
+
+                    <!-- CORRECT: Using computed slope formula -->
+                    <div class="comparison-container mt-2">
+                        <div class="spacing-label correct-label">✅ CORRECT: clamp(1rem, 0.9rem + 0.3125vw, 1.5rem)</div>
+                        <div class="spacing-demo-box correct-spacing">
+                            <h5>Predictable Spacing</h5>
+                            <p>Padding scales <strong>1rem → 1.5rem</strong> based on viewport width (320px → 1920px
+                                range).</p>
+                            <p class="mt-1">Resize the browser - spacing scales smoothly and predictably!</p>
+                            <p class="spacing-formula"><strong>Formula:</strong>
+                                <code>clamp(1rem, 0.9rem + 0.3125vw, 1.5rem)</code>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="hap-note-callout mt-2">
+                        <p><strong>🟠 HAP's Realization:</strong> Prof. Teeters asked me "5% of WHAT?" and it
+                            clicked - the <code>%</code> is relative to the parent element's width, which changes
+                            based on grid tracks, flex containers, etc. The viewport-relative formula
+                            (<code>0.9rem + 0.3125vw</code>) scales predictably across ALL viewports because
+                            <code>vw</code> always means "viewport width." That's why we compute slopes!
+                        </p>
                     </div>
                 </div>
             </div>
@@ -289,8 +347,10 @@ BASE = 0.9rem</code></pre>
             <div class="topic-section">
                 <h2>Content-Aware Spacing with :has()</h2>
 
-                <p class="mb-2">I thought I was done. Fluid spacing with computed slopes—perfect! But Prof. Teeters showed
-                    me a card grid where some cards had images and some didn't. "HAP, cards with images need more breathing
+                <p class="mb-2">I thought I was done. Fluid spacing with computed slopes—perfect! But Prof. Teeters
+                    showed
+                    me a card grid where some cards had images and some didn't. "HAP, cards with images need more
+                    breathing
                     room. How would you handle that?"</p>
 
                 <p class="mb-2">I started reaching for JavaScript to add a class... she stopped me. "CSS can detect
@@ -356,7 +416,8 @@ form:has(.error) {
                 <div class="analysis-grid mt-2">
                     <div class="analysis-point">
                         <h3>Pattern 1: Conditional Spacing</h3>
-                        <p>Elements WITH images/videos/complex content get more padding. Elements with just text get less.
+                        <p>Elements WITH images/videos/complex content get more padding. Elements with just text get
+                            less.
                             No JavaScript classes—CSS detects what's actually there.</p>
                         <pre class="mt-1"><code class="language-css">.section:has(video) {
   padding: var(--space-xl);
@@ -394,8 +455,8 @@ form:has(.error) {
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-scientist_safwtg.jpg"
-                        alt="HAP as a scientist with beakers and chemicals" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP as a scientist with beakers and chemicals" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Connection:</h3>
                         <p>This is the EXACT same pattern as Station 2's content-sizing! Instead of <em>"I'll set the
@@ -407,6 +468,68 @@ form:has(.error) {
                         <p class="mt-1">Everything connects! 🔬</p>
                     </div>
                 </div>
+
+                <!-- Demo 2: Content-Aware Spacing with :has() -->
+                <div class="content-aware-spacing-demo mt-2">
+                    <h4>🟠 Content-Aware Spacing in Action</h4>
+                    <p class="demo-instructions">
+                        Cards with images get more padding than text-only cards. The <code>:has(img)</code>
+                        selector detects image presence, and <code>clamp()</code> formulas ensure padding
+                        scales smoothly across all viewports. </p>
+                    <p class="demo-instructions">Padding is normally invisible, which made it hard for me to
+                        see what was happening. So Prof. Teeters showed me a way to add the orange outline that would
+                        track the padding. Now, when the
+                        viewport gets smaller, we can see the padding shrinks (orange box moves inward). When it gets
+                        larger,
+                        padding grows (orange box moves outward). That's the clamp() slope formula in action! 🔬
+                    </p>
+
+                    <div class="card-grid">
+                        <!-- Card with image -->
+                        <div class="adaptive-card">
+                            <div class="card-image-placeholder">
+                                [Image placeholder]
+                            </div>
+                            <h5>Card With Image</h5>
+                            <p>This card contains an image, so it gets more breathing room.</p>
+                            <p class="spacing-info"><strong>Padding:</strong> clamp(1.5rem, 1.25rem + 0.625vw, 2.5rem)
+                            </p>
+                        </div>
+
+                        <!-- Card without image -->
+                        <div class="adaptive-card">
+                            <h5>Text-Only Card</h5>
+                            <p>This card has no image, so it uses less padding automatically.</p>
+                            <p class="spacing-info"><strong>Padding:</strong> clamp(1rem, 0.9rem + 0.3125vw, 1.5rem)</p>
+                        </div>
+
+                        <!-- Card with image -->
+                        <div class="adaptive-card">
+                            <div class="card-image-placeholder">
+                                [Image placeholder]
+                            </div>
+                            <h5>Card With Image</h5>
+                            <p>Notice the extra space around this card thanks to <code>:has(img)</code>.</p>
+                            <p class="spacing-info"><strong>Padding:</strong> clamp(1.5rem, 1.25rem + 0.625vw, 2.5rem)
+                            </p>
+                        </div>
+
+                        <!-- Card without image -->
+                        <div class="adaptive-card">
+                            <h5>Text-Only Card</h5>
+                            <p>Another card without an image - notice the tighter padding.</p>
+                            <p class="spacing-info"><strong>Padding:</strong> clamp(1rem, 0.9rem + 0.3125vw, 1.5rem)</p>
+                        </div>
+                    </div>
+
+                    <div class="hap-note-callout mt-2">
+                        <p><strong>🟠 HAP's Observation:</strong> This is the SAME intrinsic philosophy from
+                            Station 2! Instead of guessing "all cards need 2rem padding," I let <code>:has(img)</code>
+                            detect what's actually there and adapt. Cards with images get <code>--space-md</code>
+                            (1.5rem → 2.5rem), cards without get <code>--space-sm</code> (1rem → 1.5rem). And both
+                            scale smoothly thanks to computed slope formulas. Content determines spacing needs!</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -415,9 +538,11 @@ form:has(.error) {
             <div class="topic-section">
                 <h2>Upgrading Station 1's Spacing Scale</h2>
 
-                <p class="mb-2">Remember Station 1 where I learned to create spacing scales with custom properties? I had
+                <p class="mb-2">Remember Station 1 where I learned to create spacing scales with custom properties? I
+                    had
                     <code>--space-sm: 1rem</code>, <code>--space-md: 1.5rem</code>, etc. Prof. Teeters looked at my code
-                    and said: "HAP, those are still FIXED values. Let's upgrade them to be intrinsic!"</p>
+                    and said: "HAP, those are still FIXED values. Let's upgrade them to be intrinsic!"
+                </p>
 
                 <div class="prompt-box">
                     <div class="prompt-label">My Station 1 spacing scale (BEFORE - fixed values):</div>
@@ -467,11 +592,14 @@ form:has(.error) {
                     <div class="hap-note-content">
                         <h3>HAP's Upgrade:</h3>
                         <p>I went back through ALL my Station 1 custom properties and upgraded them with computed slope
-                            formulas! Now when I use <code>var(--space-md)</code>, it automatically scales from 1.5rem on
+                            formulas! Now when I use <code>var(--space-md)</code>, it automatically scales from 1.5rem
+                            on
                             mobile to 2.5rem on desktop. Same semantic names, but now they're intrinsic!</p>
                         <p class="mt-1"><strong>Best part:</strong> My components didn't change AT ALL. I still write
-                            <code>padding: var(--space-md)</code>. But now it adapts to viewport automatically. That's the
-                            power of custom properties! 🔬</p>
+                            <code>padding: var(--space-md)</code>. But now it adapts to viewport automatically. That's
+                            the
+                            power of custom properties! 🔬
+                        </p>
                     </div>
                 </div>
 
@@ -499,7 +627,8 @@ form:has(.error) {
                         <p><strong>Step 1:</strong> Define fluid spacing in <code>:root</code><br>
                             <strong>Step 2:</strong> Components already use <code>var(--space-*)</code><br>
                             <strong>Step 3:</strong> No component changes needed!<br>
-                            <strong>Result:</strong> Instant upgrade to intrinsic spacing</p>
+                            <strong>Result:</strong> Instant upgrade to intrinsic spacing
+                        </p>
                     </div>
 
                     <div class="analysis-point">
@@ -549,7 +678,8 @@ form:has(.error) {
                         <h3>Content-aware spacing</h3>
                         <p><code>.card:has(img) { padding: var(--space-lg); }</code><br>
                             <code>.card:not(:has(img)) { padding: var(--space-md); }</code><br>
-                            Spacing adapts to what's actually there!</p>
+                            Spacing adapts to what's actually there!
+                        </p>
                     </div>
                 </div>
 
@@ -559,7 +689,8 @@ form:has(.error) {
                         <h3>Fluid spacing scale</h3>
                         <p><code>--space-sm: clamp(1rem, 0.9rem + 0.3125vw, 1.5rem);</code><br>
                             <code>--space-md: clamp(1.5rem, 1.25rem + 0.625vw, 2.5rem);</code><br>
-                            Upgrade Station 1 custom properties!</p>
+                            Upgrade Station 1 custom properties!
+                        </p>
                     </div>
                 </div>
 
@@ -597,8 +728,10 @@ form:has(.error) {
                     <div class="tip-number">8</div>
                     <div>
                         <h3>HAP's lesson</h3>
-                        <p>Spacing needs formulas, not guesses. Fixed spacing breaks like fixed widths did. Compute slopes
-                            mathematically. Let the browser interpolate smoothly between boundaries. Intrinsic spacing! 🟠
+                        <p>Spacing needs formulas, not guesses. Fixed spacing breaks like fixed widths did. Compute
+                            slopes
+                            mathematically. Let the browser interpolate smoothly between boundaries. Intrinsic spacing!
+                            🟠
                         </p>
                     </div>
                 </div>
@@ -700,11 +833,9 @@ form:has(.error) {
 
     <!-- Prism.js syntax highlighting -->
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"
-        integrity="sha384-BIv9HXLEceWFW5UQke/f4QN5zzzfIZIz0ujkbvCXN4JIkN4eZbUPfa2RXa8LD59k"
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"
-        integrity="sha384-5k/rJJcE5nzMGrPnUaQNY0LB/BaQ/3j/3LaZXSBxFY/0KDm8Pb5VxFJiR0e6HcBn"
         crossorigin="anonymous"></script>
 
     <!-- Copy button functionality -->

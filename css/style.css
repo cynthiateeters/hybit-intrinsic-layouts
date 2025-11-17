@@ -62,6 +62,10 @@
   /* 3.1:1 contrast for large bold text */
   --error-darker: hsl(0, 73%, 50%);
   /* Darker red for error messages */
+  --error-text-accessible: hsl(0, 73%, 40%);
+  /* Even darker red for 4.5:1 contrast on white backgrounds */
+  --success-text-accessible: hsl(142, 76%, 30%);
+  /* Darker green for 4.5:1 contrast on white backgrounds */
 
   /* Light background variants for examples */
   --success-bg-light: hsl(138, 76%, 97%);
