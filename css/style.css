@@ -1721,9 +1721,9 @@ pre {
     flex-direction: column;
   }
 
-  .analysis-grid {
+  /* .analysis-grid {
     grid-template-columns: 1fr;
-  }
+  } */
 
   .nav-tabs {
     flex-direction: column;

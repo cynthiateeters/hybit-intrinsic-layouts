@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/prism-hap-theme.css">
+    <link rel="stylesheet" href="../css/demos.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -110,8 +111,8 @@
 
                 <div class="hap-note-callout">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-broke-things_qtbum4.jpg"
-                        alt="HAP realizing he broke something with his navigation code" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP realizing he broke something with his navigation code" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Navigation Disaster:</h3>
                         <p>I measured the widest label ("Portfolio" = 120px) and set ALL navigation items to
@@ -259,6 +260,84 @@
                             browser what it needed! 🔬</p>
                     </div>
                 </div>
+
+                <!-- DEMO: Four-Way Content-Sizing Comparison -->
+                <div class="content-sizing-demo">
+                    <h4>🟠 Four Content-Sizing Keywords in Action</h4>
+                    <p class="demo-instructions">
+                        Each container below shows the same navigation items with a different
+                        <code>width</code> keyword. Resize your browser window to see how each responds!
+                    </p>
+
+                    <div class="four-way-grid">
+                        <!-- min-content -->
+                        <div class="keyword-demo">
+                            <h5>1. min-content</h5>
+                            <div class="keyword-container min-content-container">
+                                <div class="nav-demo-item">Home</div>
+                                <div class="nav-demo-item">About</div>
+                                <div class="nav-demo-item">See Our State-of-the-art Products </div>
+                                <div class="nav-demo-item">Portfolio</div>
+                                <div class="nav-demo-item">Contact</div>
+                            </div>
+                            <p class="keyword-behavior"><strong>Narrowest possible</strong><br>
+                                Wraps aggressively. Width = longest word ("Portfolio" = 9 characters)</p>
+                        </div>
+
+                        <!-- max-content -->
+                        <div class="keyword-demo">
+                            <h5>2. max-content</h5>
+                            <div class="keyword-container max-content-container">
+                                <div class="nav-demo-item">Home</div>
+                                <div class="nav-demo-item">About</div>
+                                <div class="nav-demo-item">See Our State-of-the-art Products </div>
+                                <div class="nav-demo-item">Portfolio</div>
+                                <div class="nav-demo-item">Contact</div>
+                            </div>
+                            <p class="keyword-behavior"><strong>Natural, no wrapping</strong><br>
+                                Each item stays on one line</p>
+                        </div>
+
+                        <!-- fit-content -->
+                        <div class="keyword-demo">
+                            <h5>3. fit-content</h5>
+                            <div class="keyword-container fit-content-container">
+                                <div class="nav-demo-item">Home</div>
+                                <div class="nav-demo-item">About</div>
+                                <div class="nav-demo-item">See Our State-of-the-art Products </div>
+                                <div class="nav-demo-item">Portfolio</div>
+                                <div class="nav-demo-item">Contact</div>
+                            </div>
+                            <p class="keyword-behavior">It will wrap as needed to give a balanced width.</p>
+                        </div>
+
+                        <!-- auto -->
+                        <div class="keyword-demo">
+                            <h5>4. auto</h5>
+                            <div class="keyword-container auto-container">
+                                <div class="nav-demo-item">Home</div>
+                                <div class="nav-demo-item">About</div>
+                                <div class="nav-demo-item">See Our State-of-the-art Products </div>
+                                <div class="nav-demo-item">Portfolio</div>
+                                <div class="nav-demo-item">Contact</div>
+                            </div>
+                            <p class="keyword-behavior"><strong>Fills available space</strong><br>
+                                Block element default behavior</p>
+                        </div>
+                    </div>
+
+                    <div class="hap-note-callout mt-2">
+                        <p><strong>🟠 HAP's Observation:</strong> Notice how <code>max-content</code> keeps
+                            "See Our State-of-the-art Products" on one line (like I needed for my navigation!), while
+                            <code>min-content</code> wraps it aggressively to save space (width becomes just wide enough
+                            for "State-of-the-art"). <code>fit-content</code> wraps as needed to give a balanced width—
+                            shrinking the container to fit its content without excessive wrapping. Meanwhile,
+                            <code>auto</code> fills whatever space it's given, stretching the full width. The key difference:
+                            fit-content says "I'm only as big as I need to be" while auto says "I'll take all the space
+                            you're offering." Content determines the width!
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -381,8 +460,8 @@
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-celebrating_bljvgl.jpg"
-                        alt="HAP celebrating another coding breakthrough" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP celebrating another coding breakthrough" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Mind Blown (Again):</h3>
                         <p><strong>Me:</strong> "Wait. So I can say 'size to content BUT never narrower than 16rem or
@@ -607,7 +686,8 @@
                     <div class="tip-number">8</div>
                     <div>
                         <h3>HAP's lesson</h3>
-                        <p>CSS sizing keywords let content communicate its natural dimensions directly to the browser. Guessing widths is extrinsic. Asking content is intrinsic.
+                        <p>CSS sizing keywords let content communicate its natural dimensions directly to the browser.
+                            Guessing widths is extrinsic. Asking content is intrinsic.
                             Let content tell the browser what it needs! 🟠</p>
                     </div>
                 </div>

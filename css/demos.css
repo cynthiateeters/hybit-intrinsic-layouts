@@ -184,6 +184,131 @@
     }
 }
 
+/* ============================================
+   STATION 2: Content-Sizing Keywords Demo
+   ============================================ */
+
+.content-sizing-demo {
+    margin: 2rem 0;
+}
+
+.demo-instructions {
+    background: hsl(32, 35%, 95%);
+    padding: 1rem;
+    border-left: 4px solid var(--warm-orange);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.four-way-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.keyword-demo {
+    border: 2px solid var(--ui-border-light);
+    border-radius: 8px;
+    padding: 1rem;
+    background: hsl(0, 0%, 100%);
+}
+
+.keyword-demo h5 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--warm-orange);
+    font-size: 1.1rem;
+}
+
+/* The magic: each container uses a different width keyword */
+.keyword-container {
+    border: 2px dashed var(--accent-teal);
+    padding: 0.75rem;
+    background: hsl(180, 54%, 95%);
+    margin-bottom: 1rem;
+    min-height: 200px;
+    /* Ensure vertical space for comparison */
+}
+
+.min-content-container {
+    width: min-content;
+}
+
+.max-content-container {
+    width: max-content;
+}
+
+.fit-content-container {
+    width: fit-content;
+}
+
+.auto-container {
+    width: auto;
+    /* Default, but explicit for demo */
+}
+
+/* Navigation demo items */
+.nav-demo-item {
+    background: var(--peach-background);
+    border: 1px solid var(--warm-orange);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.keyword-behavior {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: hsl(0, 0%, 40%);
+    margin: 0;
+}
+
+.keyword-behavior strong {
+    color: var(--deep-brown);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* Make containers 3 and 4 span full width to show difference */
+.keyword-demo:nth-child(3),
+.keyword-demo:nth-child(4) {
+    grid-column: 1 / -1;
+    /* Span all columns */
+}
+
+.keyword-demo:nth-child(3) {
+    max-width: 320px;
+}
+
+/* fit-content should NOT stretch to fill - align to start */
+.keyword-demo:nth-child(3) .keyword-container {
+    margin-left: 0;
+    margin-right: auto;
+    /* Push to left, don't fill */
+}
+
+/* auto SHOULD fill the entire width */
+.keyword-demo:nth-child(4) .keyword-container {
+    width: 100%;
+    /* Explicitly fill for clarity */
+}
+
+/* Responsive: stack on very narrow screens */
+@media (max-width: 600px) {
+    .four-way-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reset full-width spans on mobile - all stack anyway */
+    .keyword-demo:nth-child(3),
+    .keyword-demo:nth-child(4) {
+        grid-column: auto;
+    }
+}
+
 /* Three-Column Animation Comparison Demo
    ========================================= */
 
