@@ -472,17 +472,27 @@ form:has(.error) {
                 <!-- Demo 2: Content-Aware Spacing with :has() -->
                 <div class="content-aware-spacing-demo mt-2">
                     <h4>🟠 Content-Aware Spacing in Action</h4>
-                    <p class="demo-instructions">
-                        Cards with images get more padding than text-only cards. The <code>:has(img)</code>
-                        selector detects image presence, and <code>clamp()</code> formulas ensure padding
-                        scales smoothly across all viewports. </p>
-                    <p class="demo-instructions">Padding is normally invisible, which made it hard for me to
-                        see what was happening. So Prof. Teeters showed me a way to add the orange outline that would
-                        track the padding. Now, when the
-                        viewport gets smaller, we can see the padding shrinks (orange box moves inward). When it gets
-                        larger,
-                        padding grows (orange box moves outward). That's the clamp() slope formula in action! 🔬
-                    </p>
+                    <div class="demo-instructions">
+
+
+                        <p class="mt-1">
+                            I decided to show how I could make cards with images get more padding than text-only cards.
+                            The <code>:has(img)</code>
+                            selector detects image presence, and <code>clamp()</code> formulas ensure padding
+                            scales smoothly across all viewports. </p>
+                        <p class="mt-2">Padding is normally invisible, which made it hard for me to
+                            see what was happening. So Prof. Teeters showed me a way to add the outline that
+                            would
+                            track the padding. <em>(Normally I wouldn't do this, but I love the tricks Prof. Teeters has
+                                up
+                                her sleeves!)</em> Now,
+                            when the
+                            viewport gets smaller, we can see the padding shrinks. When it
+                            gets
+                            larger,
+                            padding grows. That's the clamp() slope formula in action! 🔬
+                        </p>
+                    </div>
 
                     <div class="card-grid">
                         <!-- Card with image -->
