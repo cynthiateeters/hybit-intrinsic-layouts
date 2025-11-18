@@ -52,7 +52,7 @@
   /* WCAG AA accessible darker variants for text on cream background */
   --teal-darker: hsl(168, 34%, 35%);
   /* 4.5:1 contrast ratio - for normal text */
-  --orange-darker: hsl(32, 61%, 47%);
+  --orange-darker: hsl(32, 61%, 42%);
   /* 3.1:1 contrast ratio - for large bold text on cream */
   --orange-darkest: hsl(32, 64%, 33%);
   /* 4.5:1 contrast ratio - for normal text on peach */
@@ -64,7 +64,7 @@
   /* Darker red for error messages */
   --error-text-accessible: hsl(0, 73%, 40%);
   /* Even darker red for 4.5:1 contrast on white backgrounds */
-  --success-text-accessible: hsl(142, 76%, 30%);
+  --success-text-accessible: hsl(142, 76%, 25%);
   /* Darker green for 4.5:1 contrast on white backgrounds */
 
   /* Light background variants for examples */
@@ -1372,7 +1372,7 @@ h4 {
 .stat-large {
   font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.5rem);
   font-weight: 600;
-  color: var(--orange-darker);
+  color: var(--orange-darkest);
   /* WCAG AA compliant for large bold text: 3.1:1 contrast ratio */
   margin: 0.5rem 0;
 }

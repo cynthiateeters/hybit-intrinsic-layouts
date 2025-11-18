@@ -14,7 +14,7 @@
     /* Liked state */
     --heart-red-hover: hsl(0, 73%, 60%);
     /* Hover preview */
-    --warm-orange: hsl(32, 76%, 63%);
+    /* --orange-darkest: hsl(32, 76%, 38%); */
     --very-dark-brown: hsl(25, 42%, 17%);
 }
 
@@ -24,7 +24,7 @@
 
 .three-eras-demo-container {
     background: var(--cream-white);
-    border: 2px solid var(--warm-orange);
+    border: 2px solid var(--orange-darkest);
     border-radius: 8px;
     padding: clamp(1rem, 0.5rem + 1vw, 2rem);
     margin: 2rem 0;
@@ -78,7 +78,7 @@
 
 .demo-card {
     background: var(--peach-background);
-    border: 2px solid var(--warm-orange);
+    border: 2px solid var(--orange-darkest);
     border-radius: 8px;
     padding: 1rem;
     transition: width 300ms ease-out;
@@ -121,7 +121,7 @@
 
 .extrinsic-intrinsic-demo {
     background: var(--cream-white);
-    border: 2px solid var(--warm-orange);
+    border: 2px solid var(--orange-darkest);
     border-radius: 8px;
     padding: clamp(1rem, 0.5rem + 1vw, 2rem);
     margin: 2rem 0;
@@ -195,7 +195,7 @@
 .demo-instructions {
     background: hsl(32, 35%, 95%);
     padding: 1rem;
-    border-left: 4px solid var(--warm-orange);
+    border-left: 4px solid var(--orange-darkest);
     border-radius: 4px;
     margin-bottom: 1.5rem;
 }
@@ -217,13 +217,13 @@
 .keyword-demo h5 {
     margin-top: 0;
     margin-bottom: 1rem;
-    color: var(--warm-orange);
+    color: var(--orange-darkest);
     font-size: 1.1rem;
 }
 
 /* The magic: each container uses a different width keyword */
 .keyword-container {
-    border: 2px dashed var(--accent-teal);
+    border: 2px dashed var(--teal-accent);
     padding: 0.75rem;
     background: hsl(180, 54%, 95%);
     margin-bottom: 1rem;
@@ -251,7 +251,7 @@
 /* Navigation demo items */
 .nav-demo-item {
     background: var(--peach-background);
-    border: 1px solid var(--warm-orange);
+    border: 1px solid var(--orange-darkest);
     border-radius: 4px;
     padding: 0.5rem 0.75rem;
     margin-bottom: 0.5rem;
@@ -366,7 +366,7 @@
 .spacing-demo-box h5 {
     margin-top: 0;
     margin-bottom: 0.75rem;
-    color: var(--warm-orange);
+    color: var(--orange-darkest);
     font-size: 1.1rem;
 }
 
@@ -415,7 +415,7 @@
     border-radius: 8px;
     background: hsl(0, 0%, 100%);
     transition: padding 0.3s ease;
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
 }
 
 /* Content-aware spacing - THE MAGIC! */
@@ -444,15 +444,16 @@
     border-radius: 4px;
     padding: 2rem;
     text-align: center;
-    color: hsl(0, 0%, 40%);
+    color: hsl(0, 0%, 35%);
     font-weight: 600;
+    font-size: 1.25em;
     margin-bottom: 1rem;
 }
 
 .adaptive-card h5 {
     margin-top: 0;
     margin-bottom: 0.75rem;
-    color: var(--warm-orange);
+    color: var(--orange-darkest);
     font-size: 1.1rem;
 }
 
@@ -479,6 +480,157 @@
 @media (max-width: 600px) {
     .card-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   STATION 4: Magic Pattern Demo
+   ============================================ */
+
+.magic-pattern-demo {
+    margin: 2rem 0;
+}
+
+.magic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: clamp(1rem, 0.9rem + 0.3125vw, 1.5rem);
+    /* Station 3 fluid spacing! */
+    margin-bottom: 1.5rem;
+
+    /* Visual indicator: subtle outline to show grid structure */
+    outline: 2px dashed var(--teal-accent);
+    outline-offset: -1px;
+    padding: 1rem;
+    background: hsl(180, 54%, 98%);
+}
+
+.grid-card {
+    background: hsl(0, 0%, 100%);
+    border: 2px solid var(--ui-border-light);
+    border-radius: 8px;
+    padding: clamp(1rem, 0.9rem + 0.3125vw, 1.5rem);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    /* Visual indicator: show each cell boundary */
+    outline: 1px solid var(--orange-darkest);
+    outline-offset: -1px;
+}
+
+.grid-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.grid-card h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--orange-darkest);
+    font-size: 1.1rem;
+}
+
+.grid-card p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .magic-grid {
+        padding: 0.5rem;
+    }
+}
+
+/* ============================================
+   STATION 4: auto-fit vs auto-fill Demo
+   ============================================ */
+
+.autofit-autofill-demo {
+    margin: 2rem 0;
+}
+
+.grid-label {
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 4px 4px 0 0;
+    font-size: 0.95rem;
+}
+
+.fit-label {
+    background: hsl(180, 54%, 95%);
+    color: var(--teal-darker);
+    border: 2px solid var(--teal-accent);
+    border-bottom: none;
+}
+
+.fill-label {
+    background: hsl(32, 35%, 95%);
+    color: var(--orange-darkest);
+    border: 2px solid var(--orange-darkest);
+    border-bottom: none;
+}
+
+/* auto-fit grid */
+.autofit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1.5rem;
+    background: hsl(180, 54%, 98%);
+    border: 2px solid var(--teal-accent);
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    outline: 2px dashed var(--teal-accent);
+    outline-offset: -8px;
+
+    /* Reduced minimum from 16rem to 11rem so 6 columns fit in max-width: 1200px container */
+    /* This creates dramatic difference: auto-fit cards ~368px wide vs auto-fill cards ~184px wide */
+    min-width: min(100%, 85rem);
+}
+
+/* auto-fill grid */
+.autofill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 1.5rem;
+    background: hsl(32, 35%, 98%);
+    border: 2px solid var(--orange-darkest);
+    border-radius: 0 0 8px 8px;
+    padding: 1.5rem;
+    outline: 2px dashed var(--orange-darkest);
+    outline-offset: -8px;
+
+    /* Reduced minimum from 16rem to 11rem so 6 columns fit in max-width: 1200px container */
+    /* This creates dramatic difference: auto-fit cards ~368px wide vs auto-fill cards ~184px wide */
+    min-width: min(100%, 85rem);
+}
+
+.compare-card {
+    background: hsl(0, 0%, 100%);
+    border: 2px solid var(--ui-border-light);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.compare-card h5 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: var(--orange-darkest);
+    font-size: 1rem;
+}
+
+.compare-card p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+
+    .autofit-grid,
+    .autofill-grid {
+        padding: 0.75rem;
     }
 }
 
@@ -525,7 +677,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     transform: scale(1);
 }
@@ -588,12 +740,12 @@
 /* Focus states for accessibility */
 .button-instant:focus-visible,
 .button-smooth:focus-visible {
-    outline: 3px solid var(--warm-orange);
+    outline: 3px solid var(--orange-darkest);
     outline-offset: 3px;
 }
 
 .demo-column input[type="checkbox"]:focus-visible {
-    outline: 3px solid var(--warm-orange);
+    outline: 3px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -612,7 +764,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: white;
     color: var(--very-dark-brown) font-weight: bold;
     transition: transform 300ms ease-out;
@@ -677,7 +829,7 @@
 }
 
 .scale-demo-box-1 {
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown)
 }
 
@@ -770,7 +922,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: white;
     color: var(--very-dark-brown) font-weight: bold;
     font-size: 0.75rem;
@@ -850,7 +1002,7 @@
     margin-top: 1.5rem;
     padding: 1rem;
     background: hsl(32, 76%, 95%);
-    border-left: 4px solid var(--warm-orange);
+    border-left: 4px solid var(--orange-darkest);
     border-radius: 4px;
 }
 
@@ -888,7 +1040,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     margin-bottom: 0.75rem;
 }
@@ -983,7 +1135,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     transform: scale(1);
     margin-bottom: 1rem;
@@ -1082,7 +1234,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     transform: scale(1);
     transition: transform 300ms ease-out,
@@ -1151,12 +1303,12 @@
 .duration-demo-button:focus-visible,
 .property-demo-button:focus-visible,
 .reduced-motion-demo-button:focus-visible {
-    outline: 3px solid var(--warm-orange);
+    outline: 3px solid var(--orange-darkest);
     outline-offset: 3px;
 }
 
 .reduced-motion-toggle input[type="checkbox"]:focus-visible {
-    outline: 3px solid var(--warm-orange);
+    outline: 3px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -1193,7 +1345,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     transform: scale(1);
     margin-bottom: 0.75rem;
@@ -1296,7 +1448,7 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     transform: scale(1);
     margin-bottom: 0.75rem;
@@ -1387,7 +1539,7 @@
 
 /* Brand personality timing */
 .brand-energetic {
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown) transition: transform 250ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -1459,7 +1611,7 @@
 .timing-demo-button:focus-visible,
 .custom-curves-button:focus-visible,
 .brand-demo-button:focus-visible {
-    outline: 3px solid var(--warm-orange);
+    outline: 3px solid var(--orange-darkest);
     outline-offset: 3px;
 }
 
@@ -1502,7 +1654,7 @@
 }
 
 .solution-section {
-    border-left: 4px solid var(--warm-orange);
+    border-left: 4px solid var(--orange-darkest);
     padding-left: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -1513,7 +1665,7 @@
 }
 
 .micro-button-demo {
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     padding: 0.75rem 1.5rem;
     border: none;
@@ -1538,7 +1690,7 @@
 }
 
 .micro-button-demo:focus-visible {
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -1586,7 +1738,7 @@
 
 .form-demo-input:focus {
     outline: none;
-    border-color: var(--warm-orange);
+    border-color: var(--orange-darkest);
 }
 
 .form-demo-field.input-success .form-demo-input {
@@ -1638,7 +1790,7 @@
 .form-demo-validate-btn {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     color: var(--very-dark-brown);
     border: none;
     border-radius: 4px;
@@ -1653,7 +1805,7 @@
 }
 
 .form-demo-validate-btn:focus-visible {
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -1759,8 +1911,8 @@
 }
 
 .checkbox-demo-input:checked + .custom-checkbox-demo {
-    background: var(--warm-orange);
-    border-color: var(--warm-orange);
+    background: var(--orange-darkest);
+    border-color: var(--orange-darkest);
 }
 
 .checkbox-demo-input:checked + .custom-checkbox-demo .checkmark {
@@ -1769,7 +1921,7 @@
 }
 
 .checkbox-demo-input:focus-visible + .custom-checkbox-demo {
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -1807,7 +1959,7 @@
 }
 
 .switch-demo-input:checked + .toggle-switch-demo {
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
 }
 
 .switch-demo-input:checked + .toggle-switch-demo .toggle-circle-demo {
@@ -1815,7 +1967,7 @@
 }
 
 .switch-demo-input:focus-visible + .toggle-switch-demo {
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -1866,11 +2018,11 @@
 }
 
 .hamburger-button-demo:hover {
-    border-color: var(--warm-orange);
+    border-color: var(--orange-darkest);
 }
 
 .hamburger-button-demo:focus-visible {
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 
@@ -1954,7 +2106,7 @@
 .loading-dot-demo {
     width: 12px;
     height: 12px;
-    background: var(--warm-orange);
+    background: var(--orange-darkest);
     border-radius: 50%;
     animation: dotBounce 1.4s infinite ease-out;
 }
@@ -2024,7 +2176,7 @@
 }
 
 .like-button-demo:focus-visible {
-    outline: 2px solid var(--warm-orange);
+    outline: 2px solid var(--orange-darkest);
     outline-offset: 2px;
 }
 

@@ -34,6 +34,9 @@
 
     <!-- Syntax highlighting theme (optional - only if showing code) -->
     <link href="../css/prism-hap-theme.css" rel="stylesheet">
+
+    <!-- Demo styles -->
+    <link rel="stylesheet" href="../css/demos.css">
 </head>
 
 <body>
@@ -63,7 +66,12 @@
             <!-- CUSTOMIZE: HAP's introduction in first-person apprentice voice -->
             <!-- Follow hap-voice Skill - humble, shares mistakes, references Prof. Teeters -->
             <div class="intro-box">
-                <p><strong>Welcome to Station 4!</strong> After mastering intrinsic widths (Station 1), content-based sizing (Station 2), and fluid spacing (Station 3), I built a beautiful 3-column card grid with <code>repeat(3, 1fr)</code>. Then I tested it on mobile—cards were too narrow! On ultrawide—3 columns left huge gaps! Prof. Teeters said: "HAP, stop telling the browser HOW MANY columns. Tell it the RULES for sizing and let IT calculate how many fit!" That's when I learned the magic pattern: <code>repeat(auto-fit, minmax(16rem, 1fr))</code>. No media queries. Just smart rules! 🟠</p>
+                <p><strong>Welcome to Station 4!</strong> After mastering intrinsic widths (Station 1), content-based
+                    sizing (Station 2), and fluid spacing (Station 3), I built a beautiful 3-column card grid with
+                    <code>repeat(3, 1fr)</code>. Then I tested it on mobile—cards were too narrow! On ultrawide—3
+                    columns left huge gaps! Prof. Teeters said: "HAP, stop telling the browser HOW MANY columns. Tell it
+                    the RULES for sizing and let IT calculate how many fit!" That's when I learned the magic pattern:
+                    <code>repeat(auto-fit, minmax(16rem, 1fr))</code>. No media queries. Just smart rules! 🟠</p>
             </div>
         </div>
     </header>
@@ -85,7 +93,11 @@
 
             <!-- CUSTOMIZE: HAP's discovery story - specific example of his struggle -->
             <div class="intro-box">
-                <p><strong>HAP's Discovery:</strong> I used to build grids by saying "3 columns" or "4 columns"—just counting based on my screen. Then Prof. Teeters tested my layouts on different devices: mobile broke (too many columns), ultrawide left huge gaps (too few columns). She showed me how to give the browser RULES instead of fixed counts. The grid calculates the perfect number of columns for ANY width! 🔬</p>
+                <p><strong>HAP's Discovery:</strong> I used to build grids by saying "3 columns" or "4 columns"—just
+                    counting based on my screen. Then Prof. Teeters tested my layouts on different devices: mobile broke
+                    (too many columns), ultrawide left huge gaps (too few columns). She showed me how to give the
+                    browser RULES instead of fixed counts. The grid calculates the perfect number of columns for ANY
+                    width! 🔬</p>
             </div>
 
             <!-- CUSTOMIZE: 3 insight cards showing key learning outcomes -->
@@ -94,21 +106,26 @@
                     <!-- CUSTOMIZE: First key learning point -->
                     <h3><span class="insight-icon">⚡</span> The Magic Pattern</h3>
                     <p class="stat-large">repeat(auto-fit, minmax(16rem, 1fr))</p>
-                    <p>Creates responsive grids without media queries. Translation: "As many 16rem-minimum columns as will fit, each growing to equal width." The browser does the math—I just provide the rules!</p>
+                    <p>Creates responsive grids without media queries. Translation: "As many 16rem-minimum columns as
+                        will fit, each growing to equal width." The browser does the math—I just provide the rules!</p>
                 </div>
 
                 <div class="insight-card">
                     <!-- CUSTOMIZE: Second key learning point -->
                     <h3><span class="insight-icon">📊</span> Flexible Track Boundaries</h3>
                     <p class="stat-large stat-teal">minmax(min, max)</p>
-                    <p><code>minmax(min, max)</code> sets flexible boundaries for grid tracks. Instead of fixed widths that break, I define "never smaller than 200px, never larger than equal share" and the browser calculates the perfect size.</p>
+                    <p><code>minmax(min, max)</code> sets flexible boundaries for grid tracks. Instead of fixed widths
+                        that break, I define "never smaller than 200px, never larger than equal share" and the browser
+                        calculates the perfect size.</p>
                 </div>
 
                 <div class="insight-card">
                     <!-- CUSTOMIZE: Third key learning point -->
                     <h3><span class="insight-icon">🎨</span> Bento-Box Complexity</h3>
                     <p class="stat-large stat-brown">Asymmetric layouts</p>
-                    <p>Intrinsic grids create complex "bento-box" layouts where some items span multiple tracks. Using <code>grid-column: span 2</code> with intrinsic values creates magazine-style layouts that still adapt fluidly!</p>
+                    <p>Intrinsic grids create complex "bento-box" layouts where some items span multiple tracks. Using
+                        <code>grid-column: span 2</code> with intrinsic values creates magazine-style layouts that still
+                        adapt fluidly!</p>
                 </div>
             </div>
         </section>
@@ -118,7 +135,9 @@
             <div class="topic-section">
                 <h2>My 3-Column Grid Nightmare</h2>
 
-                <p class="mb-2">After Station 3, I felt unstoppable! I had intrinsic widths, content-based sizing, AND fluid spacing. Time to build a real project: a portfolio card grid. I wanted 3 columns, so I wrote:</p>
+                <p class="mb-2">After Station 3, I felt unstoppable! I had intrinsic widths, content-based sizing, AND
+                    fluid spacing. Time to build a real project: a portfolio card grid. I wanted 3 columns, so I wrote:
+                </p>
 
                 <div class="prompt-box">
                     <div class="prompt-label">My "perfect" 3-column grid:</div>
@@ -131,7 +150,8 @@
 /* Translation: "Always 3 equal columns" */</code></pre>
                 </div>
 
-                <p class="mt-2">On my 1440px laptop: Beautiful! Three equal columns, perfectly spaced. I shipped it to the client.</p>
+                <p class="mt-2">On my 1440px laptop: Beautiful! Three equal columns, perfectly spaced. I shipped it to
+                    the client.</p>
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759495999/hap-broke-things_qtbum4.jpg"
@@ -139,24 +159,34 @@
                         decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's 3-Column Disaster:</h3>
-                        <p>Client response: "HAP, the grid breaks on my phone and looks empty on my ultrawide monitor."</p>
-                        <p class="mt-1"><strong>Mobile (375px):</strong> 3 columns = 125px each (minus gaps). Cards were squished, text overflowed, images crushed.</p>
-                        <p class="mt-1"><strong>Ultrawide (3440px):</strong> 3 columns = 1146px each. Cards swam in whitespace. Huge gaps between items.</p>
-                        <p class="mt-1">I tried fixing with media queries: 1 column for mobile, 2 for tablet, 3 for desktop, 4 for ultrawide... I wrote TWENTY LINES of media queries just to handle different screen sizes!</p>
+                        <p>Client response: "HAP, the grid breaks on my phone and looks empty on my ultrawide monitor."
+                        </p>
+                        <p class="mt-1"><strong>Mobile (375px):</strong> 3 columns = 125px each (minus gaps). Cards were
+                            squished, text overflowed, images crushed.</p>
+                        <p class="mt-1"><strong>Ultrawide (3440px):</strong> 3 columns = 1146px each. Cards swam in
+                            whitespace. Huge gaps between items.</p>
+                        <p class="mt-1">I tried fixing with media queries: 1 column for mobile, 2 for tablet, 3 for
+                            desktop, 4 for ultrawide... I wrote TWENTY LINES of media queries just to handle different
+                            screen sizes!</p>
                     </div>
                 </div>
 
                 <div class="warning-box mt-2">
                     <h3>Prof. Teeters' Intervention</h3>
-                    <p class="mt-1"><em>"HAP, stop. You're TELLING the browser 'always 3 columns.' What if the screen is too narrow for 3? Too wide for only 3? Don't tell it HOW MANY columns. Tell it the RULES for sizing, and let IT calculate how many fit."</em></p>
+                    <p class="mt-1"><em>"HAP, stop. You're TELLING the browser 'always 3 columns.' What if the screen is
+                            too narrow for 3? Too wide for only 3? Don't tell it HOW MANY columns. Tell it the RULES for
+                            sizing, and let IT calculate how many fit."</em></p>
                     <p class="mt-1">She showed me one line:</p>
                     <pre class="mt-1"><code class="language-css">.grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: var(--space-md);
 }</code></pre>
-                    <p class="mt-1"><strong>Me:</strong> "Wait... I don't say '3 columns'? I say 'as many as fit with 16rem minimum'?!"</p>
-                    <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Exactly! Mobile (375px)? Browser calculates: 1 column fits. Tablet (768px)? 2 columns fit. Desktop (1440px)? 5 columns fit. Ultrawide (3440px)? 10+ columns fit. The browser is smarter than you at math!"</em></p>
+                    <p class="mt-1"><strong>Me:</strong> "Wait... I don't say '3 columns'? I say 'as many as fit with
+                        16rem minimum'?!"</p>
+                    <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"Exactly! Mobile (375px)? Browser calculates: 1
+                            column fits. Tablet (768px)? 2 columns fit. Desktop (1440px)? 5 columns fit. Ultrawide
+                            (3440px)? 10+ columns fit. The browser is smarter than you at math!"</em></p>
                 </div>
             </div>
         </section>
@@ -181,8 +211,10 @@
                     <div class="analysis-point">
                         <h3>Part 1: repeat(...)</h3>
                         <p><strong>What it does:</strong> Repeats a track pattern</p>
-                        <p class="mt-1"><strong>Old way:</strong> <code>repeat(3, 1fr)</code> - repeat pattern 3 times</p>
-                        <p class="mt-1"><strong>New way:</strong> <code>repeat(auto-fit, ...)</code> - repeat pattern as many times as fit!</p>
+                        <p class="mt-1"><strong>Old way:</strong> <code>repeat(3, 1fr)</code> - repeat pattern 3 times
+                        </p>
+                        <p class="mt-1"><strong>New way:</strong> <code>repeat(auto-fit, ...)</code> - repeat pattern as
+                            many times as fit!</p>
                     </div>
 
                     <div class="analysis-point">
@@ -201,7 +233,8 @@
                     <div class="analysis-point">
                         <h3>Part 3: minmax(16rem, 1fr)</h3>
                         <p><strong>What it does:</strong> Each track minimum 16rem, maximum equal share (1fr)</p>
-                        <p class="mt-1"><strong>Minimum (16rem):</strong> "Never smaller than 16rem, even if it means wrapping to fewer columns"</p>
+                        <p class="mt-1"><strong>Minimum (16rem):</strong> "Never smaller than 16rem, even if it means
+                            wrapping to fewer columns"</p>
                         <p class="mt-1"><strong>Maximum (1fr):</strong> "Grow to equal share of leftover space"</p>
                         <p class="mt-1">Result: Columns are always at least 16rem, but grow equally to fill space!</p>
                     </div>
@@ -225,9 +258,15 @@
                         decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Mind Explosion:</h3>
-                        <p><strong>Me:</strong> "Wait... the browser calculates the PERFECT number of columns automatically?!"</p>
-                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"That's the magic of intrinsic thinking applied to Grid. You give rules (minimum size, flexible maximum), browser calculates optimal column count. Same pattern as Stations 1-3: set boundaries, let browser adapt!"</em></p>
-                        <p class="mt-1">I tested it from 320px mobile to 3840px 4K. The grid flowed perfectly at EVERY width. 1 column → 2 → 3 → 4 → 5 → 6+. No breakpoints. No media queries. Just. Smart. Rules! 🔬</p>
+                        <p><strong>Me:</strong> "Wait... the browser calculates the PERFECT number of columns
+                            automatically?!"</p>
+                        <p class="mt-1"><strong>Prof. Teeters:</strong> <em>"That's the magic of intrinsic thinking
+                                applied to Grid. You give rules (minimum size, flexible maximum), browser calculates
+                                optimal column count. Same pattern as Stations 1-3: set boundaries, let browser
+                                adapt!"</em></p>
+                        <p class="mt-1">I tested it from 320px mobile to 3840px 4K. The grid flowed perfectly at EVERY
+                            width. 1 column → 2 → 3 → 4 → 5 → 6+. No breakpoints. No media queries. Just. Smart. Rules!
+                            🔬</p>
                     </div>
                 </div>
 
@@ -238,7 +277,8 @@
                         <div>
                             <strong>auto-fit:</strong>
                             <p>Collapses empty tracks, expands filled tracks</p>
-                            <p class="mt-1"><strong>Use when:</strong> Items should fill available space (most common)</p>
+                            <p class="mt-1"><strong>Use when:</strong> Items should fill available space (most common)
+                            </p>
                             <pre class="mt-1"><code class="language-css">/* 3 items in 1920px viewport */
 repeat(auto-fit, minmax(16rem, 1fr))
 /* Result: 3 wide columns (each ~640px) */</code></pre>
@@ -246,13 +286,128 @@ repeat(auto-fit, minmax(16rem, 1fr))
                         <div>
                             <strong>auto-fill:</strong>
                             <p>Keeps empty tracks, maintains column structure</p>
-                            <p class="mt-1"><strong>Use when:</strong> Consistent column count needed even with few items</p>
+                            <p class="mt-1"><strong>Use when:</strong> Consistent column count needed even with few
+                                items</p>
                             <pre class="mt-1"><code class="language-css">/* 3 items in 1920px viewport */
 repeat(auto-fill, minmax(16rem, 1fr))
 /* Result: 7 columns (3 filled, 4 empty ~256px) */</code></pre>
                         </div>
                     </div>
-                    <p class="mt-1"><strong>My rule:</strong> Use <code>auto-fit</code> for responsive card grids (99% of cases). Use <code>auto-fill</code> when I need to preserve column structure.</p>
+                    <p class="mt-1"><strong>My rule:</strong> Use <code>auto-fit</code> for responsive card grids (99%
+                        of cases). Use <code>auto-fill</code> when I need to preserve column structure.</p>
+                </div>
+
+                <!-- Demo 1: The Magic Pattern in Action -->
+                <div class="magic-pattern-demo mt-2">
+                    <h4>🟠 The Magic Pattern in Action</h4>
+                    <p class="demo-instructions">
+                        This grid uses <code>repeat(auto-fit, minmax(16rem, 1fr))</code> - no media queries!
+                        The browser calculates how many columns fit based on available width. Resize your
+                        browser to watch columns appear and disappear automatically. <strong>I added a subtle
+                            grid outline</strong> to show the column structure changing in real-time! 🔬
+                    </p>
+
+                    <div class="magic-grid">
+                        <div class="grid-card">
+                            <h5>Card 1</h5>
+                            <p>Minimum width: 16rem. Grows to fill available space equally with siblings.</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 2</h5>
+                            <p>Watch the grid adapt as you resize. No breakpoints. No media queries!</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 3</h5>
+                            <p>The browser does ALL the column-count math automatically.</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 4</h5>
+                            <p>Mobile (320px)? 1 column. Tablet (768px)? 2-3 columns.</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 5</h5>
+                            <p>Desktop (1440px)? 5 columns. Ultrawide (3440px)? 12+ columns!</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 6</h5>
+                            <p>This is the power of intrinsic thinking applied to Grid!</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 7</h5>
+                            <p>Set the rules (min 16rem, max equal share), browser adapts!</p>
+                        </div>
+                        <div class="grid-card">
+                            <h5>Card 8</h5>
+                            <p>Just. Smart. Rules! No guessing screen sizes!</p>
+                        </div>
+                    </div>
+
+                    <div class="hap-note-callout mt-2">
+                        <p><strong>🟠 HAP's Observation:</strong> I used to write media queries for EVERY
+                            screen size: mobile, phablet, tablet, desktop, ultrawide... Twenty lines of code!
+                            Prof. Teeters showed me this ONE pattern replaces all of them. The grid looks at
+                            available width, does the division (width ÷ 16rem), and creates that many columns.
+                            I don't tell it "3 columns" anymore - I tell it the RULES, and it calculates the
+                            perfect layout!</p>
+                    </div>
+                </div>
+
+                <!-- Demo 2: auto-fit vs auto-fill Comparison -->
+                <div class="autofit-autofill-demo mt-2">
+                    <h4>🟠 auto-fit vs auto-fill: The Difference</h4>
+                    <p class="demo-instructions">
+                        Both grids use the same minimum (11rem) and have only 3 cards. I made the containers
+                        wide enough to fit 6 columns so you can see the difference clearly! <strong>Look at
+                        the card widths:</strong> <code>auto-fit</code> makes the 3 cards EXPAND to fill all
+                        available space (wider cards). <code>auto-fill</code> keeps the 3 cards at minimum
+                        width and preserves empty track space on the right (narrower cards).
+                    </p>
+
+                    <!-- auto-fit demo -->
+                    <div class="comparison-container">
+                        <div class="grid-label fit-label">auto-fit (collapses empty, expands filled) → WIDER cards</div>
+                        <div class="autofit-grid">
+                            <div class="compare-card">
+                                <h5>Card 1</h5>
+                                <p>With <code>auto-fit</code>, empty tracks collapse, so I expand to fill space!</p>
+                            </div>
+                            <div class="compare-card">
+                                <h5>Card 2</h5>
+                                <p>All 3 cards grow wider because there are no empty tracks taking up space.</p>
+                            </div>
+                            <div class="compare-card">
+                                <h5>Card 3</h5>
+                                <p>Use this for most responsive card grids!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- auto-fill demo -->
+                    <div class="comparison-container mt-2">
+                        <div class="grid-label fill-label">auto-fill (keeps empty, maintains structure) → NARROWER cards</div>
+                        <div class="autofill-grid">
+                            <div class="compare-card">
+                                <h5>Card 1</h5>
+                                <p>With <code>auto-fill</code>, empty tracks exist but aren't visible.</p>
+                            </div>
+                            <div class="compare-card">
+                                <h5>Card 2</h5>
+                                <p>All 3 cards stay at minimum width because grid preserves column structure.</p>
+                            </div>
+                            <div class="compare-card">
+                                <h5>Card 3</h5>
+                                <p>Use when you need consistent column count!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hap-note-callout mt-2">
+                        <p><strong>🟠 HAP's Rule:</strong> I use <code>auto-fit</code> for 99% of my grids.
+                            It makes items expand to fill available space, which looks better. I only use
+                            <code>auto-fill</code> when I need a consistent column structure regardless of
+                            item count (like a product catalog where I want to maintain visual rhythm).
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -269,7 +424,8 @@ repeat(auto-fill, minmax(16rem, 1fr))
                         <h3>fr Units - Fractional Distribution</h3>
                         <pre class="mt-1"><code class="language-css">grid-template-columns: 1fr 2fr 1fr;
 /* Divide leftover space: 1 part, 2 parts, 1 part */</code></pre>
-                        <p class="mt-1"><strong>Why fr &gt; percentages:</strong> <code>fr</code> accounts for gaps and content. Percentages don't!</p>
+                        <p class="mt-1"><strong>Why fr &gt; percentages:</strong> <code>fr</code> accounts for gaps and
+                            content. Percentages don't!</p>
                         <p class="mt-1"><strong>Example:</strong> 3 columns with <code>gap: 2rem</code></p>
                         <ul class="mt-1">
                             <li>With %: <code>33.33% 33.33% 33.33%</code> doesn't account for gaps → overflow!</li>
@@ -284,14 +440,16 @@ repeat(auto-fill, minmax(16rem, 1fr))
 
 grid-template-columns: minmax(0, 1fr);
 /* Prevents content overflow forcing expansion */</code></pre>
-                        <p class="mt-1"><strong>The (0, 1fr) gotcha:</strong> <code>minmax(0, 1fr)</code> allows shrinking below content size. Use when long content (URLs, code) would overflow!</p>
+                        <p class="mt-1"><strong>The (0, 1fr) gotcha:</strong> <code>minmax(0, 1fr)</code> allows
+                            shrinking below content size. Use when long content (URLs, code) would overflow!</p>
                     </div>
 
                     <div class="analysis-point">
                         <h3>Implicit Tracks - Auto Rows</h3>
                         <pre class="mt-1"><code class="language-css">grid-auto-rows: minmax(200px, auto);
 /* New rows: minimum 200px, grow to content */</code></pre>
-                        <p class="mt-1"><strong>Why this matters:</strong> I define columns explicitly, but rows generate automatically. This sets sizing for auto-generated rows!</p>
+                        <p class="mt-1"><strong>Why this matters:</strong> I define columns explicitly, but rows
+                            generate automatically. This sets sizing for auto-generated rows!</p>
                     </div>
 
                     <div class="analysis-point">
@@ -310,7 +468,8 @@ grid-template-columns: minmax(0, 1fr);
   );
   gap: var(--grid-gap);
 }</code></pre>
-                        <p class="mt-1"><strong>Why custom properties:</strong> Systematic, maintainable, semantic. Change <code>--grid-item-min</code> once, all grids update!</p>
+                        <p class="mt-1"><strong>Why custom properties:</strong> Systematic, maintainable, semantic.
+                            Change <code>--grid-item-min</code> once, all grids update!</p>
                     </div>
                 </div>
 
@@ -321,11 +480,14 @@ grid-template-columns: minmax(0, 1fr);
                     <div class="hap-note-content">
                         <h3>HAP's Pattern Recognition:</h3>
                         <p>This is the SAME pattern from Stations 1-3!</p>
-                        <p class="mt-1">Station 1: <code>clamp(min, preferred, max)</code> - set boundaries, browser interpolates<br>
-                        Station 2: <code>fit-content(max)</code> - content determines size with limit<br>
-                        Station 3: <code>clamp(min, base + slope × vw, max)</code> - fluid spacing with computed slopes<br>
-                        Station 4: <code>minmax(min, max)</code> - flexible track boundaries!</p>
-                        <p class="mt-1">Prof. Teeters was right: "Intrinsic thinking is a SYSTEM. Learn the pattern once, apply it everywhere!" 🔬</p>
+                        <p class="mt-1">Station 1: <code>clamp(min, preferred, max)</code> - set boundaries, browser
+                            interpolates<br>
+                            Station 2: <code>fit-content(max)</code> - content determines size with limit<br>
+                            Station 3: <code>clamp(min, base + slope × vw, max)</code> - fluid spacing with computed
+                            slopes<br>
+                            Station 4: <code>minmax(min, max)</code> - flexible track boundaries!</p>
+                        <p class="mt-1">Prof. Teeters was right: "Intrinsic thinking is a SYSTEM. Learn the pattern
+                            once, apply it everywhere!" 🔬</p>
                     </div>
                 </div>
             </div>
@@ -336,7 +498,9 @@ grid-template-columns: minmax(0, 1fr);
             <div class="topic-section">
                 <h2>Bento-Box Layouts</h2>
 
-                <p class="mb-2">After mastering the magic pattern, Prof. Teeters showed me something amazing: asymmetric "bento-box" layouts where items span multiple tracks, like Japanese bento boxes with different compartment sizes!</p>
+                <p class="mb-2">After mastering the magic pattern, Prof. Teeters showed me something amazing: asymmetric
+                    "bento-box" layouts where items span multiple tracks, like Japanese bento boxes with different
+                    compartment sizes!</p>
 
                 <div class="prompt-box">
                     <div class="prompt-label">Basic spanning pattern:</div>
@@ -359,12 +523,14 @@ grid-template-columns: minmax(0, 1fr);
                 <div class="analysis-grid mt-2">
                     <div class="analysis-point">
                         <h3>Why It Still Works</h3>
-                        <p>The grid structure adapts via <code>minmax()</code>, items span intelligently, everything flows based on rules not fixed positions!</p>
+                        <p>The grid structure adapts via <code>minmax()</code>, items span intelligently, everything
+                            flows based on rules not fixed positions!</p>
                         <p class="mt-1"><strong>Example:</strong></p>
                         <ul class="mt-1">
                             <li>Desktop (1440px): 5 columns → featured item spans 2 of 5</li>
                             <li>Tablet (768px): 2 columns → featured item spans both</li>
-                            <li>Mobile (375px): 1 column → featured item same as regular (can't span more than exists)</li>
+                            <li>Mobile (375px): 1 column → featured item same as regular (can't span more than exists)
+                            </li>
                         </ul>
                     </div>
 
@@ -399,8 +565,11 @@ grid-template-columns: minmax(0, 1fr);
                         decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Bento-Box Victory:</h3>
-                        <p>I built a dashboard with widgets of different sizes: some 1×1, some 2×1, some 2×2. The magic pattern calculated the grid, spanning created the asymmetry, and it ALL adapted as the viewport changed!</p>
-                        <p class="mt-1">Desktop? 6-column grid with complex bento-box layout. Mobile? 1-column stack, everything readable. Same HTML. Same CSS. Just. Smart. Rules! 🔬</p>
+                        <p>I built a dashboard with widgets of different sizes: some 1×1, some 2×1, some 2×2. The magic
+                            pattern calculated the grid, spanning created the asymmetry, and it ALL adapted as the
+                            viewport changed!</p>
+                        <p class="mt-1">Desktop? 6-column grid with complex bento-box layout. Mobile? 1-column stack,
+                            everything readable. Same HTML. Same CSS. Just. Smart. Rules! 🔬</p>
                     </div>
                 </div>
             </div>
@@ -425,7 +594,8 @@ grid-template-columns: minmax(0, 1fr);
                     <div>
                         <h3>auto-fit vs auto-fill</h3>
                         <p><code>auto-fit</code> - Collapses empty, expands filled (use 99% of the time)<br>
-                            <code>auto-fill</code> - Keeps empty, maintains structure</p>
+                            <code>auto-fill</code> - Keeps empty, maintains structure
+                        </p>
                     </div>
                 </div>
 
@@ -443,7 +613,8 @@ grid-template-columns: minmax(0, 1fr);
                     <div>
                         <h3>minmax() boundaries</h3>
                         <p><code>minmax(16rem, 1fr)</code> - Min 16rem, max equal share<br>
-                            <code>minmax(0, 1fr)</code> - Prevents content overflow</p>
+                            <code>minmax(0, 1fr)</code> - Prevents content overflow
+                        </p>
                     </div>
                 </div>
 
@@ -453,7 +624,8 @@ grid-template-columns: minmax(0, 1fr);
                         <h3>Custom properties</h3>
                         <p><code>--grid-item-min: 16rem;</code><br>
                             <code>--grid-gap: var(--space-md);</code><br>
-                            Systematic, maintainable grid patterns!</p>
+                            Systematic, maintainable grid patterns!
+                        </p>
                     </div>
                 </div>
 
@@ -463,7 +635,8 @@ grid-template-columns: minmax(0, 1fr);
                         <h3>Bento-box spanning</h3>
                         <p><code>grid-column: span 2;</code><br>
                             <code>grid-row: span 2;</code><br>
-                            Asymmetric layouts that still adapt!</p>
+                            Asymmetric layouts that still adapt!
+                        </p>
                     </div>
                 </div>
 
@@ -481,7 +654,8 @@ grid-template-columns: minmax(0, 1fr);
                     <div class="tip-number">8</div>
                     <div>
                         <h3>HAP's lesson</h3>
-                        <p>Stop saying "3 columns"—start saying "as many as fit with 16rem minimum!" The browser is smarter than you at calculating perfect layouts! 🟠</p>
+                        <p>Stop saying "3 columns"—start saying "as many as fit with 16rem minimum!" The browser is
+                            smarter than you at calculating perfect layouts! 🟠</p>
                     </div>
                 </div>
             </div>
@@ -528,12 +702,17 @@ grid-template-columns: minmax(0, 1fr);
 
                 <div class="hap-note-callout mt-2">
                     <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_150,c_limit/v1759497938/hap-has-tools_kgoeys.jpg"
-                        alt="HAP holding his toolbox full of development tools" width="150" height="150" class="hap-note-image"
-                        decoding="async" loading="lazy">
+                        alt="HAP holding his toolbox full of development tools" width="150" height="150"
+                        class="hap-note-image" decoding="async" loading="lazy">
                     <div class="hap-note-content">
                         <h3>HAP's Closing Thoughts:</h3>
-                        <p>I stopped saying "3 columns" and started saying "as many as fit with 16rem minimum!" The browser calculates the perfect layout for ANY width. And bento-box spanning? Magazine-style asymmetric designs that still respond fluidly!</p>
-                        <p class="mt-1">Stations 1-4 complete: intrinsic widths, content-based sizing, fluid spacing, AND responsive grids. The magic pattern isn't magic—it's intrinsic thinking applied to Grid. Prof. Teeters was right: "Give rules, browser adapts." Now on to Station 5 for container queries! 🟠</p>
+                        <p>I stopped saying "3 columns" and started saying "as many as fit with 16rem minimum!" The
+                            browser calculates the perfect layout for ANY width. And bento-box spanning? Magazine-style
+                            asymmetric designs that still respond fluidly!</p>
+                        <p class="mt-1">Stations 1-4 complete: intrinsic widths, content-based sizing, fluid spacing,
+                            AND responsive grids. The magic pattern isn't magic—it's intrinsic thinking applied to Grid.
+                            Prof. Teeters was right: "Give rules, browser adapts." Now on to Station 5 for container
+                            queries! 🟠</p>
                     </div>
                 </div>
             </div>
@@ -554,7 +733,9 @@ grid-template-columns: minmax(0, 1fr);
 
         <!-- CUSTOMIZE: HAP's closing mantra/quote about this station's topic -->
         <p class="footer-reminder">
-            The magic pattern isn't magic—it's intrinsic thinking applied to Grid! Prof. Teeters taught me to give the browser RULES instead of fixed column counts. <code>repeat(auto-fit, minmax(16rem, 1fr))</code> = perfection! 🟠 — HAP
+            The magic pattern isn't magic—it's intrinsic thinking applied to Grid! Prof. Teeters taught me to give the
+            browser RULES instead of fixed column counts. <code>repeat(auto-fit, minmax(16rem, 1fr))</code> =
+            perfection! 🟠 — HAP
         </p>
 
         <div class="footer-copyright">
