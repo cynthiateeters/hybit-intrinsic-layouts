@@ -2708,3 +2708,182 @@
         animation: none;
     }
 }
+
+/* ============================================
+   STATION 6: AI Drift Code Comparison Demo
+   ============================================ */
+
+.ai-drift-demo {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: hsl(0, 0%, 98%);
+    border-radius: 8px;
+}
+
+.demo-header-section {
+    margin-bottom: 2rem;
+}
+
+.demo-title {
+    font-size: 1.5rem;
+    margin: 0 0 1rem 0;
+    color: var(--orange-darkest);
+}
+
+.demo-instructions {
+    background: hsl(32, 35%, 95%);
+    padding: 1rem;
+    border-left: 4px solid var(--orange-darkest);
+    border-radius: 4px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.drift-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+@container demo-main (min-width: 1000px) {
+    .drift-comparison-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.drift-code-sample,
+.modern-code-sample {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.code-sample-label {
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+}
+
+.drift-label {
+    background: var(--error-bg-light);
+    color: var(--error-text-accessible);
+    border: 2px solid var(--error-darker);
+    border-bottom: none;
+}
+
+.modern-label {
+    background: var(--success-bg-light);
+    color: var(--success-text-accessible);
+    border: 2px solid var(--success-darker);
+    border-bottom: none;
+}
+
+.drift-code-sample pre,
+.modern-code-sample pre {
+    margin: 0;
+    border-radius: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.drift-code-sample pre {
+    background: hsl(0, 86%, 99%);
+    border: 2px solid var(--error-darker);
+    border-top: none;
+}
+
+.modern-code-sample pre {
+    background: hsl(138, 76%, 99%);
+    border: 2px solid var(--success-darker);
+    border-top: none;
+}
+
+/* Inline code highlights */
+.drift-highlight {
+    background: var(--error-bg-light);
+    color: var(--error-text-accessible);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.modern-highlight {
+    background: var(--success-bg-light);
+    color: var(--success-text-accessible);
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Drift/Modern indicators sections */
+.drift-indicators,
+.modern-indicators {
+    padding: 1rem;
+    border-radius: 0 0 6px 6px;
+}
+
+.drift-indicators {
+    background: hsl(0, 86%, 97%);
+    border: 2px solid var(--error-darker);
+    border-top: none;
+}
+
+.modern-indicators {
+    background: hsl(138, 76%, 97%);
+    border: 2px solid var(--success-darker);
+    border-top: none;
+}
+
+.indicator-summary {
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.drift-indicators .indicator-summary {
+    color: var(--error-text-accessible);
+}
+
+.modern-indicators .indicator-summary {
+    color: var(--success-text-accessible);
+}
+
+.drift-indicators ul,
+.modern-indicators ul {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    line-height: 1.7;
+    padding: 0;
+}
+
+.drift-indicators li {
+    color: var(--error-text-accessible);
+    margin-bottom: 0.25rem;
+}
+
+.modern-indicators li {
+    color: var(--success-text-accessible);
+    margin-bottom: 0.25rem;
+}
+
+.indicator-result {
+    margin: 0.75rem 0 0 0;
+    font-size: 0.95rem;
+}
+
+.drift-indicators .indicator-result {
+    color: var(--error-text-accessible);
+}
+
+.modern-indicators .indicator-result {
+    color: var(--success-text-accessible);
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 1100px) {
+    .drift-comparison-grid {
+        grid-template-columns: 1fr;
+    }
+}

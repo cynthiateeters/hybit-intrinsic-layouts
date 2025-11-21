@@ -223,6 +223,94 @@
       </div>
     </section>
 
+    <!-- AI Drift Code Comparison Demo -->
+    <div class="ai-drift-demo">
+      <div class="demo-header-section">
+        <h3 class="demo-title">🟠 AI Drift: Same Prompt, Different Results</h3>
+        <p class="demo-instructions">I asked the same AI tool for a responsive card grid twice. First WITHOUT project rules (left) - AI defaulted to older patterns from its training data. Second WITH project rules (right) - AI followed modern CSS standards. Same prompt, dramatically different code quality! <strong>Red highlights</strong> show drift patterns. <strong>Green highlights</strong> show modern techniques from Stations 1-5.</p>
+      </div>
+
+      <div class="drift-comparison-grid">
+        <!-- LEFT: Code WITHOUT project rules -->
+        <div class="drift-code-sample">
+          <div class="code-sample-label drift-label">❌ WITHOUT Project Rules (AI defaults to training data)</div>
+          <pre><code class="language-css">/* Card grid WITHOUT project rules */
+.card-grid {
+  grid-template-columns: repeat(3, 1fr); <span class="drift-highlight">⚠️ Fixed 3 columns</span>
+  gap: 24px; <span class="drift-highlight">⚠️ Fixed spacing</span>
+  max-width: 1200px; <span class="drift-highlight">⚠️ Fixed width</span>
+}
+
+.card {
+  background: #ffffff; <span class="drift-highlight">⚠️ Hex color</span>
+  border: 1px solid #e0e0e0; <span class="drift-highlight">⚠️ Hex color</span>
+  padding: 24px; <span class="drift-highlight">⚠️ Fixed spacing</span>
+}
+
+@media (max-width: 768px) { <span class="drift-highlight">⚠️ Viewport query</span>
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}</code></pre>
+
+          <div class="drift-indicators">
+            <p class="indicator-summary"><strong>Drift patterns detected:</strong></p>
+            <ul>
+              <li>📊 Fixed 3 columns (ignores Station 4's auto-fit)</li>
+              <li>📊 Fixed spacing (ignores Station 3's clamp())</li>
+              <li>📊 Hex colors (ignores Station 1's hsl())</li>
+              <li>📊 Viewport media queries (ignores Station 5's container queries)</li>
+              <li>📊 Extrinsic thinking (forces layout instead of flexible boundaries)</li>
+            </ul>
+            <p class="indicator-result"><strong>Result:</strong> 2015-era CSS that technically works but ignores everything from Stations 1-5!</p>
+          </div>
+        </div>
+
+        <!-- RIGHT: Code WITH project rules -->
+        <div class="modern-code-sample">
+          <div class="code-sample-label modern-label">✅ WITH Project Rules (AI follows modern standards)</div>
+          <pre><code class="language-css">/* Card grid WITH project rules */
+.card-grid {
+  grid-template-columns:
+    repeat(auto-fit, minmax(16rem, 1fr)); <span class="modern-highlight">✓ Magic pattern</span>
+  gap: clamp(1rem, 0.5rem + 1vw, 2rem); <span class="modern-highlight">✓ Fluid spacing</span>
+}
+
+.card {
+  background: var(--card-bg); <span class="modern-highlight">✓ Custom property</span>
+  border: 1px solid var(--card-border); <span class="modern-highlight">✓ hsl() colors</span>
+  padding: clamp(1rem, 0.5rem + 2cqi, 2rem); <span class="modern-highlight">✓ Container units</span>
+}
+
+@container (min-width: 400px) { <span class="modern-highlight">✓ Container query</span>
+  .card {
+    flex-direction: row;
+  }
+}</code></pre>
+
+          <div class="modern-indicators">
+            <p class="indicator-summary"><strong>Modern CSS patterns:</strong></p>
+            <ul>
+              <li>🎯 auto-fit magic pattern (Station 4: adapts column count automatically)</li>
+              <li>🎯 Fluid clamp() spacing (Station 3: scales 1rem → 2rem smoothly)</li>
+              <li>🎯 hsl() custom properties (Station 1: maintainable color system)</li>
+              <li>🎯 Container queries + cqi units (Station 5: component-level responsiveness)</li>
+              <li>🎯 Intrinsic thinking (lets content and container determine layout)</li>
+            </ul>
+            <p class="indicator-result"><strong>Result:</strong> Modern CSS applying everything you learned in Stations 1-5!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hap-note-callout">
+        <p class="hap-callout-icon">🟠</p>
+        <div class="hap-callout-content">
+          <p class="hap-callout-heading">HAP's Project Rules Realization</p>
+          <p>The difference isn't the AI's capability - both examples came from the SAME AI tool! The difference is context. Left side: AI had no project rules, so it defaulted to the most common patterns from training data (2015-2020 era CSS). Right side: AI read my <code>.github/copilot-instructions.md</code> with rules like "ALWAYS use hsl() colors", "Use container queries over media queries", and "Grid: prefer auto-fit magic pattern." Same AI, same prompt, but project rules prevented drift completely. Prof. Teeters was right - persistent context is everything!</p>
+        </div>
+      </div>
+    </div>
+
     <!-- SECTION 3: Strategy 1 - Project Rules File -->
     <section class="content-section">
       <div class="topic-section">
