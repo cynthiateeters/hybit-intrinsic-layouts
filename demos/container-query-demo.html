@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Queries vs Viewport Queries - HAP's Demo</title>
+    <meta name="description"
+        content="See HAP's viewport query disaster and Prof. Teeters' container query fix side-by-side. Understand why container queries are intrinsic and viewport queries are extrinsic.">
+
+    <!-- HAP Favicons -->
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_16,h_16/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_32,h_32/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_180,h_180/v1759596416/hap-favicon-h_gosgur.jpg">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="https://res.cloudinary.com/cynthia-teeters/image/upload/f_png,q_auto,w_192,h_192/v1759596416/hap-favicon-h_gosgur.jpg">
+
+    <!-- HAP Design System -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/prism-hap-theme.css">
+
+    <!-- Demo Styles -->
+    <style>
+        /* Card Component Styles */
+        .demo-card-wrapper {
+            padding: 1rem;
+        }
+
+        .demo-card-wrapper--viewport {
+            border: 3px solid hsl(0, 70%, 50%);
+            background: hsl(0, 100%, 98%);
+        }
+
+        .demo-card-wrapper--container {
+            border: 3px solid hsl(142, 70%, 40%);
+            background: hsl(142, 76%, 98%);
+        }
+
+        .demo-card-wrapper__label {
+            font-weight: 700;
+            color: hsl(0, 0%, 20%);
+            margin: 0 0 1rem 0;
+        }
+
+        .demo-card {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            background: hsl(32, 35%, 88%);
+            border-radius: 8px;
+            border: 1px solid hsl(32, 76%, 63%);
+        }
+
+        .demo-card__image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .demo-card__title {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.125rem;
+            color: hsl(32, 22%, 20%);
+        }
+
+        .demo-card__description {
+            margin: 0;
+            font-size: 0.875rem;
+            color: hsl(0, 0%, 20%);
+        }
+
+        /* Section Typography */
+        .demo-section {
+            margin-bottom: 4rem;
+        }
+
+        .demo-section__heading {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-section__heading--teal {
+            color: hsl(180, 54%, 25%);
+        }
+
+        .demo-section__heading--orange {
+            color: hsl(32, 76%, 30%);
+        }
+
+        .demo-section__description {
+            margin-bottom: 1.5rem;
+            color: hsl(0, 0%, 20%);
+        }
+
+        /* Header Components */
+        .demo-header {
+            text-align: center;
+            padding: 2rem;
+            background: hsl(32, 35%, 88%);
+            color: hsl(32, 22%, 20%);
+        }
+
+        .demo-header__title {
+            color: hsl(32, 22%, 20%);
+        }
+
+        .demo-header__subtitle {
+            font-size: 1.125rem;
+            margin-top: 1rem;
+            color: hsl(32, 22%, 20%);
+        }
+
+        .demo-instructions {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: hsl(0, 0%, 100%);
+            border-radius: 8px;
+            border: 2px solid hsl(32, 76%, 63%);
+            max-width: 800px;
+            margin-inline: auto;
+        }
+
+        .demo-instructions__title {
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: hsl(32, 22%, 20%);
+        }
+
+        .demo-instructions__list {
+            text-align: left;
+            margin: 0;
+            padding-left: 1.5rem;
+            color: hsl(0, 0%, 20%);
+            line-height: 1.6;
+        }
+
+        .demo-instructions__note {
+            margin: 0.75rem 0 0 0;
+            padding: 0.5rem;
+            background: hsl(142, 76%, 95%);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: hsl(0, 0%, 20%);
+        }
+
+        /* Main Layout */
+        .demo-main {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Sidebar Note */
+        .sidebar-note__title {
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            color: hsl(32, 22%, 20%);
+        }
+
+        .sidebar-note__text {
+            margin: 0;
+            color: hsl(0, 0%, 20%);
+        }
+
+        /* Code Section */
+        .code-section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: hsl(0, 0%, 98%);
+            border-radius: 8px;
+        }
+
+        .code-section__heading {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: hsl(32, 22%, 20%);
+            text-align: center;
+        }
+
+        .code-section__description {
+            margin-bottom: 1rem;
+            color: hsl(0, 0%, 20%);
+            text-align: center;
+        }
+
+        .code-section__bonus-note {
+            margin-bottom: 2rem;
+            padding: 0.75rem;
+            background: hsl(142, 76%, 95%);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            color: hsl(0, 0%, 20%);
+            text-align: center;
+        }
+
+        .code-heading {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .code-heading--viewport {
+            color: hsl(0, 70%, 40%);
+        }
+
+        .code-heading--container {
+            color: hsl(142, 70%, 30%);
+        }
+
+        .code-description {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            color: hsl(0, 0%, 20%);
+        }
+
+        .code-block {
+            margin: 0;
+            border-radius: 4px;
+        }
+
+        .code-block--viewport {
+            border: 2px solid hsl(0, 70%, 50%);
+        }
+
+        .code-block--container {
+            border: 2px solid hsl(142, 70%, 40%);
+        }
+
+        /* HAP Realization Callout */
+        .hap-realization {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: hsl(32, 35%, 88%);
+            border-left: 4px solid hsl(32, 76%, 63%);
+            border-radius: 4px;
+        }
+
+        .hap-realization__title {
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+            color: hsl(32, 22%, 20%);
+        }
+
+        .hap-realization__text {
+            margin: 0;
+            color: hsl(0, 0%, 20%);
+            font-style: italic;
+        }
+
+        /* Navigation */
+        .demo-nav {
+            text-align: center;
+            margin: 3rem 0 2rem 0;
+        }
+
+        .demo-nav__link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: hsl(32, 76%, 63%);
+            color: hsl(32, 22%, 20%);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .demo-footer {
+            text-align: center;
+            padding: 2rem;
+            background: hsl(0, 0%, 96%);
+            margin-top: 4rem;
+        }
+
+        .demo-footer__text {
+            font-size: 0.875rem;
+            color: hsl(0, 0%, 30%);
+            margin: 0;
+        }
+
+        .demo-footer__text + .demo-footer__text {
+            margin-top: 0.5rem;
+        }
+
+        /* Phase 3: Viewport Media Query for LEFT cards only */
+        @media (min-width: 768px) {
+            .viewport-card {
+                flex-direction: row;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .viewport-card .demo-card__image {
+                width: 40%;
+                flex-shrink: 0;
+            }
+        }
+
+        /* Phase 4: Container Query for RIGHT cards only */
+        .container-card-wrapper {
+            container-type: inline-size;
+            container-name: demo-card;
+        }
+
+        @container demo-card (min-width: 400px) {
+            .container-card {
+                flex-direction: row;
+                gap: 2rem;
+                padding: 2rem;
+            }
+
+            .container-card .demo-card__image {
+                width: 40%;
+                flex-shrink: 0;
+            }
+        }
+
+        /* Main content container with container query support */
+        main {
+            container-type: inline-size;
+            container-name: demo-main;
+        }
+
+        /* Demo card grid - INTRINSIC with container queries! */
+        .demo-card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(1rem, 2vw, 2rem);
+            margin-top: clamp(1rem, 2vw, 2rem);
+        }
+
+        @container demo-main (min-width: 900px) {
+            .demo-card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Code comparison grid - INTRINSIC with container queries! */
+        .code-comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: clamp(1rem, 2vw, 2rem);
+            margin-top: clamp(1rem, 2vw, 2rem);
+        }
+
+        @container demo-main (min-width: 900px) {
+            .code-comparison-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Sidebar simulation - INTRINSIC approach */
+        .sidebar-width {
+            width: min(300px, 100%);
+        }
+
+        /* Hide sidebar demo on very narrow screens - not enough space to show difference */
+        @container demo-main (max-width: 600px) {
+            .sidebar-demo-section {
+                display: none;
+            }
+
+            .sidebar-demo-note {
+                display: block;
+                padding: 1rem;
+                background: hsl(32, 35%, 88%);
+                border-left: 4px solid hsl(32, 76%, 63%);
+                border-radius: 4px;
+                margin-block: 2rem;
+            }
+        }
+
+        @container demo-main (min-width: 601px) {
+            .sidebar-demo-note {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Demo Header -->
+    <header class="demo-header">
+        <h1 class="demo-header__title">🟠 HAP's Viewport Query Disaster - Live Demo</h1>
+        <p class="demo-header__subtitle">See the difference between viewport queries (extrinsic) and container queries (intrinsic)</p>
+        <div class="demo-instructions">
+            <p class="demo-instructions__title">🔬 Interactive Testing Instructions:</p>
+            <ol class="demo-instructions__list">
+                <li>Open Chrome DevTools (press <code>F12</code> or <code>Cmd+Option+I</code>)</li>
+                <li>Click the "Toggle Device Toolbar" icon (or press <code>Cmd+Shift+M</code>)</li>
+                <li>Set to "Responsive" mode</li>
+                <li>Start with viewport at 1200px wide so cards display side-by-side</li>
+                <li>Slowly drag the viewport width narrower and back to wide again</li>
+                <li><strong>At 768px:</strong> LEFT cards change layout (viewport query triggers), RIGHT cards don't!</li>
+                <li><strong>Below 900px:</strong> Grid stacks to single column (using container queries!)</li>
+            </ol>
+            <p class="demo-instructions__note"><strong>Meta-learning moment:</strong> This demo page itself uses container queries and <code>clamp()</code> for spacing - we're practicing what we preach! 🎯</p>
+        </div>
+    </header>
+
+    <!-- Main Demo Content -->
+    <main class="demo-main">
+
+        <!-- Section 1: Main Content Context -->
+        <section class="demo-section">
+            <h2 class="demo-section__heading demo-section__heading--teal">Context 1: Main Content Area (~700px containers)</h2>
+            <p class="demo-section__description">Both approaches work in wide containers</p>
+
+            <div class="demo-card-grid">
+                <!-- LEFT: Viewport Query Card -->
+                <div class="demo-card-wrapper demo-card-wrapper--viewport">
+                    <p class="demo-card-wrapper__label">LEFT: Viewport Query Card</p>
+
+                    <div class="viewport-card demo-card">
+                        <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_400,h_225,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg"
+                             alt="HAP studying on his laptop"
+                             width="400" height="225"
+                             class="demo-card__image"
+                             loading="lazy">
+                        <div>
+                            <h3 class="demo-card__title">Viewport Query Card</h3>
+                            <p class="demo-card__description">Uses @media (min-width: 768px) - goes horizontal when VIEWPORT ≥ 768px</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Container Query Card -->
+                <div class="demo-card-wrapper demo-card-wrapper--container">
+                    <p class="demo-card-wrapper__label">RIGHT: Container Query Card</p>
+
+                    <div class="container-card-wrapper">
+                        <div class="container-card demo-card">
+                            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_400,h_225,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg"
+                                 alt="HAP studying on his laptop"
+                                 width="400" height="225"
+                                 class="demo-card__image"
+                                 loading="lazy">
+                            <div>
+                                <h3 class="demo-card__title">Container Query Card</h3>
+                                <p class="demo-card__description">Uses @container (min-width: 400px) - goes horizontal when CONTAINER ≥ 400px</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Note for narrow screens -->
+        <div class="sidebar-demo-note">
+            <p class="sidebar-note__title">📱 Viewing on a narrow screen?</p>
+            <p class="sidebar-note__text">The sidebar comparison demo needs at least 600px width to display properly. Please view on a larger screen or use Chrome DevTools responsive mode at 900px+ width to see the dramatic difference between viewport and container queries!</p>
+        </div>
+
+        <!-- Section 2: Sidebar Context -->
+        <section class="sidebar-demo-section demo-section">
+            <h2 class="demo-section__heading demo-section__heading--orange">Context 2: Sidebar (~300px containers)</h2>
+            <p class="demo-section__description">Viewport query breaks in narrow container, container query adapts</p>
+
+            <div class="demo-card-grid">
+                <!-- LEFT: Viewport Query Card (forced to 300px) -->
+                <div class="demo-card-wrapper demo-card-wrapper--viewport">
+                    <p class="demo-card-wrapper__label">LEFT: Viewport Query Card</p>
+
+                    <div class="sidebar-width">
+                        <div class="viewport-card demo-card">
+                            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_400,h_225,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg"
+                                 alt="HAP studying on his laptop"
+                                 width="400" height="225"
+                                 class="demo-card__image"
+                                 loading="lazy">
+                            <div>
+                                <h3 class="demo-card__title">Viewport Query Card</h3>
+                                <p class="demo-card__description">BROKEN! Viewport ≥ 768px forces horizontal layout into 300px container!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Container Query Card (forced to 300px) -->
+                <div class="demo-card-wrapper demo-card-wrapper--container">
+                    <p class="demo-card-wrapper__label">RIGHT: Container Query Card</p>
+
+                    <div class="container-card-wrapper sidebar-width">
+                        <div class="container-card demo-card">
+                            <img src="https://res.cloudinary.com/cynthia-teeters/image/upload/f_auto,q_auto,w_400,h_225,c_fill,g_auto/v1759495998/hap-laptop_xiewar.jpg"
+                                 alt="HAP studying on his laptop"
+                                 width="400" height="225"
+                                 class="demo-card__image"
+                                 loading="lazy">
+                            <div>
+                                <h3 class="demo-card__title">Container Query Card</h3>
+                                <p class="demo-card__description">PERFECT! Container (300px) &lt; 400px stays vertical - adapts to actual space!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Code Behind the Magic -->
+        <section class="code-section">
+            <h2 class="code-section__heading">🔬 How It Works - The Code</h2>
+            <p class="code-section__description">Here's the CSS that creates the difference you see above</p>
+            <p class="code-section__bonus-note"><strong>Bonus:</strong> This demo page's layout also uses container queries instead of media queries - even the grid breakpoints at 900px use <code>@container</code> not <code>@media</code>!</p>
+
+            <div class="code-comparison-grid">
+                <!-- LEFT: Viewport Query Code -->
+                <div>
+                    <h3 class="code-heading code-heading--viewport">❌ Viewport Media Query (Extrinsic)</h3>
+                    <p class="code-description">Asks: "How wide is the VIEWPORT?" - Doesn't care about container size!</p>
+
+<pre class="code-block code-block--viewport"><code class="language-css">/* Viewport Media Query */
+@media (min-width: 768px) {
+  .viewport-card {
+    flex-direction: row !important;
+    gap: 2rem !important;
+    padding: 2rem !important;
+  }
+
+  .viewport-card img {
+    width: 40% !important;
+    flex-shrink: 0;
+  }
+}
+
+/* Result: Goes horizontal whenever
+   VIEWPORT ≥ 768px, even if the
+   container is only 300px wide! */</code></pre>
+                </div>
+
+                <!-- RIGHT: Container Query Code -->
+                <div>
+                    <h3 class="code-heading code-heading--container">✅ Container Query (Intrinsic)</h3>
+                    <p class="code-description">Asks: "How wide is MY CONTAINER?" - Adapts to actual available space!</p>
+
+<pre class="code-block code-block--container"><code class="language-css">/* Container Query Setup */
+.container-card-wrapper {
+  container-type: inline-size;
+  container-name: demo-card;
+}
+
+/* Container Query */
+@container demo-card (min-width: 400px) {
+  .container-card {
+    flex-direction: row !important;
+    gap: 2rem !important;
+    padding: 2rem !important;
+  }
+
+  .container-card img {
+    width: 40% !important;
+    flex-shrink: 0;
+  }
+}
+
+/* Result: Only goes horizontal when
+   CONTAINER ≥ 400px, regardless of
+   viewport width! */</code></pre>
+                </div>
+            </div>
+
+            <!-- HAP's Realization -->
+            <div class="hap-realization">
+                <p class="hap-realization__title">🟠 HAP's Big Realization:</p>
+                <p class="hap-realization__text">"Prof. Teeters helped me understand: viewport queries are EXTRINSIC - they ask about the SCREEN, not the component's actual space. Container queries are INTRINSIC - they ask 'How wide am I?' and adapt accordingly. That's why my card worked perfectly in the sidebar once I switched to container queries!"</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Navigation back to Station 5 -->
+    <nav class="demo-nav">
+        <a href="../stations/station5.html" class="demo-nav__link">
+            ← Back to Station 5: Intrinsic Components
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="demo-footer">
+        <p class="demo-footer__text">HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.</p>
+        <p class="demo-footer__text">HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.</p>
+    </footer>
+
+    <!-- Prism Syntax Highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js" defer></script>
+
+</body>
+
+</html>
+<!--
+HAP™ Educational Content © 2025 Cynthia Teeters. All rights reserved.
+HyBit A. ProtoBot™ (HAP™) character and the apprentice learning methodology are proprietary educational innovations.
+Character concept, teaching methodology, and all written content created by Prof. Cynthia Teeters.
+Visual elements created with AI assistance.
+-->

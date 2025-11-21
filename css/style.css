@@ -178,7 +178,7 @@
 
   /* Text colors */
   --demo-fe-heading: var(--dark-brown);
-  --demo-fe-body: hsl(0, 0%, 40%);
+  --demo-fe-body: hsl(0, 0%, 37%);
   --demo-fe-label: var(--dark-brown);
 
   /* Slider colors */
