@@ -1,0 +1,240 @@
+{
+  "allowedParams": [
+    "detail",
+    "stations",
+    "station1-philosophy",
+    "station1-disasters",
+    "station1-custom-props",
+    "station2-min-max",
+    "station2-fit-content",
+    "station2-navigation",
+    "station3-slope",
+    "station3-has",
+    "station3-mistake",
+    "station4-magic",
+    "station4-auto-fit",
+    "station4-bento",
+    "station5-container",
+    "station5-cqi",
+    "station5-aspect",
+    "station6-drift",
+    "station6-rules",
+    "station6-verify"
+  ],
+  "messages": {
+    "detail": {
+      "title": "🎯 The Question That Changed Everything",
+      "content": "Prof. Teeters asked me: <em>\"HAP, what happens on the 847 screen sizes in between your breakpoints?\"</em> and I had NO answer! I was designing for exactly 3 sizes: mobile (320px), tablet (768px), desktop (1024px). But what about 375px? 414px? 1366px? 1920px? That question started my journey from <strong>fixed thinking</strong> (be exactly this size) to <strong>intrinsic thinking</strong> (adapt to any size). Now my layouts work on screens I've never even seen!"
+    },
+    "stations": {
+      "title": "🔬 Six Learning Stations Overview",
+      "content": "I built 6 stations covering <strong>intrinsic philosophy</strong> (Station 1), <strong>content-sizing keywords</strong> (Station 2), <strong>fluid spacing with clamp()</strong> (Station 3), <strong>flexible grids</strong> (Station 4), <strong>container queries</strong> (Station 5), and <strong>AI assistance</strong> (Station 6). Each station shares a mistake I made and what Prof. Teeters taught me to fix it!"
+    },
+    "station1-philosophy": {
+      "title": "🎯 Why Intrinsic Thinking Changed Everything",
+      "content": "Prof. Teeters asked me <em>\"HAP, what happens on the 847 screen sizes in between your breakpoints?\"</em> and my brain exploded! I realized I was thinking in <strong>fixed instructions</strong> (be exactly 300px) instead of <strong>flexible rules</strong> (be between 16rem and 60rem based on space). That question shifted my entire mindset from pixels to intrinsic design."
+    },
+    "station1-disasters": {
+      "title": "💥 My 300px Card Disaster",
+      "content": "I made these beautiful 300px-wide cards. Mobile (375px)? Horizontal scroll disaster! Tablet (768px)? Tiny and awkward with huge margins! Desktop (1440px)? Cards looked cramped when 600px would fit perfectly! Prof. Teeters showed me <code>width: clamp(16rem, 45vw, 60rem)</code> and suddenly my cards adapted to <em>every</em> screen automatically!"
+    },
+    "station1-custom-props": {
+      "title": "🎨 Custom Properties = Design System",
+      "content": "Prof. Teeters taught me: <em>\"Stop using magic numbers, HAP!\"</em> Instead of <code>padding: 24px</code> everywhere, I learned <code>--space-md: 1.5rem</code> once, use everywhere. Change one value, update entire site! Now my spacing scale goes from <code>--space-xs</code> to <code>--space-xl</code> and everything stays systematic and consistent!"
+    },
+    "station2-min-max": {
+      "title": "📐 min-content vs max-content Discovery",
+      "content": "<code>min-content</code> = narrowest possible without overflow (text wraps to multiple lines). <code>max-content</code> = one long line, as wide as needed. I tested both on my navigation and the difference was HUGE! <code>min-content</code> made items stack narrow, <code>max-content</code> gave each item its natural width. Prof. Teeters: <em>\"Let the content tell you what it needs!\"</em>"
+    },
+    "station2-fit-content": {
+      "title": "🎯 fit-content() Flexible Boundaries",
+      "content": "Prof. Teeters showed me <code>width: fit-content(60ch)</code> for article layouts and I finally understood! Content grows naturally up to 60 characters (perfect reading line length), but never wider. Short paragraphs? Narrow and centered. Long paragraphs? Exactly 60ch wide. No magic number widths needed!"
+    },
+    "station2-navigation": {
+      "title": "🧭 Navigation That Knows Its Size",
+      "content": "My nav had labels like \"Home\" (short) and \"Documentation\" (long). Fixed widths? Looked terrible! Prof. Teeters: <em>\"Try <code>width: max-content</code> on each item.\"</em> Suddenly each nav item was exactly as wide as its label needed—no more awkward padding or text squishing! Content determined the size automatically!"
+    },
+    "station3-slope": {
+      "title": "📊 The Computed Slope Formula Secret",
+      "content": "<strong>This was THE critical lesson!</strong> Prof. Teeters said: <em>\"Never use <code>clamp(1rem, 5%, 3rem)</code>—that 5% is unpredictable!\"</em> Instead: <code>clamp(min, base + slope × 100vw, max)</code> where slope = (max-size - min-size) ÷ (max-viewport - min-viewport). I calculated: <code>clamp(1rem, 0.75rem + 0.625vw, 1.5rem)</code> and it scaled perfectly from 320px to 1920px!"
+    },
+    "station3-has": {
+      "title": "🔍 Content-Aware Spacing Magic",
+      "content": "Prof. Teeters showed me <code>.card:has(img) { padding: 2rem; }</code> and I was AMAZED! Cards <em>with</em> images automatically got more padding. Cards <em>without</em> images stayed compact. <strong>No classes needed!</strong> The CSS <em>looked</em> at the content and adapted spacing. Mind = blown 🤯"
+    },
+    "station3-mistake": {
+      "title": "❌ My Arbitrary Percentage Mistake",
+      "content": "I tried <code>clamp(1rem, 5%, 3rem)</code> because 5% seemed reasonable. Sometimes 5% was HUGE (wide parent), sometimes tiny (narrow parent)! Prof. Teeters explained: <em>\"That 5% is relative to the parent element's width, not the viewport! It doesn't scale predictably!\"</em> That's when I learned the computed slope formula. Never again!"
+    },
+    "station4-magic": {
+      "title": "⚡ The Magic Pattern Explained",
+      "content": "<code>grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr))</code> is pure magic! The browser calculates how many 16rem-minimum columns fit, then gives each equal share of leftover space. Mobile (320px)? 1 column! Desktop (1440px)? 5 columns! Ultrawide (3840px)? 15 columns! <strong>No media queries needed!</strong> Prof. Teeters: <em>\"Stop saying '3 columns'—start saying 'as many as fit with 16rem minimum!'\"</em>"
+    },
+    "station4-auto-fit": {
+      "title": "🎯 auto-fit vs auto-fill Finally Clear",
+      "content": "I was SO confused until I tested side-by-side! <code>auto-fit</code>: Empty tracks collapse, so 3 cards expand to fill space (wider cards). <code>auto-fill</code>: Empty tracks preserved, so 3 cards stay at minimum width (narrower cards). Prof. Teeters: <em>\"Use auto-fit 99% of the time—it makes items expand beautifully!\"</em> Now I get it!"
+    },
+    "station4-bento": {
+      "title": "🍱 Bento-Box Spanning Victory",
+      "content": "I built a dashboard with <code>grid-column: span 2</code> on featured widgets and it was AMAZING! Desktop (1440px)? Widget spans 2 of 6 columns—nice and big. Tablet (768px)? Spans 2 of 3 columns—still featured. Mobile (375px)? Spans 2 of 2 columns—full width! The magic pattern calculated columns, spanning created asymmetry, everything still adapted intrinsically!"
+    },
+    "station5-container": {
+      "title": "📦 Container Queries Saved My Life",
+      "content": "My viewport-query card broke in a sidebar! Viewport said \"desktop\" (1440px) so <code>@media (min-width: 768px)</code> triggered horizontal layout—but the sidebar was only 300px wide! Card exploded! Prof. Teeters: <em>\"Stop asking 'How wide is the SCREEN?' Start asking 'How wide is MY CONTAINER?'\"</em> <code>@container (min-width: 400px)</code> fixed everything!"
+    },
+    "station5-cqi": {
+      "title": "📏 Container Units = Mind Blown",
+      "content": "Prof. Teeters showed me <code>padding: clamp(1rem, 0.5rem + 2cqi, 3rem)</code> and I understood EVERYTHING! <code>cqi</code> = 1% of container inline-size (width). Sidebar (300px container)? Padding is compact (0.5rem + 6px). Main content (900px container)? Padding is generous (0.5rem + 18px). <strong>SAME CSS, different containers, perfect adaptation!</strong>"
+    },
+    "station5-aspect": {
+      "title": "🖼️ Intrinsic Media Ended My Distortion Nightmare",
+      "content": "Before <code>aspect-ratio</code>, my images distorted everywhere! Now: <code>aspect-ratio: 16 / 9; object-fit: cover;</code> and images adapt to ANY container, maintain their ratio, never stretch or squish! Sidebar (300px)? Image is 300×169. Main (900px)? Image is 900×506. Always 16:9, always perfect, always intrinsic!"
+    },
+    "station6-drift": {
+      "title": "🤖 What Is AI Drift Anyway?",
+      "content": "I asked AI for a card component and got <code>background: #E8A557</code> (hex!) instead of <code>hsl(32, 76%, 63%)</code>. It suggested <code>@media (min-width: 768px)</code> instead of <code>@container</code>. Prof. Teeters explained: <em>\"AI tools trained on older code patterns—they drift back to 2019 CSS unless you give them context!\"</em> That's AI drift!"
+    },
+    "station6-rules": {
+      "title": "📋 Project Rules File Changed Everything",
+      "content": "Prof. Teeters taught me to write <strong>CLAUDE.md</strong> with my project rules: \"Use hsl() colors only. Prefer container queries. Computed slopes required.\" Now AI <em>reads my rules first</em> and generates modern code! No more hex colors, no more arbitrary percentages, no more viewport queries! The rules file is persistent context that prevents drift!"
+    },
+    "station6-verify": {
+      "title": "✅ My AI Code Verification Checklist",
+      "content": "I check EVERY AI suggestion now! Colors in <code>hsl()</code>? ✓ Container queries not <code>@media</code>? ✓ Slope formula not arbitrary %? ✓ Custom properties not magic numbers? ✓ Prof. Teeters: <em>\"Catch drift early, HAP! Don't let bad patterns accumulate!\"</em> This checklist saves me SO much refactoring time!"
+    }
+  },
+  "pageHelp": {
+    "index.html": {
+      "title": "🏠 Welcome to HAP's Learning Lab Hub!",
+      "intro": "This hub page is where my intrinsic layouts journey begins! I've organized everything Prof. Teeters taught me into 6 progressive stations. Each station card shows what I learned, what disasters I caused, and how Prof. Teeters helped me fix them. The journey goes from basic philosophy (Station 1) all the way to professional AI workflow (Station 6). Want to see more insights? Try these:",
+      "suggestions": [
+        {
+          "param": "stations",
+          "label": "Overview of all 6 learning stations"
+        },
+        {
+          "param": "detail",
+          "label": "The question that started everything"
+        }
+      ]
+    },
+    "station1.html": {
+      "title": "🎯 HAP here!",
+      "intro": "Station 1 changed how I think about CSS forever! Prof. Teeters' philosophy insights here:",
+      "suggestions": [
+        {
+          "param": "station1-philosophy",
+          "label": "Why intrinsic thinking matters"
+        },
+        {
+          "param": "station1-disasters",
+          "label": "My 300px card disaster story"
+        },
+        {
+          "param": "station1-custom-props",
+          "label": "Custom properties systematic design"
+        }
+      ]
+    },
+    "station2.html": {
+      "title": "📐 HAP here!",
+      "intro": "Station 2 taught me to let content determine size. Check out these insights:",
+      "suggestions": [
+        {
+          "param": "station2-min-max",
+          "label": "min-content vs max-content explained"
+        },
+        {
+          "param": "station2-fit-content",
+          "label": "fit-content() flexible boundaries"
+        },
+        {
+          "param": "station2-navigation",
+          "label": "Real navigation width example"
+        }
+      ]
+    },
+    "station3.html": {
+      "title": "📏 HAP here!",
+      "intro": "Station 3's computed slope formula was CRITICAL! These insights clarify everything:",
+      "suggestions": [
+        {
+          "param": "station3-slope",
+          "label": "The computed slope formula secret"
+        },
+        {
+          "param": "station3-has",
+          "label": "Content-aware spacing with :has()"
+        },
+        {
+          "param": "station3-mistake",
+          "label": "My arbitrary percentage mistake"
+        }
+      ]
+    },
+    "station4.html": {
+      "title": "⚡ HAP here!",
+      "intro": "Station 4's magic pattern blew my mind! Grid insights to explore:",
+      "suggestions": [
+        {
+          "param": "station4-magic",
+          "label": "The magic pattern explained"
+        },
+        {
+          "param": "station4-auto-fit",
+          "label": "auto-fit vs auto-fill clarified"
+        },
+        {
+          "param": "station4-bento",
+          "label": "Bento-box spanning layouts"
+        }
+      ]
+    },
+    "station5.html": {
+      "title": "📦 HAP here!",
+      "intro": "Station 5 made my components self-aware! Container query insights:",
+      "suggestions": [
+        {
+          "param": "station5-container",
+          "label": "Why container queries changed everything"
+        },
+        {
+          "param": "station5-cqi",
+          "label": "Container units for perfect spacing"
+        },
+        {
+          "param": "station5-aspect",
+          "label": "Intrinsic media with aspect-ratio"
+        }
+      ]
+    },
+    "station6.html": {
+      "title": "🤖 HAP here!",
+      "intro": "Station 6 taught me professional AI workflow! These insights help prevent drift:",
+      "suggestions": [
+        {
+          "param": "station6-drift",
+          "label": "What AI drift is and why it happens"
+        },
+        {
+          "param": "station6-rules",
+          "label": "Project rules file strategy"
+        },
+        {
+          "param": "station6-verify",
+          "label": "How to verify AI-generated code"
+        }
+      ]
+    }
+  },
+  "defaults": {
+    "unknown": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Nice find! Try different parameters to learn more about the topics Prof. Teeters taught me. Check the page suggestions for ideas!"
+    },
+    "emptyFallback": {
+      "title": "🎯 You discovered HAP's insights!",
+      "content": "Hey there! Try adding a parameter like <code>?hybit=detail</code> or <code>?hybit=stations</code> to see what I've learned! Each station page has its own special insights too!"
+    }
+  }
+}
